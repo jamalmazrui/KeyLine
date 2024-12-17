@@ -1,0 +1,16 @@
+[Setup]
+AppName=KeyLine
+AppVersion=0.1
+DefaultDirName=\KeyLine
+DefaultGroupName=KeyLine
+OutputDir=.
+OutputBaseFilename=KeyLine_setup
+Compression=lzma
+SolidCompression=yes
+[Files]
+Source: "C:\KeyLine\*"; DestDir: "{app}"; Flags: recursesubdirs createallsubdirs
+[Icons]
+Name: "{group}\KeyLine"; Filename: "{app}\KeyLine.cmd"
+Name: "{group}\Uninstall KeyLine"; Filename: "{uninstallexe}"
+[Run]
+Filename: "{cmd}"; Parameters: "/C \"\"{app}\install.cmd\"\""; Flags: postinstall skipifsilent shellexec

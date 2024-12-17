@@ -1,0 +1,1 @@
+The work subdirectory of the PlainKeys root directory serves as a scratchpad for commands.  You can copy files here before performing actions on them.  It is up to you to move or delete files that are not needed anymore, including this text file.

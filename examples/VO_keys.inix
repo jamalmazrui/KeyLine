@@ -1,0 +1,51 @@
+[]
+Key=Command+F5
+Description=Toggle VoiceOver on or off.
+[]
+Key=Control
+Description=Stop speech in progress.
+[]
+Key=VO+Shift+DownArrow or VO+Shift+UpArrow
+Description=Start or end interacting with the current control.
+[]
+Key=VO+RightArrow or VO+LeftArrow
+Description=Move to the next or previous item.
+[]
+Key=VO+Home or VO+End
+Description=Move to the start or end of the page.
+[]
+Key=Tab or Shift+Tab
+Description=Move to the next or previous interactive control.
+[]
+Key=VO+A
+Description=Say all, reading continuously forward from the current position.
+[]
+Key=VO+Space
+Description=Activate the current control.
+[]
+Key=VO+U
+Description=Invoke the rotor dialog.
+[]
+Key=VO+? (VO+Shift+/)
+Description=VoiceOver help.
+[]
+Key=VO+Command+F8
+Description=Quick start tutorial.
+[]
+Key=VO+;
+Description=Toggle the locking of VO keys (so Control and Option do not need to be pressed).
+[]
+Key=VO+F8
+Description=VoiceOver utility.
+[]
+Key=VO+K
+Description=Keyboard help.
+[]
+Key=VO+Command+H or VO+Command+Shift+H
+Description=Move to the next or previous heading.
+[]
+Key=Vo+Command+G or Vo+Command+Shift+G
+Description=Move to the next or previous graphic.
+[]
+Key=VO+Shift+F11
+Description=Toggle screen curtain.

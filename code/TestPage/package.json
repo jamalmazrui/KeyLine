@@ -1,0 +1,17 @@
+{
+  "name": "TestPage",
+  "version": "1.0.3",
+  "description": "TestPage is a cross-platform, command-line program for running accessibility tests on web pages, generating results in CSV, JSON, HTML, and XLSX formats.",
+  "main": "testPage.js",
+  "scripts": {
+    "test": "node testPage.js"
+  },
+  "keywords": ["a11y", "automation"
+  ],
+  "author": "Jamal Mazrui",
+  "license": "MIT",
+  "dependencies": {
+    "accessibility-checker": "^3.1.23",
+    "puppeteer-core": "^23.10.3"
+  }
+}

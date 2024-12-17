@@ -1,0 +1,21 @@
+{
+  "name": "TestURL",
+  "version": "1.0.3",
+  "description": "TestURL is a cross-platform, command-line program for running accessibility tests on web pages, generating results in HTML format.",
+  "main": "testUrl.js",
+  "scripts": {
+    "test": "node testUrl.js"
+  },
+  "keywords": [
+    "a11y",
+    "automation"
+  ],
+  "author": "Jamal Mazrui",
+  "license": "MIT",
+  "dependencies": {
+    "@axe-core/puppeteer": "^4.10.1",
+    "accessibility-insights-report": "^5.2.0",
+    "opener": "^1.5.2",
+    "puppeteer-core": "^23.10.3"
+  }
+}

@@ -1,0 +1,2078 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>ebook-convert &#8212; calibre User Manual</title>
+    
+    <link rel="stylesheet" href="../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '2.85.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="search" type="application/opensearchdescription+xml"
+          title="Search within calibre User Manual"
+          href="../../_static/opensearch.xml"/>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="ebook-edit" href="ebook-edit.html" />
+    <link rel="prev" title="calibredb" href="calibredb.html" />
+    <style type="text/css">
+        .float-left-img { float: left; margin-right: 1em; margin-bottom: 1em }
+        .float-right-img { float: right; margin-left: 1em; margin-bottom: 1em }
+        .half-with-img { max-width: 50% }
+        .fit-img { max-width: 95% }
+        #languages-menu { display: none }
+        .guilabel { font-style: italic }
+    </style>
+    <script type="text/javascript">
+    function toggle_languages_menu() {
+        var m = document.getElementById('languages-menu');
+        if (m.style.display === "block") m.style.display = "none";
+        else m.style.display = "block";
+    }
+    </script>
+
+
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="ebook-edit.html" title="ebook-edit"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="calibredb.html" title="calibredb"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Start</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="cli-index.html" accesskey="U">Command Line Interface</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+        <div class="body">
+            
+            <div id="ad-container" style="text-align:center">
+                <script async="async" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <ins class="adsbygoogle"
+                    style="display:inline-block;width:728px;height:90px"
+                    data-ad-client="ca-pub-5939552585043235"
+                    data-ad-slot="7580893187"></ins>
+                <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+            
+            
+  <div class="section" id="ebook-convert">
+<span id="ebook-convert-en"></span><h1><code class="docutils literal"><span class="pre">ebook-convert</span></code><a class="headerlink" href="#ebook-convert" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-none"><div class="highlight"><pre><span></span>ebook-convert input_file output_file [options]
+</pre></div>
+</div>
+<p>Convert an e-book from one format to another.</p>
+<p>input_file is the input and output_file is the output. Both must be specified as the first two arguments to the command.</p>
+<p>The output e-book format is guessed from the file extension of output_file. output_file can also be of the special format .EXT where EXT is the output file extension. In this case, the name of the output file is derived from the name of the input file. Note that the filenames must not start with a hyphen. Finally, if output_file has no extension, then it is treated as a directory and an &#8220;open e-book&#8221; (OEB) consisting of HTML files is written to that directory. These files are the files that would normally have been passed to the output plugin.</p>
+<p>After specifying the input and output file you can customize the conversion by specifying various options. The available options depend on the input and output file types. To get help on them specify the input and output file and then use the -h option.</p>
+<p>For full documentation of the conversion system see
+<a class="reference internal" href="../../conversion.html#conversion"><span class="std std-ref">E-book conversion</span></a></p>
+<p>Whenever you pass arguments to <strong class="command">ebook-convert</strong> that have spaces in them, enclose the arguments in quotation marks. For example &#8220;C:some path with spaces&#8221;</p>
+<p>The options and default values for the options change depending on both the
+input and output formats, so you should always check with:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">ebook</span><span class="o">-</span><span class="n">convert</span> <span class="n">myfile</span><span class="o">.</span><span class="n">input_format</span> <span class="n">myfile</span><span class="o">.</span><span class="n">output_format</span> <span class="o">-</span><span class="n">h</span>
+</pre></div>
+</div>
+<p>Below are the options that are common to all conversion, followed by the
+options specific to every input and output format.</p>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><a class="reference internal" href="#look-and-feel" id="id1">Look and Feel</a></li>
+<li><a class="reference internal" href="#heuristic-processing" id="id2">Heuristic Processing</a></li>
+<li><a class="reference internal" href="#search-and-replace" id="id3">Search and Replace</a></li>
+<li><a class="reference internal" href="#structure-detection" id="id4">Structure Detection</a></li>
+<li><a class="reference internal" href="#table-of-contents" id="id5">Table of Contents</a></li>
+<li><a class="reference internal" href="#metadata" id="id6">Metadata</a></li>
+<li><a class="reference internal" href="#debug" id="id7">Debug</a></li>
+<li><a class="reference internal" href="#azw4-input-options" id="id8">AZW4 Input Options</a></li>
+<li><a class="reference internal" href="#chm-input-options" id="id9">CHM Input Options</a></li>
+<li><a class="reference internal" href="#comic-input-options" id="id10">Comic Input Options</a></li>
+<li><a class="reference internal" href="#djvu-input-options" id="id11">DJVU Input Options</a></li>
+<li><a class="reference internal" href="#docx-input-options" id="id12">DOCX Input Options</a></li>
+<li><a class="reference internal" href="#epub-input-options" id="id13">EPUB Input Options</a></li>
+<li><a class="reference internal" href="#fb2-input-options" id="id14">FB2 Input Options</a></li>
+<li><a class="reference internal" href="#htlz-input-options" id="id15">HTLZ Input Options</a></li>
+<li><a class="reference internal" href="#html-input-options" id="id16">HTML Input Options</a></li>
+<li><a class="reference internal" href="#lit-input-options" id="id17">LIT Input Options</a></li>
+<li><a class="reference internal" href="#lrf-input-options" id="id18">LRF Input Options</a></li>
+<li><a class="reference internal" href="#mobi-input-options" id="id19">MOBI Input Options</a></li>
+<li><a class="reference internal" href="#odt-input-options" id="id20">ODT Input Options</a></li>
+<li><a class="reference internal" href="#pdb-input-options" id="id21">PDB Input Options</a></li>
+<li><a class="reference internal" href="#pdf-input-options" id="id22">PDF Input Options</a></li>
+<li><a class="reference internal" href="#pml-input-options" id="id23">PML Input Options</a></li>
+<li><a class="reference internal" href="#rb-input-options" id="id24">RB Input Options</a></li>
+<li><a class="reference internal" href="#rtf-input-options" id="id25">RTF Input Options</a></li>
+<li><a class="reference internal" href="#recipe-input-options" id="id26">Recipe Input Options</a></li>
+<li><a class="reference internal" href="#snb-input-options" id="id27">SNB Input Options</a></li>
+<li><a class="reference internal" href="#tcr-input-options" id="id28">TCR Input Options</a></li>
+<li><a class="reference internal" href="#txt-input-options" id="id29">TXT Input Options</a></li>
+<li><a class="reference internal" href="#azw3-output-options" id="id30">AZW3 Output Options</a></li>
+<li><a class="reference internal" href="#docx-output-options" id="id31">DOCX Output Options</a></li>
+<li><a class="reference internal" href="#epub-output-options" id="id32">EPUB Output Options</a></li>
+<li><a class="reference internal" href="#fb2-output-options" id="id33">FB2 Output Options</a></li>
+<li><a class="reference internal" href="#html-output-options" id="id34">HTML Output Options</a></li>
+<li><a class="reference internal" href="#htmlz-output-options" id="id35">HTMLZ Output Options</a></li>
+<li><a class="reference internal" href="#lit-output-options" id="id36">LIT Output Options</a></li>
+<li><a class="reference internal" href="#lrf-output-options" id="id37">LRF Output Options</a></li>
+<li><a class="reference internal" href="#mobi-output-options" id="id38">MOBI Output Options</a></li>
+<li><a class="reference internal" href="#oeb-output-options" id="id39">OEB Output Options</a></li>
+<li><a class="reference internal" href="#pdb-output-options" id="id40">PDB Output Options</a></li>
+<li><a class="reference internal" href="#pdf-output-options" id="id41">PDF Output Options</a></li>
+<li><a class="reference internal" href="#pml-output-options" id="id42">PML Output Options</a></li>
+<li><a class="reference internal" href="#rb-output-options" id="id43">RB Output Options</a></li>
+<li><a class="reference internal" href="#rtf-output-options" id="id44">RTF Output Options</a></li>
+<li><a class="reference internal" href="#snb-output-options" id="id45">SNB Output Options</a></li>
+<li><a class="reference internal" href="#tcr-output-options" id="id46">TCR Output Options</a></li>
+<li><a class="reference internal" href="#txt-output-options" id="id47">TXT Output Options</a></li>
+<li><a class="reference internal" href="#txtz-output-options" id="id48">TXTZ Output Options</a></li>
+</ul>
+</div>
+<dl class="option">
+<dt id="cmdoption-ebook-convert-help">
+<code class="descname">--help</code><code class="descclassname"></code><code class="descclassname">, </code><code class="descname">-h</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-help" title="Permalink to this definition">¶</a></dt>
+<dd><p>show this help message and exit</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-input-profile">
+<code class="descname">--input-profile</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-input-profile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Specify the input profile. The input profile gives the conversion system information on how to interpret various information in the input document. For example resolution dependent lengths (i.e. lengths in pixels). Choices are:cybookg3, cybook_opus, default, hanlinv3, hanlinv5, illiad, irexdr1000, irexdr800, kindle, msreader, mobipocket, nook, sony, sony300, sony900</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-list-recipes">
+<code class="descname">--list-recipes</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-list-recipes" title="Permalink to this definition">¶</a></dt>
+<dd><p>List builtin recipe names. You can create an e-book from a builtin recipe like this: ebook-convert <code class="docutils literal"><span class="pre">&quot;</span></code>Recipe Name.recipe<code class="docutils literal"><span class="pre">&quot;</span></code> output.epub</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-output-profile">
+<code class="descname">--output-profile</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-output-profile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Specify the output profile. The output profile tells the conversion system how to optimize the created document for the specified device (such as by resizing images for the device screen size). In some cases, an output profile can be used to optimize the output for a particular device, but this is rarely necessary. Choices are:cybookg3, cybook_opus, default, generic_eink, generic_eink_hd, generic_eink_large, hanlinv3, hanlinv5, illiad, ipad, ipad3, irexdr1000, irexdr800, jetbook5, kindle, kindle_dx, kindle_fire, kindle_pw, kindle_pw3, kindle_voyage, kobo, msreader, mobipocket, nook, nook_color, nook_hd_plus, pocketbook_900, pocketbook_pro_912, galaxy, sony, sony300, sony900, sony-landscape, sonyt3, tablet</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-version">
+<code class="descname">--version</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-version" title="Permalink to this definition">¶</a></dt>
+<dd><p>show program<code class="docutils literal"><span class="pre">'</span></code>s version number and exit</p>
+</dd></dl>
+
+<div class="section" id="look-and-feel">
+<h2><a class="toc-backref" href="#id1">Look and Feel</a><a class="headerlink" href="#look-and-feel" title="Permalink to this headline">¶</a></h2>
+<p>Options to control the look and feel of the output</p>
+<dl class="option">
+<dt id="cmdoption-ebook-convert-asciiize">
+<code class="descname">--asciiize</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-asciiize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transliterate unicode characters to an ASCII representation. Use with care because this will replace unicode characters with ASCII. For instance it will replace <code class="docutils literal"><span class="pre">&quot;</span></code>Михаил Горбачёв<code class="docutils literal"><span class="pre">&quot;</span></code> with <code class="docutils literal"><span class="pre">&quot;</span></code>Mikhail Gorbachiov<code class="docutils literal"><span class="pre">&quot;</span></code>. Also, note that in cases where there are multiple representations of a character (characters shared by Chinese and Japanese for instance) the representation based on the current calibre interface language will be used.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-base-font-size">
+<code class="descname">--base-font-size</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-base-font-size" title="Permalink to this definition">¶</a></dt>
+<dd><p>The base font size in pts. All font sizes in the produced book will be rescaled based on this size. By choosing a larger size you can make the fonts in the output bigger and vice versa. By default, the base font size is chosen based on the output profile you chose.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-change-justification">
+<code class="descname">--change-justification</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-change-justification" title="Permalink to this definition">¶</a></dt>
+<dd><p>Change text justification. A value of <code class="docutils literal"><span class="pre">&quot;</span></code>left<code class="docutils literal"><span class="pre">&quot;</span></code> converts all justified text in the source to left aligned (i.e. unjustified) text. A value of <code class="docutils literal"><span class="pre">&quot;</span></code>justify<code class="docutils literal"><span class="pre">&quot;</span></code> converts all unjustified text to justified. A value of <code class="docutils literal"><span class="pre">&quot;</span></code>original<code class="docutils literal"><span class="pre">&quot;</span></code> (the default) does not change justification in the source file. Note that only some output formats support justification.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-disable-font-rescaling">
+<code class="descname">--disable-font-rescaling</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-disable-font-rescaling" title="Permalink to this definition">¶</a></dt>
+<dd><p>Disable all rescaling of font sizes.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-embed-all-fonts">
+<code class="descname">--embed-all-fonts</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-embed-all-fonts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Embed every font that is referenced in the input document but not already embedded. This will search your system for the fonts, and if found, they will be embedded. Embedding will only work if the format you are converting to supports embedded fonts, such as EPUB, AZW3, DOCX or PDF. Please ensure that you have the proper license for embedding the fonts used in this document.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-embed-font-family">
+<code class="descname">--embed-font-family</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-embed-font-family" title="Permalink to this definition">¶</a></dt>
+<dd><p>Embed the specified font family into the book. This specifies the <code class="docutils literal"><span class="pre">&quot;</span></code>base<code class="docutils literal"><span class="pre">&quot;</span></code> font used for the book. If the input document specifies its own fonts, they may override this base font. You can use the filter style information option to remove fonts from the input document. Note that font embedding only works with some output formats, principally EPUB, AZW3 and DOCX.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-expand-css">
+<code class="descname">--expand-css</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-expand-css" title="Permalink to this definition">¶</a></dt>
+<dd><p>By default, calibre will use the shorthand form for various css properties such as margin, padding, border, etc. This option will cause it to use the full expanded form instead. Note that CSS is always expanded when generating EPUB files with the output profile set to one of the Nook profiles as the Nook cannot handle shorthand CSS.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-extra-css">
+<code class="descname">--extra-css</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-extra-css" title="Permalink to this definition">¶</a></dt>
+<dd><p>Either the path to a CSS stylesheet or raw CSS. This CSS will be appended to the style rules from the source file, so it can be used to override those rules.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-filter-css">
+<code class="descname">--filter-css</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-filter-css" title="Permalink to this definition">¶</a></dt>
+<dd><p>A comma separated list of CSS properties that will be removed from all CSS style rules. This is useful if the presence of some style information prevents it from being overridden on your device. For example: font-family,color,margin-left,margin-right</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-font-size-mapping">
+<code class="descname">--font-size-mapping</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-font-size-mapping" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mapping from CSS font names to font sizes in pts. An example setting is 12,12,14,16,18,20,22,24. These are the mappings for the sizes xx-small to xx-large, with the final size being for huge fonts. The font rescaling algorithm uses these sizes to intelligently rescale fonts. The default is to use a mapping based on the output profile you chose.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-insert-blank-line">
+<code class="descname">--insert-blank-line</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-insert-blank-line" title="Permalink to this definition">¶</a></dt>
+<dd><p>Insert a blank line between paragraphs. Will not work if the source file does not use paragraphs (&lt;p&gt; or &lt;div&gt; tags).</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-insert-blank-line-size">
+<code class="descname">--insert-blank-line-size</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-insert-blank-line-size" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the height of the inserted blank lines (in em). The height of the lines between paragraphs will be twice the value set here.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-keep-ligatures">
+<code class="descname">--keep-ligatures</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-keep-ligatures" title="Permalink to this definition">¶</a></dt>
+<dd><p>Preserve ligatures present in the input document. A ligature is a special rendering of a pair of characters like ff, fi, fl et cetera. Most readers do not have support for ligatures in their default fonts, so they are unlikely to render correctly. By default, calibre will turn a ligature into the corresponding pair of normal characters. This option will preserve them instead.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-line-height">
+<code class="descname">--line-height</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-line-height" title="Permalink to this definition">¶</a></dt>
+<dd><p>The line height in pts. Controls spacing between consecutive lines of text. Only applies to elements that do not define their own line height. In most cases, the minimum line height option is more useful. By default no line height manipulation is performed.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-linearize-tables">
+<code class="descname">--linearize-tables</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-linearize-tables" title="Permalink to this definition">¶</a></dt>
+<dd><p>Some badly designed documents use tables to control the layout of text on the page. When converted these documents often have text that runs off the page and other artifacts. This option will extract the content from the tables and present it in a linear fashion.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-margin-bottom">
+<code class="descname">--margin-bottom</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-margin-bottom" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the bottom margin in pts. Default is 5.0. Setting this to less than zero will cause no margin to be set (the margin setting in the original document will be preserved). Note: Page oriented formats such as PDF and DOCX have their own margin settings that take precedence.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-margin-left">
+<code class="descname">--margin-left</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-margin-left" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the left margin in pts. Default is 5.0. Setting this to less than zero will cause no margin to be set (the margin setting in the original document will be preserved). Note: Page oriented formats such as PDF and DOCX have their own margin settings that take precedence.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-margin-right">
+<code class="descname">--margin-right</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-margin-right" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the right margin in pts. Default is 5.0. Setting this to less than zero will cause no margin to be set (the margin setting in the original document will be preserved). Note: Page oriented formats such as PDF and DOCX have their own margin settings that take precedence.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-margin-top">
+<code class="descname">--margin-top</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-margin-top" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the top margin in pts. Default is 5.0. Setting this to less than zero will cause no margin to be set (the margin setting in the original document will be preserved). Note: Page oriented formats such as PDF and DOCX have their own margin settings that take precedence.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-minimum-line-height">
+<code class="descname">--minimum-line-height</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-minimum-line-height" title="Permalink to this definition">¶</a></dt>
+<dd><p>The minimum line height, as a percentage of the element<code class="docutils literal"><span class="pre">'</span></code>s calculated font size. calibre will ensure that every element has a line height of at least this setting, irrespective of what the input document specifies. Set to zero to disable. Default is 120%. Use this setting in preference to the direct line height specification, unless you know what you are doing. For example, you can achieve <code class="docutils literal"><span class="pre">&quot;</span></code>double spaced<code class="docutils literal"><span class="pre">&quot;</span></code> text by setting this to 240.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-remove-paragraph-spacing">
+<code class="descname">--remove-paragraph-spacing</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-remove-paragraph-spacing" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove spacing between paragraphs. Also sets an indent on paragraphs of 1.5em. Spacing removal will not work if the source file does not use paragraphs (&lt;p&gt; or &lt;div&gt; tags).</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-remove-paragraph-spacing-indent-size">
+<code class="descname">--remove-paragraph-spacing-indent-size</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-remove-paragraph-spacing-indent-size" title="Permalink to this definition">¶</a></dt>
+<dd><p>When calibre removes blank lines between paragraphs, it automatically sets a paragraph indent, to ensure that paragraphs can be easily distinguished. This option controls the width of that indent (in em). If you set this value negative, then the indent specified in the input document is used, that is, calibre does not change the indentation.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-smarten-punctuation">
+<code class="descname">--smarten-punctuation</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-smarten-punctuation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert plain quotes, dashes and ellipsis to their typographically correct equivalents. For details, see <a class="reference external" href="https://daringfireball.net/projects/smartypants">https://daringfireball.net/projects/smartypants</a></p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-subset-embedded-fonts">
+<code class="descname">--subset-embedded-fonts</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-subset-embedded-fonts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Subset all embedded fonts. Every embedded font is reduced to contain only the glyphs used in this document. This decreases the size of the font files. Useful if you are embedding a particularly large font with lots of unused glyphs.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-transform-css-rules">
+<code class="descname">--transform-css-rules</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-transform-css-rules" title="Permalink to this definition">¶</a></dt>
+<dd><p>Path to a file containing rules to transform the CSS styles in this book. The easiest way to create such a file is to use the wizard for creating rules in the calibre GUI. Access it in the <code class="docutils literal"><span class="pre">&quot;</span></code>Look &amp; feel-&gt;Transform styles<code class="docutils literal"><span class="pre">&quot;</span></code> section of the conversion dialog. Once you create the rules, you can use the <code class="docutils literal"><span class="pre">&quot;</span></code>Export<code class="docutils literal"><span class="pre">&quot;</span></code> button to save them to a file.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-unsmarten-punctuation">
+<code class="descname">--unsmarten-punctuation</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-unsmarten-punctuation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert fancy quotes, dashes and ellipsis to their plain equivalents.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="heuristic-processing">
+<h2><a class="toc-backref" href="#id2">Heuristic Processing</a><a class="headerlink" href="#heuristic-processing" title="Permalink to this headline">¶</a></h2>
+<p>Modify the document text and structure using common patterns. Disabled by default. Use &#8211;enable-heuristics to enable.  Individual actions can be disabled with the &#8211;disable-* options.</p>
+<dl class="option">
+<dt id="cmdoption-ebook-convert-disable-dehyphenate">
+<code class="descname">--disable-dehyphenate</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-disable-dehyphenate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Analyze hyphenated words throughout the document.  The document itself is used as a dictionary to determine whether hyphens should be retained or removed.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-disable-delete-blank-paragraphs">
+<code class="descname">--disable-delete-blank-paragraphs</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-disable-delete-blank-paragraphs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove empty paragraphs from the document when they exist between every other paragraph</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-disable-fix-indents">
+<code class="descname">--disable-fix-indents</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-disable-fix-indents" title="Permalink to this definition">¶</a></dt>
+<dd><p>Turn indentation created from multiple non-breaking space entities into CSS indents.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-disable-format-scene-breaks">
+<code class="descname">--disable-format-scene-breaks</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-disable-format-scene-breaks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Left aligned scene break markers are center aligned. Replace soft scene breaks that use multiple blank lines with horizontal rules.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-disable-italicize-common-cases">
+<code class="descname">--disable-italicize-common-cases</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-disable-italicize-common-cases" title="Permalink to this definition">¶</a></dt>
+<dd><p>Look for common words and patterns that denote italics and italicize them.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-disable-markup-chapter-headings">
+<code class="descname">--disable-markup-chapter-headings</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-disable-markup-chapter-headings" title="Permalink to this definition">¶</a></dt>
+<dd><p>Detect unformatted chapter headings and sub headings. Change them to h2 and h3 tags.  This setting will not create a TOC, but can be used in conjunction with structure detection to create one.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-disable-renumber-headings">
+<code class="descname">--disable-renumber-headings</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-disable-renumber-headings" title="Permalink to this definition">¶</a></dt>
+<dd><p>Looks for occurrences of sequential &lt;h1&gt; or &lt;h2&gt; tags. The tags are renumbered to prevent splitting in the middle of chapter headings.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-disable-unwrap-lines">
+<code class="descname">--disable-unwrap-lines</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-disable-unwrap-lines" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unwrap lines using punctuation and other formatting clues.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-enable-heuristics">
+<code class="descname">--enable-heuristics</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-enable-heuristics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enable heuristic processing. This option must be set for any heuristic processing to take place.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-html-unwrap-factor">
+<code class="descname">--html-unwrap-factor</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-html-unwrap-factor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Scale used to determine the length at which a line should be unwrapped. Valid values are a decimal between 0 and 1. The default is 0.4, just below the median line length.  If only a few lines in the document require unwrapping this value should be reduced</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-replace-scene-breaks">
+<code class="descname">--replace-scene-breaks</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-replace-scene-breaks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Replace scene breaks with the specified text. By default, the text from the input document is used.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="search-and-replace">
+<h2><a class="toc-backref" href="#id3">Search and Replace</a><a class="headerlink" href="#search-and-replace" title="Permalink to this headline">¶</a></h2>
+<p>Modify the document text and structure using user defined patterns.</p>
+<dl class="option">
+<dt id="cmdoption-ebook-convert-search-replace">
+<code class="descname">--search-replace</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-search-replace" title="Permalink to this definition">¶</a></dt>
+<dd><p>Path to a file containing search and replace regular expressions. The file must contain alternating lines of regular expression followed by replacement pattern (which can be an empty line). The regular expression must be in the Python regex syntax and the file must be UTF-8 encoded.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-sr1-replace">
+<code class="descname">--sr1-replace</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-sr1-replace" title="Permalink to this definition">¶</a></dt>
+<dd><p>Replacement to replace the text found with sr1-search.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-sr1-search">
+<code class="descname">--sr1-search</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-sr1-search" title="Permalink to this definition">¶</a></dt>
+<dd><p>Search pattern (regular expression) to be replaced with sr1-replace.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-sr2-replace">
+<code class="descname">--sr2-replace</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-sr2-replace" title="Permalink to this definition">¶</a></dt>
+<dd><p>Replacement to replace the text found with sr2-search.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-sr2-search">
+<code class="descname">--sr2-search</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-sr2-search" title="Permalink to this definition">¶</a></dt>
+<dd><p>Search pattern (regular expression) to be replaced with sr2-replace.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-sr3-replace">
+<code class="descname">--sr3-replace</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-sr3-replace" title="Permalink to this definition">¶</a></dt>
+<dd><p>Replacement to replace the text found with sr3-search.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-sr3-search">
+<code class="descname">--sr3-search</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-sr3-search" title="Permalink to this definition">¶</a></dt>
+<dd><p>Search pattern (regular expression) to be replaced with sr3-replace.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="structure-detection">
+<h2><a class="toc-backref" href="#id4">Structure Detection</a><a class="headerlink" href="#structure-detection" title="Permalink to this headline">¶</a></h2>
+<p>Control auto-detection of document structure.</p>
+<dl class="option">
+<dt id="cmdoption-ebook-convert-chapter">
+<code class="descname">--chapter</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-chapter" title="Permalink to this definition">¶</a></dt>
+<dd><p>An XPath expression to detect chapter titles. The default is to consider &lt;h1&gt; or &lt;h2&gt; tags that contain the words <code class="docutils literal"><span class="pre">&quot;</span></code>chapter<code class="docutils literal"><span class="pre">&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;</span></code>book<code class="docutils literal"><span class="pre">&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;</span></code>section<code class="docutils literal"><span class="pre">&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;</span></code>prologue<code class="docutils literal"><span class="pre">&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;</span></code>epilogue<code class="docutils literal"><span class="pre">&quot;</span></code> or <code class="docutils literal"><span class="pre">&quot;</span></code>part<code class="docutils literal"><span class="pre">&quot;</span></code> as chapter titles as well as any tags that have class=<code class="docutils literal"><span class="pre">&quot;</span></code>chapter<code class="docutils literal"><span class="pre">&quot;</span></code>. The expression used must evaluate to a list of elements. To disable chapter detection, use the expression <code class="docutils literal"><span class="pre">&quot;</span></code>/<code class="docutils literal"><span class="pre">&quot;</span></code>. See the XPath Tutorial in the calibre User Manual for further help on using this feature.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-chapter-mark">
+<code class="descname">--chapter-mark</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-chapter-mark" title="Permalink to this definition">¶</a></dt>
+<dd><p>Specify how to mark detected chapters. A value of <code class="docutils literal"><span class="pre">&quot;</span></code>pagebreak<code class="docutils literal"><span class="pre">&quot;</span></code> will insert page breaks before chapters. A value of <code class="docutils literal"><span class="pre">&quot;</span></code>rule<code class="docutils literal"><span class="pre">&quot;</span></code> will insert a line before chapters. A value of <code class="docutils literal"><span class="pre">&quot;</span></code>none<code class="docutils literal"><span class="pre">&quot;</span></code> will disable chapter marking and a value of <code class="docutils literal"><span class="pre">&quot;</span></code>both<code class="docutils literal"><span class="pre">&quot;</span></code> will use both page breaks and lines to mark chapters.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-disable-remove-fake-margins">
+<code class="descname">--disable-remove-fake-margins</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-disable-remove-fake-margins" title="Permalink to this definition">¶</a></dt>
+<dd><p>Some documents specify page margins by specifying a left and right margin on each individual paragraph. calibre will try to detect and remove these margins. Sometimes, this can cause the removal of margins that should not have been removed. In this case you can disable the removal.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-insert-metadata">
+<code class="descname">--insert-metadata</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-insert-metadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Insert the book metadata at the start of the book. This is useful if your e-book reader does not support displaying/searching metadata directly.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-page-breaks-before">
+<code class="descname">--page-breaks-before</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-page-breaks-before" title="Permalink to this definition">¶</a></dt>
+<dd><p>An XPath expression. Page breaks are inserted before the specified elements. To disable use the expression: /</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-prefer-metadata-cover">
+<code class="descname">--prefer-metadata-cover</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-prefer-metadata-cover" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use the cover detected from the source file in preference to the specified cover.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-remove-first-image">
+<code class="descname">--remove-first-image</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-remove-first-image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove the first image from the input e-book. Useful if the input document has a cover image that is not identified as a cover. In this case, if you set a cover in calibre, the output document will end up with two cover images if you do not specify this option.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-start-reading-at">
+<code class="descname">--start-reading-at</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-start-reading-at" title="Permalink to this definition">¶</a></dt>
+<dd><p>An XPath expression to detect the location in the document at which to start reading. Some e-book reading programs (most prominently the Kindle) use this location as the position at which to open the book. See the XPath tutorial in the calibre User Manual for further help using this feature.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="table-of-contents">
+<h2><a class="toc-backref" href="#id5">Table of Contents</a><a class="headerlink" href="#table-of-contents" title="Permalink to this headline">¶</a></h2>
+<p>Control the automatic generation of a Table of Contents. By default, if the source file has a Table of Contents, it will be used in preference to the automatically generated one.</p>
+<dl class="option">
+<dt id="cmdoption-ebook-convert-duplicate-links-in-toc">
+<code class="descname">--duplicate-links-in-toc</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-duplicate-links-in-toc" title="Permalink to this definition">¶</a></dt>
+<dd><p>When creating a TOC from links in the input document, allow duplicate entries, i.e. allow more than one entry with the same text, provided that they point to a different location.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-level1-toc">
+<code class="descname">--level1-toc</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-level1-toc" title="Permalink to this definition">¶</a></dt>
+<dd><p>XPath expression that specifies all tags that should be added to the Table of Contents at level one. If this is specified, it takes precedence over other forms of auto-detection. See the XPath Tutorial in the calibre User Manual for examples.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-level2-toc">
+<code class="descname">--level2-toc</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-level2-toc" title="Permalink to this definition">¶</a></dt>
+<dd><p>XPath expression that specifies all tags that should be added to the Table of Contents at level two. Each entry is added under the previous level one entry. See the XPath Tutorial in the calibre User Manual for examples.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-level3-toc">
+<code class="descname">--level3-toc</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-level3-toc" title="Permalink to this definition">¶</a></dt>
+<dd><p>XPath expression that specifies all tags that should be added to the Table of Contents at level three. Each entry is added under the previous level two entry. See the XPath Tutorial in the calibre User Manual for examples.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-max-toc-links">
+<code class="descname">--max-toc-links</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-max-toc-links" title="Permalink to this definition">¶</a></dt>
+<dd><p>Maximum number of links to insert into the TOC. Set to 0 to disable. Default is: 50. Links are only added to the TOC if less than the threshold number of chapters were detected.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-no-chapters-in-toc">
+<code class="descname">--no-chapters-in-toc</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-no-chapters-in-toc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Don<code class="docutils literal"><span class="pre">'</span></code>t add auto-detected chapters to the Table of Contents.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-toc-filter">
+<code class="descname">--toc-filter</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-toc-filter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove entries from the Table of Contents whose titles match the specified regular expression. Matching entries and all their children are removed.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-toc-threshold">
+<code class="descname">--toc-threshold</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-toc-threshold" title="Permalink to this definition">¶</a></dt>
+<dd><p>If fewer than this number of chapters is detected, then links are added to the Table of Contents. Default: 6</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-use-auto-toc">
+<code class="descname">--use-auto-toc</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-use-auto-toc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Normally, if the source file already has a Table of Contents, it is used in preference to the auto-generated one. With this option, the auto-generated one is always used.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="metadata">
+<h2><a class="toc-backref" href="#id6">Metadata</a><a class="headerlink" href="#metadata" title="Permalink to this headline">¶</a></h2>
+<p>Options to set metadata in the output</p>
+<dl class="option">
+<dt id="cmdoption-ebook-convert-author-sort">
+<code class="descname">--author-sort</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-author-sort" title="Permalink to this definition">¶</a></dt>
+<dd><p>String to be used when sorting by author.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-authors">
+<code class="descname">--authors</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-authors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the authors. Multiple authors should be separated by ampersands.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-book-producer">
+<code class="descname">--book-producer</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-book-producer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the book producer.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-comments">
+<code class="descname">--comments</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-comments" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the e-book description.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-cover">
+<code class="descname">--cover</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-cover" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the cover to the specified file or URL</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-isbn">
+<code class="descname">--isbn</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-isbn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the ISBN of the book.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-language">
+<code class="descname">--language</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-language" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the language.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-pubdate">
+<code class="descname">--pubdate</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-pubdate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the publication date.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-publisher">
+<code class="descname">--publisher</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-publisher" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the e-book publisher.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-rating">
+<code class="descname">--rating</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-rating" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the rating. Should be a number between 1 and 5.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-read-metadata-from-opf">
+<code class="descname">--read-metadata-from-opf</code><code class="descclassname"></code><code class="descclassname">, </code><code class="descname">-m</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-read-metadata-from-opf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read metadata from the specified OPF file. Metadata read from this file will override any metadata in the source file.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-series">
+<code class="descname">--series</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-series" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the series this e-book belongs to.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-series-index">
+<code class="descname">--series-index</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-series-index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the index of the book in this series.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-tags">
+<code class="descname">--tags</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-tags" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the tags for the book. Should be a comma separated list.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-timestamp">
+<code class="descname">--timestamp</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-timestamp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the book timestamp (no longer used anywhere)</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-title">
+<code class="descname">--title</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-title" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the title.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-title-sort">
+<code class="descname">--title-sort</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-title-sort" title="Permalink to this definition">¶</a></dt>
+<dd><p>The version of the title to be used for sorting.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="debug">
+<h2><a class="toc-backref" href="#id7">Debug</a><a class="headerlink" href="#debug" title="Permalink to this headline">¶</a></h2>
+<p>Options to help with debugging the conversion</p>
+<dl class="option">
+<dt id="cmdoption-ebook-convert-debug-pipeline">
+<code class="descname">--debug-pipeline</code><code class="descclassname"></code><code class="descclassname">, </code><code class="descname">-d</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-debug-pipeline" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save the output from different stages of the conversion pipeline to the specified directory. Useful if you are unsure at which stage of the conversion process a bug is occurring.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-verbose">
+<code class="descname">--verbose</code><code class="descclassname"></code><code class="descclassname">, </code><code class="descname">-v</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-verbose" title="Permalink to this definition">¶</a></dt>
+<dd><p>Level of verbosity. Specify multiple times for greater verbosity. Specifying it twice will result in full verbosity, once medium verbosity and zero times least verbosity.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="azw4-input-options">
+<h2><a class="toc-backref" href="#id8">AZW4 Input Options</a><a class="headerlink" href="#azw4-input-options" title="Permalink to this headline">¶</a></h2>
+<dl class="option">
+<dt id="cmdoption-ebook-convert-azw4-input-input-encoding">
+<code class="descname">--input-encoding</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-azw4-input-input-encoding" title="Permalink to this definition">¶</a></dt>
+<dd><p>Specify the character encoding of the input document. If set this option will override any encoding declared by the document itself. Particularly useful for documents that do not declare an encoding or that have erroneous encoding declarations.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="chm-input-options">
+<h2><a class="toc-backref" href="#id9">CHM Input Options</a><a class="headerlink" href="#chm-input-options" title="Permalink to this headline">¶</a></h2>
+<dl class="option">
+<dt id="cmdoption-ebook-convert-chm-input-input-encoding">
+<code class="descname">--input-encoding</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-chm-input-input-encoding" title="Permalink to this definition">¶</a></dt>
+<dd><p>Specify the character encoding of the input document. If set this option will override any encoding declared by the document itself. Particularly useful for documents that do not declare an encoding or that have erroneous encoding declarations.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="comic-input-options">
+<h2><a class="toc-backref" href="#id10">Comic Input Options</a><a class="headerlink" href="#comic-input-options" title="Permalink to this headline">¶</a></h2>
+<dl class="option">
+<dt id="cmdoption-ebook-convert-comic-input-colors">
+<code class="descname">--colors</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-comic-input-colors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reduce the number of colors used in the image. This works only if you choose the PNG output format. It is useful to reduce file sizes. Set to zero to turn off. Maximum value is 256. It is off by default.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-comic-input-comic-image-size">
+<code class="descname">--comic-image-size</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-comic-input-comic-image-size" title="Permalink to this definition">¶</a></dt>
+<dd><p>Specify the image size as widthxheight pixels. Normally, an image size is automatically calculated from the output profile, this option overrides it.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-comic-input-despeckle">
+<code class="descname">--despeckle</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-comic-input-despeckle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enable Despeckle. Reduces speckle noise. May greatly increase processing time.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-comic-input-disable-trim">
+<code class="descname">--disable-trim</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-comic-input-disable-trim" title="Permalink to this definition">¶</a></dt>
+<dd><p>Disable trimming of comic pages. For some comics, trimming might remove content as well as borders.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-comic-input-dont-add-comic-pages-to-toc">
+<code class="descname">--dont-add-comic-pages-to-toc</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-comic-input-dont-add-comic-pages-to-toc" title="Permalink to this definition">¶</a></dt>
+<dd><p>When converting a CBC do not add links to each page to the TOC. Note this only applies if the TOC has more than one section</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-comic-input-dont-grayscale">
+<code class="descname">--dont-grayscale</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-comic-input-dont-grayscale" title="Permalink to this definition">¶</a></dt>
+<dd><p>Do not convert the image to grayscale (black and white)</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-comic-input-dont-normalize">
+<code class="descname">--dont-normalize</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-comic-input-dont-normalize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Disable normalize (improve contrast) color range for pictures. Default: False</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-comic-input-dont-sharpen">
+<code class="descname">--dont-sharpen</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-comic-input-dont-sharpen" title="Permalink to this definition">¶</a></dt>
+<dd><p>Disable sharpening.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-comic-input-input-encoding">
+<code class="descname">--input-encoding</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-comic-input-input-encoding" title="Permalink to this definition">¶</a></dt>
+<dd><p>Specify the character encoding of the input document. If set this option will override any encoding declared by the document itself. Particularly useful for documents that do not declare an encoding or that have erroneous encoding declarations.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-comic-input-keep-aspect-ratio">
+<code class="descname">--keep-aspect-ratio</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-comic-input-keep-aspect-ratio" title="Permalink to this definition">¶</a></dt>
+<dd><p>Maintain picture aspect ratio. Default is to fill the screen.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-comic-input-landscape">
+<code class="descname">--landscape</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-comic-input-landscape" title="Permalink to this definition">¶</a></dt>
+<dd><p>Don<code class="docutils literal"><span class="pre">'</span></code>t split landscape images into two portrait images</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-comic-input-no-process">
+<code class="descname">--no-process</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-comic-input-no-process" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply no processing to the image</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-comic-input-no-sort">
+<code class="descname">--no-sort</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-comic-input-no-sort" title="Permalink to this definition">¶</a></dt>
+<dd><p>Don<code class="docutils literal"><span class="pre">'</span></code>t sort the files found in the comic alphabetically by name. Instead use the order they were added to the comic.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-comic-input-output-format">
+<code class="descname">--output-format</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-comic-input-output-format" title="Permalink to this definition">¶</a></dt>
+<dd><p>The format that images in the created e-book are converted to. You can experiment to see which format gives you optimal size and look on your device.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-comic-input-right2left">
+<code class="descname">--right2left</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-comic-input-right2left" title="Permalink to this definition">¶</a></dt>
+<dd><p>Used for right-to-left publications like manga. Causes landscape pages to be split into portrait pages from right to left.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-comic-input-wide">
+<code class="descname">--wide</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-comic-input-wide" title="Permalink to this definition">¶</a></dt>
+<dd><p>Keep aspect ratio and scale image using screen height as image width for viewing in landscape mode.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="djvu-input-options">
+<h2><a class="toc-backref" href="#id11">DJVU Input Options</a><a class="headerlink" href="#djvu-input-options" title="Permalink to this headline">¶</a></h2>
+<dl class="option">
+<dt id="cmdoption-ebook-convert-djvu-input-input-encoding">
+<code class="descname">--input-encoding</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-djvu-input-input-encoding" title="Permalink to this definition">¶</a></dt>
+<dd><p>Specify the character encoding of the input document. If set this option will override any encoding declared by the document itself. Particularly useful for documents that do not declare an encoding or that have erroneous encoding declarations.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="docx-input-options">
+<h2><a class="toc-backref" href="#id12">DOCX Input Options</a><a class="headerlink" href="#docx-input-options" title="Permalink to this headline">¶</a></h2>
+<dl class="option">
+<dt id="cmdoption-ebook-convert-docx-input-docx-inline-subsup">
+<code class="descname">--docx-inline-subsup</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-docx-input-docx-inline-subsup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Render superscripts and subscripts so that they do not affect the line height.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-docx-input-docx-no-cover">
+<code class="descname">--docx-no-cover</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-docx-input-docx-no-cover" title="Permalink to this definition">¶</a></dt>
+<dd><p>Normally, if a large image is present at the start of the document that looks like a cover, it will be removed from the document and used as the cover for created e-book. This option turns off that behavior.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-docx-input-docx-no-pagebreaks-between-notes">
+<code class="descname">--docx-no-pagebreaks-between-notes</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-docx-input-docx-no-pagebreaks-between-notes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Do not insert a page break after every endnote.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-docx-input-input-encoding">
+<code class="descname">--input-encoding</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-docx-input-input-encoding" title="Permalink to this definition">¶</a></dt>
+<dd><p>Specify the character encoding of the input document. If set this option will override any encoding declared by the document itself. Particularly useful for documents that do not declare an encoding or that have erroneous encoding declarations.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="epub-input-options">
+<h2><a class="toc-backref" href="#id13">EPUB Input Options</a><a class="headerlink" href="#epub-input-options" title="Permalink to this headline">¶</a></h2>
+<dl class="option">
+<dt id="cmdoption-ebook-convert-epub-input-input-encoding">
+<code class="descname">--input-encoding</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-epub-input-input-encoding" title="Permalink to this definition">¶</a></dt>
+<dd><p>Specify the character encoding of the input document. If set this option will override any encoding declared by the document itself. Particularly useful for documents that do not declare an encoding or that have erroneous encoding declarations.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="fb2-input-options">
+<h2><a class="toc-backref" href="#id14">FB2 Input Options</a><a class="headerlink" href="#fb2-input-options" title="Permalink to this headline">¶</a></h2>
+<dl class="option">
+<dt id="cmdoption-ebook-convert-fb2-input-input-encoding">
+<code class="descname">--input-encoding</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-fb2-input-input-encoding" title="Permalink to this definition">¶</a></dt>
+<dd><p>Specify the character encoding of the input document. If set this option will override any encoding declared by the document itself. Particularly useful for documents that do not declare an encoding or that have erroneous encoding declarations.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-fb2-input-no-inline-fb2-toc">
+<code class="descname">--no-inline-fb2-toc</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-fb2-input-no-inline-fb2-toc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Do not insert a Table of Contents at the beginning of the book.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="htlz-input-options">
+<h2><a class="toc-backref" href="#id15">HTLZ Input Options</a><a class="headerlink" href="#htlz-input-options" title="Permalink to this headline">¶</a></h2>
+<dl class="option">
+<dt id="cmdoption-ebook-convert-htlz-input-input-encoding">
+<code class="descname">--input-encoding</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-htlz-input-input-encoding" title="Permalink to this definition">¶</a></dt>
+<dd><p>Specify the character encoding of the input document. If set this option will override any encoding declared by the document itself. Particularly useful for documents that do not declare an encoding or that have erroneous encoding declarations.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="html-input-options">
+<h2><a class="toc-backref" href="#id16">HTML Input Options</a><a class="headerlink" href="#html-input-options" title="Permalink to this headline">¶</a></h2>
+<dl class="option">
+<dt id="cmdoption-ebook-convert-html-input-breadth-first">
+<code class="descname">--breadth-first</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-html-input-breadth-first" title="Permalink to this definition">¶</a></dt>
+<dd><p>Traverse links in HTML files breadth first. Normally, they are traversed depth first.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-html-input-dont-package">
+<code class="descname">--dont-package</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-html-input-dont-package" title="Permalink to this definition">¶</a></dt>
+<dd><p>Normally this input plugin re-arranges all the input files into a standard folder hierarchy. Only use this option if you know what you are doing as it can result in various nasty side effects in the rest of the conversion pipeline.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-html-input-input-encoding">
+<code class="descname">--input-encoding</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-html-input-input-encoding" title="Permalink to this definition">¶</a></dt>
+<dd><p>Specify the character encoding of the input document. If set this option will override any encoding declared by the document itself. Particularly useful for documents that do not declare an encoding or that have erroneous encoding declarations.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-html-input-max-levels">
+<code class="descname">--max-levels</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-html-input-max-levels" title="Permalink to this definition">¶</a></dt>
+<dd><p>Maximum levels of recursion when following links in HTML files. Must be non-negative. 0 implies that no links in the root HTML file are followed. Default is 5.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="lit-input-options">
+<h2><a class="toc-backref" href="#id17">LIT Input Options</a><a class="headerlink" href="#lit-input-options" title="Permalink to this headline">¶</a></h2>
+<dl class="option">
+<dt id="cmdoption-ebook-convert-lit-input-input-encoding">
+<code class="descname">--input-encoding</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-lit-input-input-encoding" title="Permalink to this definition">¶</a></dt>
+<dd><p>Specify the character encoding of the input document. If set this option will override any encoding declared by the document itself. Particularly useful for documents that do not declare an encoding or that have erroneous encoding declarations.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="lrf-input-options">
+<h2><a class="toc-backref" href="#id18">LRF Input Options</a><a class="headerlink" href="#lrf-input-options" title="Permalink to this headline">¶</a></h2>
+<dl class="option">
+<dt id="cmdoption-ebook-convert-lrf-input-input-encoding">
+<code class="descname">--input-encoding</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-lrf-input-input-encoding" title="Permalink to this definition">¶</a></dt>
+<dd><p>Specify the character encoding of the input document. If set this option will override any encoding declared by the document itself. Particularly useful for documents that do not declare an encoding or that have erroneous encoding declarations.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="mobi-input-options">
+<h2><a class="toc-backref" href="#id19">MOBI Input Options</a><a class="headerlink" href="#mobi-input-options" title="Permalink to this headline">¶</a></h2>
+<dl class="option">
+<dt id="cmdoption-ebook-convert-mobi-input-input-encoding">
+<code class="descname">--input-encoding</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-mobi-input-input-encoding" title="Permalink to this definition">¶</a></dt>
+<dd><p>Specify the character encoding of the input document. If set this option will override any encoding declared by the document itself. Particularly useful for documents that do not declare an encoding or that have erroneous encoding declarations.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="odt-input-options">
+<h2><a class="toc-backref" href="#id20">ODT Input Options</a><a class="headerlink" href="#odt-input-options" title="Permalink to this headline">¶</a></h2>
+<dl class="option">
+<dt id="cmdoption-ebook-convert-odt-input-input-encoding">
+<code class="descname">--input-encoding</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-odt-input-input-encoding" title="Permalink to this definition">¶</a></dt>
+<dd><p>Specify the character encoding of the input document. If set this option will override any encoding declared by the document itself. Particularly useful for documents that do not declare an encoding or that have erroneous encoding declarations.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="pdb-input-options">
+<h2><a class="toc-backref" href="#id21">PDB Input Options</a><a class="headerlink" href="#pdb-input-options" title="Permalink to this headline">¶</a></h2>
+<dl class="option">
+<dt id="cmdoption-ebook-convert-pdb-input-input-encoding">
+<code class="descname">--input-encoding</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-pdb-input-input-encoding" title="Permalink to this definition">¶</a></dt>
+<dd><p>Specify the character encoding of the input document. If set this option will override any encoding declared by the document itself. Particularly useful for documents that do not declare an encoding or that have erroneous encoding declarations.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="pdf-input-options">
+<h2><a class="toc-backref" href="#id22">PDF Input Options</a><a class="headerlink" href="#pdf-input-options" title="Permalink to this headline">¶</a></h2>
+<dl class="option">
+<dt id="cmdoption-ebook-convert-pdf-input-input-encoding">
+<code class="descname">--input-encoding</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-pdf-input-input-encoding" title="Permalink to this definition">¶</a></dt>
+<dd><p>Specify the character encoding of the input document. If set this option will override any encoding declared by the document itself. Particularly useful for documents that do not declare an encoding or that have erroneous encoding declarations.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-pdf-input-new-pdf-engine">
+<code class="descname">--new-pdf-engine</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-pdf-input-new-pdf-engine" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use the new PDF conversion engine. Currently not operational.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-pdf-input-no-images">
+<code class="descname">--no-images</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-pdf-input-no-images" title="Permalink to this definition">¶</a></dt>
+<dd><p>Do not extract images from the document</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-pdf-input-unwrap-factor">
+<code class="descname">--unwrap-factor</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-pdf-input-unwrap-factor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Scale used to determine the length at which a line should be unwrapped. Valid values are a decimal between 0 and 1. The default is 0.45, just below the median line length.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="pml-input-options">
+<h2><a class="toc-backref" href="#id23">PML Input Options</a><a class="headerlink" href="#pml-input-options" title="Permalink to this headline">¶</a></h2>
+<dl class="option">
+<dt id="cmdoption-ebook-convert-pml-input-input-encoding">
+<code class="descname">--input-encoding</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-pml-input-input-encoding" title="Permalink to this definition">¶</a></dt>
+<dd><p>Specify the character encoding of the input document. If set this option will override any encoding declared by the document itself. Particularly useful for documents that do not declare an encoding or that have erroneous encoding declarations.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="rb-input-options">
+<h2><a class="toc-backref" href="#id24">RB Input Options</a><a class="headerlink" href="#rb-input-options" title="Permalink to this headline">¶</a></h2>
+<dl class="option">
+<dt id="cmdoption-ebook-convert-rb-input-input-encoding">
+<code class="descname">--input-encoding</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-rb-input-input-encoding" title="Permalink to this definition">¶</a></dt>
+<dd><p>Specify the character encoding of the input document. If set this option will override any encoding declared by the document itself. Particularly useful for documents that do not declare an encoding or that have erroneous encoding declarations.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="rtf-input-options">
+<h2><a class="toc-backref" href="#id25">RTF Input Options</a><a class="headerlink" href="#rtf-input-options" title="Permalink to this headline">¶</a></h2>
+<dl class="option">
+<dt id="cmdoption-ebook-convert-rtf-input-ignore-wmf">
+<code class="descname">--ignore-wmf</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-rtf-input-ignore-wmf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ignore WMF images instead of replacing them with a placeholder image.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-rtf-input-input-encoding">
+<code class="descname">--input-encoding</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-rtf-input-input-encoding" title="Permalink to this definition">¶</a></dt>
+<dd><p>Specify the character encoding of the input document. If set this option will override any encoding declared by the document itself. Particularly useful for documents that do not declare an encoding or that have erroneous encoding declarations.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="recipe-input-options">
+<h2><a class="toc-backref" href="#id26">Recipe Input Options</a><a class="headerlink" href="#recipe-input-options" title="Permalink to this headline">¶</a></h2>
+<dl class="option">
+<dt id="cmdoption-ebook-convert-recipe-input-dont-download-recipe">
+<code class="descname">--dont-download-recipe</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-recipe-input-dont-download-recipe" title="Permalink to this definition">¶</a></dt>
+<dd><p>Do not download latest version of builtin recipes from the calibre server</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-recipe-input-input-encoding">
+<code class="descname">--input-encoding</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-recipe-input-input-encoding" title="Permalink to this definition">¶</a></dt>
+<dd><p>Specify the character encoding of the input document. If set this option will override any encoding declared by the document itself. Particularly useful for documents that do not declare an encoding or that have erroneous encoding declarations.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-recipe-input-lrf">
+<code class="descname">--lrf</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-recipe-input-lrf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Optimize fetching for subsequent conversion to LRF.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-recipe-input-password">
+<code class="descname">--password</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-recipe-input-password" title="Permalink to this definition">¶</a></dt>
+<dd><p>Password for sites that require a login to access content.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-recipe-input-test">
+<code class="descname">--test</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-recipe-input-test" title="Permalink to this definition">¶</a></dt>
+<dd><p>Useful for recipe development. Forces max_articles_per_feed to 2 and downloads at most 2 feeds. You can change the number of feeds and articles by supplying optional arguments. For example: <a class="reference internal" href="#cmdoption-ebook-convert-recipe-input-test"><code class="xref std std-option docutils literal"><span class="pre">--test</span></code></a> 3 1 will download at most 3 feeds and only 1 article per feed.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-recipe-input-username">
+<code class="descname">--username</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-recipe-input-username" title="Permalink to this definition">¶</a></dt>
+<dd><p>Username for sites that require a login to access content.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="snb-input-options">
+<h2><a class="toc-backref" href="#id27">SNB Input Options</a><a class="headerlink" href="#snb-input-options" title="Permalink to this headline">¶</a></h2>
+<dl class="option">
+<dt id="cmdoption-ebook-convert-snb-input-input-encoding">
+<code class="descname">--input-encoding</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-snb-input-input-encoding" title="Permalink to this definition">¶</a></dt>
+<dd><p>Specify the character encoding of the input document. If set this option will override any encoding declared by the document itself. Particularly useful for documents that do not declare an encoding or that have erroneous encoding declarations.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="tcr-input-options">
+<h2><a class="toc-backref" href="#id28">TCR Input Options</a><a class="headerlink" href="#tcr-input-options" title="Permalink to this headline">¶</a></h2>
+<dl class="option">
+<dt id="cmdoption-ebook-convert-tcr-input-input-encoding">
+<code class="descname">--input-encoding</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-tcr-input-input-encoding" title="Permalink to this definition">¶</a></dt>
+<dd><p>Specify the character encoding of the input document. If set this option will override any encoding declared by the document itself. Particularly useful for documents that do not declare an encoding or that have erroneous encoding declarations.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="txt-input-options">
+<h2><a class="toc-backref" href="#id29">TXT Input Options</a><a class="headerlink" href="#txt-input-options" title="Permalink to this headline">¶</a></h2>
+<dl class="option">
+<dt id="cmdoption-ebook-convert-txt-input-formatting-type">
+<code class="descname">--formatting-type</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-txt-input-formatting-type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Formatting used within the document. * auto: Automatically decide which formatting processor to use. * plain: Do not process the document formatting. Everything is a paragraph and no styling is applied. * heuristic: Process using heuristics to determine formatting such as chapter headings and italic text. * textile: Processing using textile formatting. * markdown: Processing using markdown formatting. To learn more about markdown see <a class="reference external" href="https://daringfireball.net/projects/markdown/">https://daringfireball.net/projects/markdown/</a></p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-txt-input-input-encoding">
+<code class="descname">--input-encoding</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-txt-input-input-encoding" title="Permalink to this definition">¶</a></dt>
+<dd><p>Specify the character encoding of the input document. If set this option will override any encoding declared by the document itself. Particularly useful for documents that do not declare an encoding or that have erroneous encoding declarations.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-txt-input-markdown-extensions">
+<code class="descname">--markdown-extensions</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-txt-input-markdown-extensions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enable extensions to markdown syntax. Extensions are formatting that is not part of the standard markdown format. The extensions enabled by default: footnotes, tables, toc. To learn more about markdown extensions, see <a class="reference external" href="https://pythonhosted.org/Markdown/extensions/index.html">https://pythonhosted.org/Markdown/extensions/index.html</a> This should be a comma separated list of extensions to enable: * abbr: Abbreviations * admonition: Support admonitions * attr_list: Add attribute to HTML tags * def_list: Definition lists * extra: Enables various common extensions * fenced_code: Alternative code block syntax * footnotes: Footnotes * headerid: Allow ids as part of a header * meta: Metadata in the document * tables: Support tables * toc: Generate a table of contents * wikilinks: Wiki style links</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-txt-input-paragraph-type">
+<code class="descname">--paragraph-type</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-txt-input-paragraph-type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Paragraph structure. choices are [<code class="docutils literal"><span class="pre">'</span></code>auto<code class="docutils literal"><span class="pre">'</span></code>, <code class="docutils literal"><span class="pre">'</span></code>block<code class="docutils literal"><span class="pre">'</span></code>, <code class="docutils literal"><span class="pre">'</span></code>single<code class="docutils literal"><span class="pre">'</span></code>, <code class="docutils literal"><span class="pre">'</span></code>print<code class="docutils literal"><span class="pre">'</span></code>, <code class="docutils literal"><span class="pre">'</span></code>unformatted<code class="docutils literal"><span class="pre">'</span></code>, <code class="docutils literal"><span class="pre">'</span></code>off<code class="docutils literal"><span class="pre">'</span></code>] * auto: Try to auto detect paragraph type. * block: Treat a blank line as a paragraph break. * single: Assume every line is a paragraph. * print:  Assume every line starting with 2+ spaces or a tab starts a paragraph. * unformatted: Most lines have hard line breaks, few/no blank lines or indents. Tries to determine structure and reformat the differentiate elements. * off: Don<code class="docutils literal"><span class="pre">'</span></code>t modify the paragraph structure. This is useful when combined with Markdown or Textile formatting to ensure no formatting is lost.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-txt-input-preserve-spaces">
+<code class="descname">--preserve-spaces</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-txt-input-preserve-spaces" title="Permalink to this definition">¶</a></dt>
+<dd><p>Normally extra spaces are condensed into a single space. With this option all spaces will be displayed.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-txt-input-txt-in-remove-indents">
+<code class="descname">--txt-in-remove-indents</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-txt-input-txt-in-remove-indents" title="Permalink to this definition">¶</a></dt>
+<dd><p>Normally extra space at the beginning of lines is retained. With this option they will be removed.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="azw3-output-options">
+<h2><a class="toc-backref" href="#id30">AZW3 Output Options</a><a class="headerlink" href="#azw3-output-options" title="Permalink to this headline">¶</a></h2>
+<dl class="option">
+<dt id="cmdoption-ebook-convert-azw3-output-dont-compress">
+<code class="descname">--dont-compress</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-azw3-output-dont-compress" title="Permalink to this definition">¶</a></dt>
+<dd><p>Disable compression of the file contents.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-azw3-output-extract-to">
+<code class="descname">--extract-to</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-azw3-output-extract-to" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extract the contents of the generated AZW3 file to the specified directory. The contents of the directory are first deleted, so be careful.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-azw3-output-mobi-toc-at-start">
+<code class="descname">--mobi-toc-at-start</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-azw3-output-mobi-toc-at-start" title="Permalink to this definition">¶</a></dt>
+<dd><p>When adding the Table of Contents to the book, add it at the start of the book instead of the end. Not recommended.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-azw3-output-no-inline-toc">
+<code class="descname">--no-inline-toc</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-azw3-output-no-inline-toc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Don<code class="docutils literal"><span class="pre">'</span></code>t add Table of Contents to the book. Useful if the book has its own table of contents.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-azw3-output-prefer-author-sort">
+<code class="descname">--prefer-author-sort</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-azw3-output-prefer-author-sort" title="Permalink to this definition">¶</a></dt>
+<dd><p>When present, use author sort field as author.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-azw3-output-pretty-print">
+<code class="descname">--pretty-print</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-azw3-output-pretty-print" title="Permalink to this definition">¶</a></dt>
+<dd><p>If specified, the output plugin will try to create output that is as human readable as possible. May not have any effect for some output plugins.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-azw3-output-share-not-sync">
+<code class="descname">--share-not-sync</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-azw3-output-share-not-sync" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enable sharing of book content via Facebook etc.  on the Kindle. WARNING: Using this feature means that  the book will not auto sync its last read position  on multiple devices. Complain to Amazon.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-azw3-output-toc-title">
+<code class="descname">--toc-title</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-azw3-output-toc-title" title="Permalink to this definition">¶</a></dt>
+<dd><p>Title for any generated in-line table of contents.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="docx-output-options">
+<h2><a class="toc-backref" href="#id31">DOCX Output Options</a><a class="headerlink" href="#docx-output-options" title="Permalink to this headline">¶</a></h2>
+<dl class="option">
+<dt id="cmdoption-ebook-convert-docx-output-docx-custom-page-size">
+<code class="descname">--docx-custom-page-size</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-docx-output-docx-custom-page-size" title="Permalink to this definition">¶</a></dt>
+<dd><p>Custom size of the document. Use the form widthxheight EG. <cite>123x321</cite> to specify the width and height (in pts). This overrides any specified page-size.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-docx-output-docx-no-cover">
+<code class="descname">--docx-no-cover</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-docx-output-docx-no-cover" title="Permalink to this definition">¶</a></dt>
+<dd><p>Do not insert the book cover as an image at the start of the document. If you use this option, the book cover will be discarded.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-docx-output-docx-no-toc">
+<code class="descname">--docx-no-toc</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-docx-output-docx-no-toc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Do not insert the table of contents as a page at the start of the document.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-docx-output-docx-page-margin-bottom">
+<code class="descname">--docx-page-margin-bottom</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-docx-output-docx-page-margin-bottom" title="Permalink to this definition">¶</a></dt>
+<dd><p>The size of the bottom page margin, in pts. Default is 72pt. Overrides the common bottom page margin setting, unless set to zero.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-docx-output-docx-page-margin-left">
+<code class="descname">--docx-page-margin-left</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-docx-output-docx-page-margin-left" title="Permalink to this definition">¶</a></dt>
+<dd><p>The size of the left page margin, in pts. Default is 72pt. Overrides the common left page margin setting.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-docx-output-docx-page-margin-right">
+<code class="descname">--docx-page-margin-right</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-docx-output-docx-page-margin-right" title="Permalink to this definition">¶</a></dt>
+<dd><p>The size of the right page margin, in pts. Default is 72pt. Overrides the common right page margin setting, unless set to zero.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-docx-output-docx-page-margin-top">
+<code class="descname">--docx-page-margin-top</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-docx-output-docx-page-margin-top" title="Permalink to this definition">¶</a></dt>
+<dd><p>The size of the top page margin, in pts. Default is 72pt. Overrides the common top page margin setting, unless set to zero.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-docx-output-docx-page-size">
+<code class="descname">--docx-page-size</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-docx-output-docx-page-size" title="Permalink to this definition">¶</a></dt>
+<dd><p>The size of the page. Default is letter. Choices are [u<code class="docutils literal"><span class="pre">'</span></code>a0<code class="docutils literal"><span class="pre">'</span></code>, u<code class="docutils literal"><span class="pre">'</span></code>a1<code class="docutils literal"><span class="pre">'</span></code>, u<code class="docutils literal"><span class="pre">'</span></code>a2<code class="docutils literal"><span class="pre">'</span></code>, u<code class="docutils literal"><span class="pre">'</span></code>a3<code class="docutils literal"><span class="pre">'</span></code>, u<code class="docutils literal"><span class="pre">'</span></code>a4<code class="docutils literal"><span class="pre">'</span></code>, u<code class="docutils literal"><span class="pre">'</span></code>a5<code class="docutils literal"><span class="pre">'</span></code>, u<code class="docutils literal"><span class="pre">'</span></code>a6<code class="docutils literal"><span class="pre">'</span></code>, u<code class="docutils literal"><span class="pre">'</span></code>b0<code class="docutils literal"><span class="pre">'</span></code>, u<code class="docutils literal"><span class="pre">'</span></code>b1<code class="docutils literal"><span class="pre">'</span></code>, u<code class="docutils literal"><span class="pre">'</span></code>b2<code class="docutils literal"><span class="pre">'</span></code>, u<code class="docutils literal"><span class="pre">'</span></code>b3<code class="docutils literal"><span class="pre">'</span></code>, u<code class="docutils literal"><span class="pre">'</span></code>b4<code class="docutils literal"><span class="pre">'</span></code>, u<code class="docutils literal"><span class="pre">'</span></code>b5<code class="docutils literal"><span class="pre">'</span></code>, u<code class="docutils literal"><span class="pre">'</span></code>b6<code class="docutils literal"><span class="pre">'</span></code>, u<code class="docutils literal"><span class="pre">'</span></code>legal<code class="docutils literal"><span class="pre">'</span></code>, u<code class="docutils literal"><span class="pre">'</span></code>letter<code class="docutils literal"><span class="pre">'</span></code>]</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-docx-output-extract-to">
+<code class="descname">--extract-to</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-docx-output-extract-to" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extract the contents of the generated DOCX file to the specified directory. The contents of the directory are first deleted, so be careful.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-docx-output-pretty-print">
+<code class="descname">--pretty-print</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-docx-output-pretty-print" title="Permalink to this definition">¶</a></dt>
+<dd><p>If specified, the output plugin will try to create output that is as human readable as possible. May not have any effect for some output plugins.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="epub-output-options">
+<h2><a class="toc-backref" href="#id32">EPUB Output Options</a><a class="headerlink" href="#epub-output-options" title="Permalink to this headline">¶</a></h2>
+<dl class="option">
+<dt id="cmdoption-ebook-convert-epub-output-dont-split-on-page-breaks">
+<code class="descname">--dont-split-on-page-breaks</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-epub-output-dont-split-on-page-breaks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Turn off splitting at page breaks. Normally, input files are automatically split at every page break into two files. This gives an output e-book that can be parsed faster and with less resources. However, splitting is slow and if your source file contains a very large number of page breaks, you should turn off splitting on page breaks.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-epub-output-epub-flatten">
+<code class="descname">--epub-flatten</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-epub-output-epub-flatten" title="Permalink to this definition">¶</a></dt>
+<dd><p>This option is needed only if you intend to use the EPUB with FBReaderJ. It will flatten the file system inside the EPUB, putting all files into the top level.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-epub-output-epub-inline-toc">
+<code class="descname">--epub-inline-toc</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-epub-output-epub-inline-toc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Insert an inline Table of Contents that will appear as part of the main book content.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-epub-output-epub-toc-at-end">
+<code class="descname">--epub-toc-at-end</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-epub-output-epub-toc-at-end" title="Permalink to this definition">¶</a></dt>
+<dd><p>Put the inserted inline Table of Contents at the end of the book instead of the start.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-epub-output-extract-to">
+<code class="descname">--extract-to</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-epub-output-extract-to" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extract the contents of the generated EPUB file to the specified directory. The contents of the directory are first deleted, so be careful.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-epub-output-flow-size">
+<code class="descname">--flow-size</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-epub-output-flow-size" title="Permalink to this definition">¶</a></dt>
+<dd><p>Split all HTML files larger than this size (in KB). This is necessary as most EPUB readers cannot handle large file sizes. The default of 260KB is the size required for Adobe Digital Editions. Set to 0 to disable size based splitting.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-epub-output-no-default-epub-cover">
+<code class="descname">--no-default-epub-cover</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-epub-output-no-default-epub-cover" title="Permalink to this definition">¶</a></dt>
+<dd><p>Normally, if the input file has no cover and you don<code class="docutils literal"><span class="pre">'</span></code>t specify one, a default cover is generated with the title, authors, etc. This option disables the generation of this cover.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-epub-output-no-svg-cover">
+<code class="descname">--no-svg-cover</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-epub-output-no-svg-cover" title="Permalink to this definition">¶</a></dt>
+<dd><p>Do not use SVG for the book cover. Use this option if your EPUB is going to be used on a device that does not support SVG, like the iPhone or the JetBook Lite. Without this option, such devices will display the cover as a blank page.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-epub-output-preserve-cover-aspect-ratio">
+<code class="descname">--preserve-cover-aspect-ratio</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-epub-output-preserve-cover-aspect-ratio" title="Permalink to this definition">¶</a></dt>
+<dd><p>When using an SVG cover, this option will cause the cover to scale to cover the available screen area, but still preserve its aspect ratio (ratio of width to height). That means there may be white borders at the sides or top and bottom of the image, but the image will never be distorted. Without this option the image may be slightly distorted, but there will be no borders.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-epub-output-pretty-print">
+<code class="descname">--pretty-print</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-epub-output-pretty-print" title="Permalink to this definition">¶</a></dt>
+<dd><p>If specified, the output plugin will try to create output that is as human readable as possible. May not have any effect for some output plugins.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-epub-output-toc-title">
+<code class="descname">--toc-title</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-epub-output-toc-title" title="Permalink to this definition">¶</a></dt>
+<dd><p>Title for any generated in-line table of contents.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="fb2-output-options">
+<h2><a class="toc-backref" href="#id33">FB2 Output Options</a><a class="headerlink" href="#fb2-output-options" title="Permalink to this headline">¶</a></h2>
+<dl class="option">
+<dt id="cmdoption-ebook-convert-fb2-output-fb2-genre">
+<code class="descname">--fb2-genre</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-fb2-output-fb2-genre" title="Permalink to this definition">¶</a></dt>
+<dd><p>Genre for the book. Choices: sf_history, sf_action, sf_epic, sf_heroic, sf_detective, sf_cyberpunk, sf_space, sf_social, sf_horror, sf_humor, sf_fantasy, sf, det_classic, det_police, det_action, det_irony, det_history, det_espionage, det_crime, det_political, det_maniac, det_hard, thriller, detective, prose_classic, prose_history, prose_contemporary, prose_counter, prose_rus_classic, prose_su_classics, love_contemporary, love_history, love_detective, love_short, love_erotica, adv_western, adv_history, adv_indian, adv_maritime, adv_geo, adv_animal, adventure, child_tale, child_verse, child_prose, child_sf, child_det, child_adv, child_education, children, poetry, dramaturgy, antique_ant, antique_european, antique_russian, antique_east, antique_myths, antique, sci_history, sci_psychology, sci_culture, sci_religion, sci_philosophy, sci_politics, sci_business, sci_juris, sci_linguistic, sci_medicine, sci_phys, sci_math, sci_chem, sci_biology, sci_tech, science, comp_www, comp_programming, comp_hard, comp_soft, comp_db, comp_osnet, computers, ref_encyc, ref_dict, ref_ref, ref_guide, reference, nonf_biography, nonf_publicism, nonf_criticism, design, nonfiction, religion_rel, religion_esoterics, religion_self, religion, humor_anecdote, humor_prose, humor_verse, humor, home_cooking, home_pets, home_crafts, home_entertain, home_health, home_garden, home_diy, home_sport, home_sex, home   See: <a class="reference external" href="http://www.fictionbook.org/index.php/Eng:FictionBook_2.1_genres">http://www.fictionbook.org/index.php/Eng:FictionBook_2.1_genres</a> for a complete list with descriptions.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-fb2-output-pretty-print">
+<code class="descname">--pretty-print</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-fb2-output-pretty-print" title="Permalink to this definition">¶</a></dt>
+<dd><p>If specified, the output plugin will try to create output that is as human readable as possible. May not have any effect for some output plugins.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-fb2-output-sectionize">
+<code class="descname">--sectionize</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-fb2-output-sectionize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Specify the sectionization of elements. A value of <code class="docutils literal"><span class="pre">&quot;</span></code>nothing<code class="docutils literal"><span class="pre">&quot;</span></code> turns the book into a single section. A value of <code class="docutils literal"><span class="pre">&quot;</span></code>files<code class="docutils literal"><span class="pre">&quot;</span></code> turns each file into a separate section; use this if your device is having trouble. A value of <code class="docutils literal"><span class="pre">&quot;</span></code>Table of Contents<code class="docutils literal"><span class="pre">&quot;</span></code> turns the entries in the Table of Contents into titles and creates sections; if it fails, adjust the <code class="docutils literal"><span class="pre">&quot;</span></code>Structure detection<code class="docutils literal"><span class="pre">&quot;</span></code> and/or <code class="docutils literal"><span class="pre">&quot;</span></code>Table of Contents<code class="docutils literal"><span class="pre">&quot;</span></code> settings (turn on <code class="docutils literal"><span class="pre">&quot;</span></code>Force use of auto-generated Table of Contents<code class="docutils literal"><span class="pre">&quot;</span></code>).</p>
+</dd></dl>
+
+</div>
+<div class="section" id="html-output-options">
+<h2><a class="toc-backref" href="#id34">HTML Output Options</a><a class="headerlink" href="#html-output-options" title="Permalink to this headline">¶</a></h2>
+<dl class="option">
+<dt id="cmdoption-ebook-convert-html-output-extract-to">
+<code class="descname">--extract-to</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-html-output-extract-to" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extract the contents of the generated ZIP file to the specified directory. WARNING: The contents of the directory will be deleted.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-html-output-pretty-print">
+<code class="descname">--pretty-print</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-html-output-pretty-print" title="Permalink to this definition">¶</a></dt>
+<dd><p>If specified, the output plugin will try to create output that is as human readable as possible. May not have any effect for some output plugins.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-html-output-template-css">
+<code class="descname">--template-css</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-html-output-template-css" title="Permalink to this definition">¶</a></dt>
+<dd><p>CSS file used for the output instead of the default file</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-html-output-template-html">
+<code class="descname">--template-html</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-html-output-template-html" title="Permalink to this definition">¶</a></dt>
+<dd><p>Template used for the generation of the HTML contents of the book instead of the default file</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-html-output-template-html-index">
+<code class="descname">--template-html-index</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-html-output-template-html-index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Template used for generation of the HTML index file instead of the default file</p>
+</dd></dl>
+
+</div>
+<div class="section" id="htmlz-output-options">
+<h2><a class="toc-backref" href="#id35">HTMLZ Output Options</a><a class="headerlink" href="#htmlz-output-options" title="Permalink to this headline">¶</a></h2>
+<dl class="option">
+<dt id="cmdoption-ebook-convert-htmlz-output-htmlz-class-style">
+<code class="descname">--htmlz-class-style</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-htmlz-output-htmlz-class-style" title="Permalink to this definition">¶</a></dt>
+<dd><p>How to handle the CSS when using css-type = <code class="docutils literal"><span class="pre">'</span></code>class<code class="docutils literal"><span class="pre">'</span></code>. Default is external. external: Use an external CSS file that is linked in the document. inline: Place the CSS in the head section of the document.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-htmlz-output-htmlz-css-type">
+<code class="descname">--htmlz-css-type</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-htmlz-output-htmlz-css-type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Specify the handling of CSS. Default is class. class: Use CSS classes and have elements reference them. inline: Write the CSS as an inline style attribute. tag: Turn as many CSS styles as possible into HTML tags.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-htmlz-output-htmlz-title-filename">
+<code class="descname">--htmlz-title-filename</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-htmlz-output-htmlz-title-filename" title="Permalink to this definition">¶</a></dt>
+<dd><p>If set this option causes the file name of the HTML file inside the HTMLZ archive to be based on the book title.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-htmlz-output-pretty-print">
+<code class="descname">--pretty-print</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-htmlz-output-pretty-print" title="Permalink to this definition">¶</a></dt>
+<dd><p>If specified, the output plugin will try to create output that is as human readable as possible. May not have any effect for some output plugins.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="lit-output-options">
+<h2><a class="toc-backref" href="#id36">LIT Output Options</a><a class="headerlink" href="#lit-output-options" title="Permalink to this headline">¶</a></h2>
+<dl class="option">
+<dt id="cmdoption-ebook-convert-lit-output-pretty-print">
+<code class="descname">--pretty-print</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-lit-output-pretty-print" title="Permalink to this definition">¶</a></dt>
+<dd><p>If specified, the output plugin will try to create output that is as human readable as possible. May not have any effect for some output plugins.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="lrf-output-options">
+<h2><a class="toc-backref" href="#id37">LRF Output Options</a><a class="headerlink" href="#lrf-output-options" title="Permalink to this headline">¶</a></h2>
+<dl class="option">
+<dt id="cmdoption-ebook-convert-lrf-output-enable-autorotation">
+<code class="descname">--enable-autorotation</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-lrf-output-enable-autorotation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enable autorotation of images that are wider than the screen width.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-lrf-output-header">
+<code class="descname">--header</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-lrf-output-header" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a header to all the pages with title and author.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-lrf-output-header-format">
+<code class="descname">--header-format</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-lrf-output-header-format" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the format of the header. %a is replaced by the author and %t by the title. Default is %t by %a</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-lrf-output-header-separation">
+<code class="descname">--header-separation</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-lrf-output-header-separation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add extra spacing below the header. Default is 0 pt.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-lrf-output-minimum-indent">
+<code class="descname">--minimum-indent</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-lrf-output-minimum-indent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Minimum paragraph indent (the indent of the first line of a paragraph) in pts. Default: 0</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-lrf-output-mono-family">
+<code class="descname">--mono-family</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-lrf-output-mono-family" title="Permalink to this definition">¶</a></dt>
+<dd><p>The monospace family of fonts to embed</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-lrf-output-pretty-print">
+<code class="descname">--pretty-print</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-lrf-output-pretty-print" title="Permalink to this definition">¶</a></dt>
+<dd><p>If specified, the output plugin will try to create output that is as human readable as possible. May not have any effect for some output plugins.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-lrf-output-render-tables-as-images">
+<code class="descname">--render-tables-as-images</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-lrf-output-render-tables-as-images" title="Permalink to this definition">¶</a></dt>
+<dd><p>Render tables in the HTML as images (useful if the document has large or complex tables)</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-lrf-output-sans-family">
+<code class="descname">--sans-family</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-lrf-output-sans-family" title="Permalink to this definition">¶</a></dt>
+<dd><p>The sans-serif family of fonts to embed</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-lrf-output-serif-family">
+<code class="descname">--serif-family</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-lrf-output-serif-family" title="Permalink to this definition">¶</a></dt>
+<dd><p>The serif family of fonts to embed</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-lrf-output-text-size-multiplier-for-rendered-tables">
+<code class="descname">--text-size-multiplier-for-rendered-tables</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-lrf-output-text-size-multiplier-for-rendered-tables" title="Permalink to this definition">¶</a></dt>
+<dd><p>Multiply the size of text in rendered tables by this factor. Default is 1.0</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-lrf-output-wordspace">
+<code class="descname">--wordspace</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-lrf-output-wordspace" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the space between words in pts. Default is 2.5</p>
+</dd></dl>
+
+</div>
+<div class="section" id="mobi-output-options">
+<h2><a class="toc-backref" href="#id38">MOBI Output Options</a><a class="headerlink" href="#mobi-output-options" title="Permalink to this headline">¶</a></h2>
+<dl class="option">
+<dt id="cmdoption-ebook-convert-mobi-output-dont-compress">
+<code class="descname">--dont-compress</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-mobi-output-dont-compress" title="Permalink to this definition">¶</a></dt>
+<dd><p>Disable compression of the file contents.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-mobi-output-extract-to">
+<code class="descname">--extract-to</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-mobi-output-extract-to" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extract the contents of the generated MOBI file to the specified directory. The contents of the directory are first deleted, so be careful.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-mobi-output-mobi-file-type">
+<code class="descname">--mobi-file-type</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-mobi-output-mobi-file-type" title="Permalink to this definition">¶</a></dt>
+<dd><p>By default calibre generates MOBI files that contain the old MOBI 6 format. This format is compatible with all devices. However, by changing this setting, you can tell calibre to generate MOBI files that contain both MOBI 6 and the new KF8 format, or only the new KF8 format. KF8 has more features than MOBI 6, but only works with newer Kindles. Allowed values: old, both, new</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-mobi-output-mobi-ignore-margins">
+<code class="descname">--mobi-ignore-margins</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-mobi-output-mobi-ignore-margins" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ignore margins in the input document. If False, then the MOBI output plugin will try to convert margins specified in the input document, otherwise it will ignore them.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-mobi-output-mobi-keep-original-images">
+<code class="descname">--mobi-keep-original-images</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-mobi-output-mobi-keep-original-images" title="Permalink to this definition">¶</a></dt>
+<dd><p>By default calibre converts all images to JPEG format in the output MOBI file. This is for maximum compatibility as some older MOBI viewers have problems with other image formats. This option tells calibre not to do this. Useful if your document contains lots of GIF/PNG images that become very large when converted to JPEG.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-mobi-output-mobi-toc-at-start">
+<code class="descname">--mobi-toc-at-start</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-mobi-output-mobi-toc-at-start" title="Permalink to this definition">¶</a></dt>
+<dd><p>When adding the Table of Contents to the book, add it at the start of the book instead of the end. Not recommended.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-mobi-output-no-inline-toc">
+<code class="descname">--no-inline-toc</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-mobi-output-no-inline-toc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Don<code class="docutils literal"><span class="pre">'</span></code>t add Table of Contents to the book. Useful if the book has its own table of contents.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-mobi-output-personal-doc">
+<code class="descname">--personal-doc</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-mobi-output-personal-doc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tag for MOBI files to be marked as personal documents. This option has no effect on the conversion. It is used only when sending MOBI files to a device. If the file being sent has the specified tag, it will be marked as a personal document when sent to the Kindle.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-mobi-output-prefer-author-sort">
+<code class="descname">--prefer-author-sort</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-mobi-output-prefer-author-sort" title="Permalink to this definition">¶</a></dt>
+<dd><p>When present, use author sort field as author.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-mobi-output-pretty-print">
+<code class="descname">--pretty-print</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-mobi-output-pretty-print" title="Permalink to this definition">¶</a></dt>
+<dd><p>If specified, the output plugin will try to create output that is as human readable as possible. May not have any effect for some output plugins.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-mobi-output-share-not-sync">
+<code class="descname">--share-not-sync</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-mobi-output-share-not-sync" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enable sharing of book content via Facebook etc.  on the Kindle. WARNING: Using this feature means that  the book will not auto sync its last read position  on multiple devices. Complain to Amazon.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-mobi-output-toc-title">
+<code class="descname">--toc-title</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-mobi-output-toc-title" title="Permalink to this definition">¶</a></dt>
+<dd><p>Title for any generated in-line table of contents.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="oeb-output-options">
+<h2><a class="toc-backref" href="#id39">OEB Output Options</a><a class="headerlink" href="#oeb-output-options" title="Permalink to this headline">¶</a></h2>
+<dl class="option">
+<dt id="cmdoption-ebook-convert-oeb-output-pretty-print">
+<code class="descname">--pretty-print</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-oeb-output-pretty-print" title="Permalink to this definition">¶</a></dt>
+<dd><p>If specified, the output plugin will try to create output that is as human readable as possible. May not have any effect for some output plugins.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="pdb-output-options">
+<h2><a class="toc-backref" href="#id40">PDB Output Options</a><a class="headerlink" href="#pdb-output-options" title="Permalink to this headline">¶</a></h2>
+<dl class="option">
+<dt id="cmdoption-ebook-convert-pdb-output-format">
+<code class="descname">--format</code><code class="descclassname"></code><code class="descclassname">, </code><code class="descname">-f</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-pdb-output-format" title="Permalink to this definition">¶</a></dt>
+<dd><p>Format to use inside the pdb container. Choices are: [<code class="docutils literal"><span class="pre">'</span></code>doc<code class="docutils literal"><span class="pre">'</span></code>, <code class="docutils literal"><span class="pre">'</span></code>ereader<code class="docutils literal"><span class="pre">'</span></code>, <code class="docutils literal"><span class="pre">'</span></code>ztxt<code class="docutils literal"><span class="pre">'</span></code>]</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-pdb-output-inline-toc">
+<code class="descname">--inline-toc</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-pdb-output-inline-toc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add Table of Contents to beginning of the book.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-pdb-output-pdb-output-encoding">
+<code class="descname">--pdb-output-encoding</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-pdb-output-pdb-output-encoding" title="Permalink to this definition">¶</a></dt>
+<dd><p>Specify the character encoding of the output document. The default is cp1252. Note: This option is not honored by all formats.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-pdb-output-pretty-print">
+<code class="descname">--pretty-print</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-pdb-output-pretty-print" title="Permalink to this definition">¶</a></dt>
+<dd><p>If specified, the output plugin will try to create output that is as human readable as possible. May not have any effect for some output plugins.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="pdf-output-options">
+<h2><a class="toc-backref" href="#id41">PDF Output Options</a><a class="headerlink" href="#pdf-output-options" title="Permalink to this headline">¶</a></h2>
+<dl class="option">
+<dt id="cmdoption-ebook-convert-pdf-output-custom-size">
+<code class="descname">--custom-size</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-pdf-output-custom-size" title="Permalink to this definition">¶</a></dt>
+<dd><p>Custom size of the document. Use the form widthxheight e.g. <cite>123x321</cite> to specify the width and height. This overrides any specified paper-size.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-pdf-output-paper-size">
+<code class="descname">--paper-size</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-pdf-output-paper-size" title="Permalink to this definition">¶</a></dt>
+<dd><p>The size of the paper. This size will be overridden when a non default output profile is used. Default is letter. Choices are [u<code class="docutils literal"><span class="pre">'</span></code>a0<code class="docutils literal"><span class="pre">'</span></code>, u<code class="docutils literal"><span class="pre">'</span></code>a1<code class="docutils literal"><span class="pre">'</span></code>, u<code class="docutils literal"><span class="pre">'</span></code>a2<code class="docutils literal"><span class="pre">'</span></code>, u<code class="docutils literal"><span class="pre">'</span></code>a3<code class="docutils literal"><span class="pre">'</span></code>, u<code class="docutils literal"><span class="pre">'</span></code>a4<code class="docutils literal"><span class="pre">'</span></code>, u<code class="docutils literal"><span class="pre">'</span></code>a5<code class="docutils literal"><span class="pre">'</span></code>, u<code class="docutils literal"><span class="pre">'</span></code>a6<code class="docutils literal"><span class="pre">'</span></code>, u<code class="docutils literal"><span class="pre">'</span></code>b0<code class="docutils literal"><span class="pre">'</span></code>, u<code class="docutils literal"><span class="pre">'</span></code>b1<code class="docutils literal"><span class="pre">'</span></code>, u<code class="docutils literal"><span class="pre">'</span></code>b2<code class="docutils literal"><span class="pre">'</span></code>, u<code class="docutils literal"><span class="pre">'</span></code>b3<code class="docutils literal"><span class="pre">'</span></code>, u<code class="docutils literal"><span class="pre">'</span></code>b4<code class="docutils literal"><span class="pre">'</span></code>, u<code class="docutils literal"><span class="pre">'</span></code>b5<code class="docutils literal"><span class="pre">'</span></code>, u<code class="docutils literal"><span class="pre">'</span></code>b6<code class="docutils literal"><span class="pre">'</span></code>, u<code class="docutils literal"><span class="pre">'</span></code>legal<code class="docutils literal"><span class="pre">'</span></code>, u<code class="docutils literal"><span class="pre">'</span></code>letter<code class="docutils literal"><span class="pre">'</span></code>]</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-pdf-output-pdf-add-toc">
+<code class="descname">--pdf-add-toc</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-pdf-output-pdf-add-toc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a Table of Contents at the end of the PDF that lists page numbers. Useful if you want to print out the PDF. If this PDF is intended for electronic use, use the PDF Outline instead.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-pdf-output-pdf-default-font-size">
+<code class="descname">--pdf-default-font-size</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-pdf-output-pdf-default-font-size" title="Permalink to this definition">¶</a></dt>
+<dd><p>The default font size</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-pdf-output-pdf-footer-template">
+<code class="descname">--pdf-footer-template</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-pdf-output-pdf-footer-template" title="Permalink to this definition">¶</a></dt>
+<dd><p>An HTML template used to generate footers on every page. The strings _PAGENUM_, _TITLE_, _AUTHOR_ and _SECTION_ will be replaced by their current values.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-pdf-output-pdf-header-template">
+<code class="descname">--pdf-header-template</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-pdf-output-pdf-header-template" title="Permalink to this definition">¶</a></dt>
+<dd><p>An HTML template used to generate headers on every page. The strings _PAGENUM_, _TITLE_, _AUTHOR_ and _SECTION_ will be replaced by their current values.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-pdf-output-pdf-mark-links">
+<code class="descname">--pdf-mark-links</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-pdf-output-pdf-mark-links" title="Permalink to this definition">¶</a></dt>
+<dd><p>Surround all links with a red box, useful for debugging.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-pdf-output-pdf-mono-family">
+<code class="descname">--pdf-mono-family</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-pdf-output-pdf-mono-family" title="Permalink to this definition">¶</a></dt>
+<dd><p>The font family used to render monospace fonts</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-pdf-output-pdf-mono-font-size">
+<code class="descname">--pdf-mono-font-size</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-pdf-output-pdf-mono-font-size" title="Permalink to this definition">¶</a></dt>
+<dd><p>The default font size for monospaced text</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-pdf-output-pdf-page-margin-bottom">
+<code class="descname">--pdf-page-margin-bottom</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-pdf-output-pdf-page-margin-bottom" title="Permalink to this definition">¶</a></dt>
+<dd><p>The size of the bottom page margin, in pts. Default is 72pt. Overrides the common bottom page margin setting, unless set to zero.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-pdf-output-pdf-page-margin-left">
+<code class="descname">--pdf-page-margin-left</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-pdf-output-pdf-page-margin-left" title="Permalink to this definition">¶</a></dt>
+<dd><p>The size of the left page margin, in pts. Default is 72pt. Overrides the common left page margin setting.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-pdf-output-pdf-page-margin-right">
+<code class="descname">--pdf-page-margin-right</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-pdf-output-pdf-page-margin-right" title="Permalink to this definition">¶</a></dt>
+<dd><p>The size of the right page margin, in pts. Default is 72pt. Overrides the common right page margin setting, unless set to zero.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-pdf-output-pdf-page-margin-top">
+<code class="descname">--pdf-page-margin-top</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-pdf-output-pdf-page-margin-top" title="Permalink to this definition">¶</a></dt>
+<dd><p>The size of the top page margin, in pts. Default is 72pt. Overrides the common top page margin setting, unless set to zero.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-pdf-output-pdf-page-numbers">
+<code class="descname">--pdf-page-numbers</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-pdf-output-pdf-page-numbers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add page numbers to the bottom of every page in the generated PDF file. If you specify a footer template, it will take precedence over this option.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-pdf-output-pdf-sans-family">
+<code class="descname">--pdf-sans-family</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-pdf-output-pdf-sans-family" title="Permalink to this definition">¶</a></dt>
+<dd><p>The font family used to render sans-serif fonts</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-pdf-output-pdf-serif-family">
+<code class="descname">--pdf-serif-family</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-pdf-output-pdf-serif-family" title="Permalink to this definition">¶</a></dt>
+<dd><p>The font family used to render serif fonts</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-pdf-output-pdf-standard-font">
+<code class="descname">--pdf-standard-font</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-pdf-output-pdf-standard-font" title="Permalink to this definition">¶</a></dt>
+<dd><p>The font family used to render monospace fonts</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-pdf-output-preserve-cover-aspect-ratio">
+<code class="descname">--preserve-cover-aspect-ratio</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-pdf-output-preserve-cover-aspect-ratio" title="Permalink to this definition">¶</a></dt>
+<dd><p>Preserve the aspect ratio of the cover, instead of stretching it to fill the full first page of the generated pdf.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-pdf-output-pretty-print">
+<code class="descname">--pretty-print</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-pdf-output-pretty-print" title="Permalink to this definition">¶</a></dt>
+<dd><p>If specified, the output plugin will try to create output that is as human readable as possible. May not have any effect for some output plugins.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-pdf-output-toc-title">
+<code class="descname">--toc-title</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-pdf-output-toc-title" title="Permalink to this definition">¶</a></dt>
+<dd><p>Title for generated table of contents.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-pdf-output-uncompressed-pdf">
+<code class="descname">--uncompressed-pdf</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-pdf-output-uncompressed-pdf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate an uncompressed PDF, useful for debugging, only works with the new PDF engine.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-pdf-output-unit">
+<code class="descname">--unit</code><code class="descclassname"></code><code class="descclassname">, </code><code class="descname">-u</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-pdf-output-unit" title="Permalink to this definition">¶</a></dt>
+<dd><p>The unit of measure for page sizes. Default is inch. Choices are [<code class="docutils literal"><span class="pre">'</span></code>millimeter<code class="docutils literal"><span class="pre">'</span></code>, <code class="docutils literal"><span class="pre">'</span></code>centimeter<code class="docutils literal"><span class="pre">'</span></code>, <code class="docutils literal"><span class="pre">'</span></code>point<code class="docutils literal"><span class="pre">'</span></code>, <code class="docutils literal"><span class="pre">'</span></code>inch<code class="docutils literal"><span class="pre">'</span></code>, <code class="docutils literal"><span class="pre">'</span></code>pica<code class="docutils literal"><span class="pre">'</span></code>, <code class="docutils literal"><span class="pre">'</span></code>didot<code class="docutils literal"><span class="pre">'</span></code>, <code class="docutils literal"><span class="pre">'</span></code>cicero<code class="docutils literal"><span class="pre">'</span></code>, <code class="docutils literal"><span class="pre">'</span></code>devicepixel<code class="docutils literal"><span class="pre">'</span></code>] Note: This does not override the unit for margins!</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-pdf-output-use-profile-size">
+<code class="descname">--use-profile-size</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-pdf-output-use-profile-size" title="Permalink to this definition">¶</a></dt>
+<dd><p>Instead of using the paper size specified in the PDF Output options, use a paper size corresponding to the current output profile. Useful if you want to generate a PDF for viewing on a specific device.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="pml-output-options">
+<h2><a class="toc-backref" href="#id42">PML Output Options</a><a class="headerlink" href="#pml-output-options" title="Permalink to this headline">¶</a></h2>
+<dl class="option">
+<dt id="cmdoption-ebook-convert-pml-output-full-image-depth">
+<code class="descname">--full-image-depth</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-pml-output-full-image-depth" title="Permalink to this definition">¶</a></dt>
+<dd><p>Do not reduce the size or bit depth of images. Images have their size and depth reduced by default to accommodate applications that can not convert images on their own such as Dropbook.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-pml-output-inline-toc">
+<code class="descname">--inline-toc</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-pml-output-inline-toc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add Table of Contents to beginning of the book.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-pml-output-pml-output-encoding">
+<code class="descname">--pml-output-encoding</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-pml-output-pml-output-encoding" title="Permalink to this definition">¶</a></dt>
+<dd><p>Specify the character encoding of the output document. The default is cp1252.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-pml-output-pretty-print">
+<code class="descname">--pretty-print</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-pml-output-pretty-print" title="Permalink to this definition">¶</a></dt>
+<dd><p>If specified, the output plugin will try to create output that is as human readable as possible. May not have any effect for some output plugins.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="rb-output-options">
+<h2><a class="toc-backref" href="#id43">RB Output Options</a><a class="headerlink" href="#rb-output-options" title="Permalink to this headline">¶</a></h2>
+<dl class="option">
+<dt id="cmdoption-ebook-convert-rb-output-inline-toc">
+<code class="descname">--inline-toc</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-rb-output-inline-toc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add Table of Contents to beginning of the book.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-rb-output-pretty-print">
+<code class="descname">--pretty-print</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-rb-output-pretty-print" title="Permalink to this definition">¶</a></dt>
+<dd><p>If specified, the output plugin will try to create output that is as human readable as possible. May not have any effect for some output plugins.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="rtf-output-options">
+<h2><a class="toc-backref" href="#id44">RTF Output Options</a><a class="headerlink" href="#rtf-output-options" title="Permalink to this headline">¶</a></h2>
+<dl class="option">
+<dt id="cmdoption-ebook-convert-rtf-output-pretty-print">
+<code class="descname">--pretty-print</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-rtf-output-pretty-print" title="Permalink to this definition">¶</a></dt>
+<dd><p>If specified, the output plugin will try to create output that is as human readable as possible. May not have any effect for some output plugins.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="snb-output-options">
+<h2><a class="toc-backref" href="#id45">SNB Output Options</a><a class="headerlink" href="#snb-output-options" title="Permalink to this headline">¶</a></h2>
+<dl class="option">
+<dt id="cmdoption-ebook-convert-snb-output-pretty-print">
+<code class="descname">--pretty-print</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-snb-output-pretty-print" title="Permalink to this definition">¶</a></dt>
+<dd><p>If specified, the output plugin will try to create output that is as human readable as possible. May not have any effect for some output plugins.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-snb-output-snb-dont-indent-first-line">
+<code class="descname">--snb-dont-indent-first-line</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-snb-output-snb-dont-indent-first-line" title="Permalink to this definition">¶</a></dt>
+<dd><p>Specify whether or not to insert two space characters to indent the first line of each paragraph.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-snb-output-snb-full-screen">
+<code class="descname">--snb-full-screen</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-snb-output-snb-full-screen" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resize all the images for full screen view.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-snb-output-snb-hide-chapter-name">
+<code class="descname">--snb-hide-chapter-name</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-snb-output-snb-hide-chapter-name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Specify whether or not to hide the chapter title for each chapter. Useful for image-only output (eg. comics).</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-snb-output-snb-insert-empty-line">
+<code class="descname">--snb-insert-empty-line</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-snb-output-snb-insert-empty-line" title="Permalink to this definition">¶</a></dt>
+<dd><p>Specify whether or not to insert an empty line between two paragraphs.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-snb-output-snb-max-line-length">
+<code class="descname">--snb-max-line-length</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-snb-output-snb-max-line-length" title="Permalink to this definition">¶</a></dt>
+<dd><p>The maximum number of characters per line. This splits on the first space before the specified value. If no space is found the line will be broken at the space after and will exceed the specified value. Also, there is a minimum of 25 characters. Use 0 to disable line splitting.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-snb-output-snb-output-encoding">
+<code class="descname">--snb-output-encoding</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-snb-output-snb-output-encoding" title="Permalink to this definition">¶</a></dt>
+<dd><p>Specify the character encoding of the output document. The default is utf-8.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="tcr-output-options">
+<h2><a class="toc-backref" href="#id46">TCR Output Options</a><a class="headerlink" href="#tcr-output-options" title="Permalink to this headline">¶</a></h2>
+<dl class="option">
+<dt id="cmdoption-ebook-convert-tcr-output-pretty-print">
+<code class="descname">--pretty-print</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-tcr-output-pretty-print" title="Permalink to this definition">¶</a></dt>
+<dd><p>If specified, the output plugin will try to create output that is as human readable as possible. May not have any effect for some output plugins.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-tcr-output-tcr-output-encoding">
+<code class="descname">--tcr-output-encoding</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-tcr-output-tcr-output-encoding" title="Permalink to this definition">¶</a></dt>
+<dd><p>Specify the character encoding of the output document. The default is utf-8.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="txt-output-options">
+<h2><a class="toc-backref" href="#id47">TXT Output Options</a><a class="headerlink" href="#txt-output-options" title="Permalink to this headline">¶</a></h2>
+<dl class="option">
+<dt id="cmdoption-ebook-convert-txt-output-force-max-line-length">
+<code class="descname">--force-max-line-length</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-txt-output-force-max-line-length" title="Permalink to this definition">¶</a></dt>
+<dd><p>Force splitting on the max-line-length value when no space is present. Also allows max-line-length to be below the minimum</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-txt-output-inline-toc">
+<code class="descname">--inline-toc</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-txt-output-inline-toc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add Table of Contents to beginning of the book.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-txt-output-keep-color">
+<code class="descname">--keep-color</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-txt-output-keep-color" title="Permalink to this definition">¶</a></dt>
+<dd><p>Do not remove font color from output. This is only useful when txt-output-formatting is set to textile. Textile is the only formatting that supports setting font color. If this option is not specified font color will not be set and default to the color displayed by the reader (generally this is black).</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-txt-output-keep-image-references">
+<code class="descname">--keep-image-references</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-txt-output-keep-image-references" title="Permalink to this definition">¶</a></dt>
+<dd><p>Do not remove image references within the document. This is only useful when paired with a txt-output-formatting option that is not none because links are always removed with plain text output.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-txt-output-keep-links">
+<code class="descname">--keep-links</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-txt-output-keep-links" title="Permalink to this definition">¶</a></dt>
+<dd><p>Do not remove links within the document. This is only useful when paired with a txt-output-formatting option that is not none because links are always removed with plain text output.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-txt-output-max-line-length">
+<code class="descname">--max-line-length</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-txt-output-max-line-length" title="Permalink to this definition">¶</a></dt>
+<dd><p>The maximum number of characters per line. This splits on the first space before the specified value. If no space is found the line will be broken at the space after and will exceed the specified value. Also, there is a minimum of 25 characters. Use 0 to disable line splitting.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-txt-output-newline">
+<code class="descname">--newline</code><code class="descclassname"></code><code class="descclassname">, </code><code class="descname">-n</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-txt-output-newline" title="Permalink to this definition">¶</a></dt>
+<dd><p>Type of newline to use. Options are [<code class="docutils literal"><span class="pre">'</span></code>old_mac<code class="docutils literal"><span class="pre">'</span></code>, <code class="docutils literal"><span class="pre">'</span></code>system<code class="docutils literal"><span class="pre">'</span></code>, <code class="docutils literal"><span class="pre">'</span></code>unix<code class="docutils literal"><span class="pre">'</span></code>, <code class="docutils literal"><span class="pre">'</span></code>windows<code class="docutils literal"><span class="pre">'</span></code>]. Default is <code class="docutils literal"><span class="pre">'</span></code>system<code class="docutils literal"><span class="pre">'</span></code>. Use <code class="docutils literal"><span class="pre">'</span></code>old_mac<code class="docutils literal"><span class="pre">'</span></code> for compatibility with Mac OS 9 and earlier. For Mac OS X use <code class="docutils literal"><span class="pre">'</span></code>unix<code class="docutils literal"><span class="pre">'</span></code>. <code class="docutils literal"><span class="pre">'</span></code>system<code class="docutils literal"><span class="pre">'</span></code> will default to the newline type used by this OS.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-txt-output-pretty-print">
+<code class="descname">--pretty-print</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-txt-output-pretty-print" title="Permalink to this definition">¶</a></dt>
+<dd><p>If specified, the output plugin will try to create output that is as human readable as possible. May not have any effect for some output plugins.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-txt-output-txt-output-encoding">
+<code class="descname">--txt-output-encoding</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-txt-output-txt-output-encoding" title="Permalink to this definition">¶</a></dt>
+<dd><p>Specify the character encoding of the output document. The default is utf-8.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-txt-output-txt-output-formatting">
+<code class="descname">--txt-output-formatting</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-txt-output-txt-output-formatting" title="Permalink to this definition">¶</a></dt>
+<dd><p>Formatting used within the document. * plain: Produce plain text. * markdown: Produce Markdown formatted text. * textile: Produce Textile formatted text.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="txtz-output-options">
+<h2><a class="toc-backref" href="#id48">TXTZ Output Options</a><a class="headerlink" href="#txtz-output-options" title="Permalink to this headline">¶</a></h2>
+<dl class="option">
+<dt id="cmdoption-ebook-convert-txtz-output-force-max-line-length">
+<code class="descname">--force-max-line-length</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-txtz-output-force-max-line-length" title="Permalink to this definition">¶</a></dt>
+<dd><p>Force splitting on the max-line-length value when no space is present. Also allows max-line-length to be below the minimum</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-txtz-output-inline-toc">
+<code class="descname">--inline-toc</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-txtz-output-inline-toc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add Table of Contents to beginning of the book.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-txtz-output-keep-color">
+<code class="descname">--keep-color</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-txtz-output-keep-color" title="Permalink to this definition">¶</a></dt>
+<dd><p>Do not remove font color from output. This is only useful when txt-output-formatting is set to textile. Textile is the only formatting that supports setting font color. If this option is not specified font color will not be set and default to the color displayed by the reader (generally this is black).</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-txtz-output-keep-image-references">
+<code class="descname">--keep-image-references</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-txtz-output-keep-image-references" title="Permalink to this definition">¶</a></dt>
+<dd><p>Do not remove image references within the document. This is only useful when paired with a txt-output-formatting option that is not none because links are always removed with plain text output.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-txtz-output-keep-links">
+<code class="descname">--keep-links</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-txtz-output-keep-links" title="Permalink to this definition">¶</a></dt>
+<dd><p>Do not remove links within the document. This is only useful when paired with a txt-output-formatting option that is not none because links are always removed with plain text output.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-txtz-output-max-line-length">
+<code class="descname">--max-line-length</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-txtz-output-max-line-length" title="Permalink to this definition">¶</a></dt>
+<dd><p>The maximum number of characters per line. This splits on the first space before the specified value. If no space is found the line will be broken at the space after and will exceed the specified value. Also, there is a minimum of 25 characters. Use 0 to disable line splitting.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-txtz-output-newline">
+<code class="descname">--newline</code><code class="descclassname"></code><code class="descclassname">, </code><code class="descname">-n</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-txtz-output-newline" title="Permalink to this definition">¶</a></dt>
+<dd><p>Type of newline to use. Options are [<code class="docutils literal"><span class="pre">'</span></code>old_mac<code class="docutils literal"><span class="pre">'</span></code>, <code class="docutils literal"><span class="pre">'</span></code>system<code class="docutils literal"><span class="pre">'</span></code>, <code class="docutils literal"><span class="pre">'</span></code>unix<code class="docutils literal"><span class="pre">'</span></code>, <code class="docutils literal"><span class="pre">'</span></code>windows<code class="docutils literal"><span class="pre">'</span></code>]. Default is <code class="docutils literal"><span class="pre">'</span></code>system<code class="docutils literal"><span class="pre">'</span></code>. Use <code class="docutils literal"><span class="pre">'</span></code>old_mac<code class="docutils literal"><span class="pre">'</span></code> for compatibility with Mac OS 9 and earlier. For Mac OS X use <code class="docutils literal"><span class="pre">'</span></code>unix<code class="docutils literal"><span class="pre">'</span></code>. <code class="docutils literal"><span class="pre">'</span></code>system<code class="docutils literal"><span class="pre">'</span></code> will default to the newline type used by this OS.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-txtz-output-pretty-print">
+<code class="descname">--pretty-print</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-txtz-output-pretty-print" title="Permalink to this definition">¶</a></dt>
+<dd><p>If specified, the output plugin will try to create output that is as human readable as possible. May not have any effect for some output plugins.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-txtz-output-txt-output-encoding">
+<code class="descname">--txt-output-encoding</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-txtz-output-txt-output-encoding" title="Permalink to this definition">¶</a></dt>
+<dd><p>Specify the character encoding of the output document. The default is utf-8.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-ebook-convert-txtz-output-txt-output-formatting">
+<code class="descname">--txt-output-formatting</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-ebook-convert-txtz-output-txt-output-formatting" title="Permalink to this definition">¶</a></dt>
+<dd><p>Formatting used within the document. * plain: Produce plain text. * markdown: Produce Markdown formatted text. * textile: Produce Textile formatted text.</p>
+</dd></dl>
+
+</div>
+</div>
+
+
+        </div>
+        </div>
+      </div>
+        
+		<script type="text/javascript">
+			window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+			ga('create', 'UA-20736318-1', 'auto');
+			ga('send', 'pageview');
+		</script>
+		<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+        <p class="logo">
+            <a href="//calibre-ebook.com"><img class="logo" src="../../_static/logo.png" alt="Logo"/></a>
+        </p>
+
+        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" title="Contribute to support calibre development">
+            <input type="hidden" name="cmd" value="_s-xclick" />
+            <input type="hidden" name="hosted_button_id" value="AF4H3B8QVDG6N" />
+            <input type="image" src="../../_static/simple_donate_button.gif" border="0" name="submit" alt="Contribute to support calibre development" style="border:0pt" />
+            <img alt="" border="0" src="https://www.paypalobjects.com/en_GB/i/scr/pixel.gif" width="1" height="1" />
+        </form>
+        <hr/>
+        <div><a href="#" onclick="toggle_languages_menu(); return false;">Change language</a></div>
+        <ul id="languages-menu">
+        <li><a href="/cs/generated/cs/ebook-convert.html">Czech</a></li>
+        <li><a href="/nl/generated/nl/ebook-convert.html">Dutch (NL)</a></li>
+        <li><a href="/fr/generated/fr/ebook-convert.html">French</a></li>
+        <li><a href="/de/generated/de/ebook-convert.html">German</a></li>
+        <li><a href="/es/generated/es/ebook-convert.html">Spanish</a></li>
+        <li><a href="/sv/generated/sv/ebook-convert.html">Swedish</a></li>
+        <li><a href="/tr/generated/tr/ebook-convert.html">Turkish</a></li>
+        <li><a href="/uk/generated/uk/ebook-convert.html">Ukrainian</a></li>
+        </ul>
+        <hr/>
+
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#"><code class="docutils literal"><span class="pre">ebook-convert</span></code></a><ul>
+<li><a class="reference internal" href="#look-and-feel">Look and Feel</a></li>
+<li><a class="reference internal" href="#heuristic-processing">Heuristic Processing</a></li>
+<li><a class="reference internal" href="#search-and-replace">Search and Replace</a></li>
+<li><a class="reference internal" href="#structure-detection">Structure Detection</a></li>
+<li><a class="reference internal" href="#table-of-contents">Table of Contents</a></li>
+<li><a class="reference internal" href="#metadata">Metadata</a></li>
+<li><a class="reference internal" href="#debug">Debug</a></li>
+<li><a class="reference internal" href="#azw4-input-options">AZW4 Input Options</a></li>
+<li><a class="reference internal" href="#chm-input-options">CHM Input Options</a></li>
+<li><a class="reference internal" href="#comic-input-options">Comic Input Options</a></li>
+<li><a class="reference internal" href="#djvu-input-options">DJVU Input Options</a></li>
+<li><a class="reference internal" href="#docx-input-options">DOCX Input Options</a></li>
+<li><a class="reference internal" href="#epub-input-options">EPUB Input Options</a></li>
+<li><a class="reference internal" href="#fb2-input-options">FB2 Input Options</a></li>
+<li><a class="reference internal" href="#htlz-input-options">HTLZ Input Options</a></li>
+<li><a class="reference internal" href="#html-input-options">HTML Input Options</a></li>
+<li><a class="reference internal" href="#lit-input-options">LIT Input Options</a></li>
+<li><a class="reference internal" href="#lrf-input-options">LRF Input Options</a></li>
+<li><a class="reference internal" href="#mobi-input-options">MOBI Input Options</a></li>
+<li><a class="reference internal" href="#odt-input-options">ODT Input Options</a></li>
+<li><a class="reference internal" href="#pdb-input-options">PDB Input Options</a></li>
+<li><a class="reference internal" href="#pdf-input-options">PDF Input Options</a></li>
+<li><a class="reference internal" href="#pml-input-options">PML Input Options</a></li>
+<li><a class="reference internal" href="#rb-input-options">RB Input Options</a></li>
+<li><a class="reference internal" href="#rtf-input-options">RTF Input Options</a></li>
+<li><a class="reference internal" href="#recipe-input-options">Recipe Input Options</a></li>
+<li><a class="reference internal" href="#snb-input-options">SNB Input Options</a></li>
+<li><a class="reference internal" href="#tcr-input-options">TCR Input Options</a></li>
+<li><a class="reference internal" href="#txt-input-options">TXT Input Options</a></li>
+<li><a class="reference internal" href="#azw3-output-options">AZW3 Output Options</a></li>
+<li><a class="reference internal" href="#docx-output-options">DOCX Output Options</a></li>
+<li><a class="reference internal" href="#epub-output-options">EPUB Output Options</a></li>
+<li><a class="reference internal" href="#fb2-output-options">FB2 Output Options</a></li>
+<li><a class="reference internal" href="#html-output-options">HTML Output Options</a></li>
+<li><a class="reference internal" href="#htmlz-output-options">HTMLZ Output Options</a></li>
+<li><a class="reference internal" href="#lit-output-options">LIT Output Options</a></li>
+<li><a class="reference internal" href="#lrf-output-options">LRF Output Options</a></li>
+<li><a class="reference internal" href="#mobi-output-options">MOBI Output Options</a></li>
+<li><a class="reference internal" href="#oeb-output-options">OEB Output Options</a></li>
+<li><a class="reference internal" href="#pdb-output-options">PDB Output Options</a></li>
+<li><a class="reference internal" href="#pdf-output-options">PDF Output Options</a></li>
+<li><a class="reference internal" href="#pml-output-options">PML Output Options</a></li>
+<li><a class="reference internal" href="#rb-output-options">RB Output Options</a></li>
+<li><a class="reference internal" href="#rtf-output-options">RTF Output Options</a></li>
+<li><a class="reference internal" href="#snb-output-options">SNB Output Options</a></li>
+<li><a class="reference internal" href="#tcr-output-options">TCR Output Options</a></li>
+<li><a class="reference internal" href="#txt-output-options">TXT Output Options</a></li>
+<li><a class="reference internal" href="#txtz-output-options">TXTZ Output Options</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="calibredb.html"
+                        title="previous chapter"><code class="docutils literal"><span class="pre">calibredb</span></code></a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="ebook-edit.html"
+                        title="next chapter"><code class="docutils literal"><span class="pre">ebook-edit</span></code></a></p>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="ebook-edit.html" title="ebook-edit"
+             >next</a></li>
+        <li class="right" >
+          <a href="calibredb.html" title="calibredb"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Start</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="cli-index.html" >Command Line Interface</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright Kovid Goyal.
+      Last updated on May 13, 2017.
+    </div>
+  </body>
+</html>

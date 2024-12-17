@@ -1,0 +1,33 @@
+[]
+Date=20-01-05
+Issue=Policy10
+Details=
+* Step 1
+
+* Step 2
+
+* Step 3
+Status=Green
+
+[]
+Date=20-02-07
+Issue=Policy14
+Details=
+* Do 1
+
+* Do 2
+
+* Do 3
+Status=Red
+
+[]
+Date=20-03-27
+Issue=Policy23
+Details=
+* Make 1
+
+* Make 2
+
+* Make 3
+Status=Yellow
+

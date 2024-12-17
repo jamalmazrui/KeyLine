@@ -1,0 +1,448 @@
+hello and welcome to inclusive design 24
+
+for 2018 this is our pre-conference
+
+countdown because kickoff for our first
+
+talk is just mere minutes away but
+
+before we do that I'm delighted to be
+
+joined by several of the id24 organizing
+
+team say hello everyone and also by the
+
+lovely people we are very proud and
+
+happy to count as our partners for
+
+inclusive design 24 micro CLO Melanie
+
+Richards David Caldwell
+
+Sarah Poulos and Andrew arch and it
+
+would be great just to talk to all of
+
+you about your reasons for being part of
+
+this interesting and exciting 24 hour
+
+event so Sarah and Andrew from intopia
+
+can I perhaps ask you what prompted you
+
+to get involved and become partners for
+
+id24 for us we just love the concept of
+
+being able to share so much expertise
+
+from around the world with so many
+
+people I guess being in Australia but
+
+are always a little bit out of sync with
+
+everyone else particularly and it's also
+
+a little bit harder for us to connect
+
+with a lot of our international partners
+
+for us geographically in particular it's
+
+this awesome experience that people
+
+commune in interactively presenters
+
+during presentation after the
+
+presentation and just learn more and
+
+share the passion around what you need
+
+and then follow up with the ones that
+
+particular interest to them following
+
+because it's great that you always put
+
+them online and make them available
+
+afterwards yeah that was always a big
+
+part of our mission with this was to
+
+create something that not only existed
+
+for the 24 hours itself but was around
+
+for long after so that anyone who wasn't
+
+around to engage during the 24 hours kid
+
+could take time to
+
+listen to the talks afterwards Melanie
+
+you join us from the Microsoft edge team
+
+what brought you to the inclusive design
+
+24 table yes so you know Microsoft's
+
+mission is all about empowering everyone
+
+to achieve more and locally on the
+
+Microsoft edge team and that means the
+
+web just works for everyone so no matter
+
+you know someone this ability or context
+
+or environment you know they can
+
+participate in the web and so we're
+
+super thrilled to be able to support the
+
+community and really sharing that
+
+knowledge and building up everybody
+
+skills and creating an inclusive web and
+
+it's super lovely that you know this is
+
+free and online and people can join from
+
+wherever they already are so I thought
+
+that was really cool so thank you for
+
+putting this on I know totally this it's
+
+terrific to have Microsoft and the edge
+
+team supporting us on this one
+
+I should tend to David Coldwell now from
+
+Barclays the Barclays Bank accessibility
+
+team David you and Barclays accessive
+
+have been one of our greatest champions
+
+for id24 what's your perception of the
+
+event this year look we love being part
+
+of a only 24 and we've got this big this
+
+undercurrent of wanting to help and
+
+build and grow a community of
+
+professionals across the world around
+
+inclusive design around accessibility
+
+cuz like all the people in here we know
+
+that this can't just be a bunch of
+
+accessibility professionals it's got to
+
+be everybody and sort of part of our
+
+ambition to become the most accessible
+
+inclusive but to come me there's a
+
+recognition in there that we can't do
+
+that alone
+
+so only 24 gives us a great opportunity
+
+to obscure our people because you know
+
+thousands of Barclays colleagues across
+
+the world are gonna be watching us
+
+because we've got people across the
+
+world and but also it will help upskill
+
+a lot of people from other companies
+
+great and we really hope they will be
+
+tuning in wherever they are and I think
+
+you've touched on something that's
+
+really important to the spirit of id24
+
+and that's that idea
+
+we can't do this on our own none of us
+
+can we need more people more creative
+
+ideas more inputs and if this is a way
+
+to help that happen then that's really
+
+wonderful to hear thank you David for
+
+helping us make it happen last but by
+
+absolutely no means least we need to
+
+turn to Mike passio who is without
+
+question our original ID 24 champion
+
+he's the one who when he heard about the
+
+idea that we had many many years ago was
+
+the first one to actually put in place
+
+the support mechanisms to make it happen
+
+so Mike is great to have you here for
+
+the fifth id24 what interests you about
+
+this idea what makes it worthwhile to be
+
+part of things
+
+thanks very much Leonie and of course
+
+it's great to be here to square me to be
+
+here with a lot of friends and
+
+colleagues in the field good to see some
+
+new sponsors this year for ID 20 for us
+
+as Leonie said this was an idea that we
+
+had several years ago and it really was
+
+a matter of me and a couple of our folks
+
+and in TPG giving it a little boost and
+
+a little pinch so to speak and get it up
+
+and get it running and and we did and so
+
+to be here for five years later with the
+
+underlying theme still being saying that
+
+is that we feel that so much of our time
+
+as technologists in the field of
+
+inclusion and disability and
+
+accessibility is something that we spend
+
+for companies and corporate environments
+
+maybe even nonprofits but it's time for
+
+us this is our 24 hours in our friends
+
+and our colleagues to give back to to
+
+our friends and to our friends with
+
+disabilities certainly to those who are
+
+actually thinking about a design
+
+development UX and another a number of
+
+different technologies where
+
+accessibility needs to you know to live
+
+and breathe and be like air it should be
+
+free it should be a part of a whole and
+
+it should be a part of what you all of
+
+you folks have been doing for for these
+
+many years
+
+building into your systems and your
+
+platforms and that's really what this
+
+session is other than that I just want
+
+the order to know that I'm dressed in my
+
+suit
+
+Mike I can't imagine you dressed in
+
+anything else so it's good to know thank
+
+you and and I might you made it a great
+
+point there about you know keeping id24
+
+free open for everybody caption so it's
+
+as inclusive as we can make it and
+
+really to all of you thank you so much
+
+for for partnering with us to do this
+
+because it's it's your help
+
+truly that makes that that a possible
+
+thing so thank you I'm gonna keep this
+
+over now to the rest of the id24 team
+
+who are here with me just to find out
+
+what everybody's really looking forward
+
+to over the next 24 hours and I'm just
+
+going to leave you with a parting shot
+
+that the one talk I'm really looking
+
+forward to is the one on web payments TP
+
+g's activities at w3c are very important
+
+to many of us and that's a w3c standard
+
+so Marcus's talk on that is the one I'm
+
+really looking forward to but Ian what's
+
+what's on your top score card for the 24
+
+hours they see you so much I think we've
+
+got a great opening talk with Bruce
+
+since Aaron who are going to really set
+
+the tone for id24 I think this year
+
+talking about how the web is supposed to
+
+be for it for everyone and then we close
+
+out with with Aaron talking about
+
+performance and how it
+
+cuase to accessibility and I think
+
+that's that's a connection that is often
+
+missed is not considered and if I can
+
+pick one more I'm going to pick Andy
+
+Bell power of progressive enhancement
+
+it's nice as a as a developer to know
+
+that it's not just you know my old
+
+grumpy Developer Forum attitude what's
+
+do web development pass on to lady
+
+Leland well there are a ton of good ones
+
+here but I happen to be starting at noon
+
+the eastern time which syncs up with the
+
+co.design approach to automated cooking
+
+appliances this one is fascinating to me
+
+because it's outside of the standard web
+
+stuff that that we do every day and it
+
+also might fit very well with a story
+
+I'm writing about armor
+
+skillet so this disconnection hey and
+
+there's a Scott is that Scott I see
+
+Scott what are you looking for a there
+
+yeah I don't know there's a lot of
+
+really great talks this this year I'm
+
+particularly looking forward to Glendon
+
+wilcos uh accessibility Wars because
+
+that sounds quite interesting to me as
+
+well as Kathleen her excessively
+
+accessibility flavored react components
+
+just been seen a lot of chatter about
+
+react and accessibility lately so I'd
+
+love to see a talk about that and be
+
+able to then show it to a bunch of
+
+people yeah I was talking to Kathleen
+
+just before the conference and and she's
+
+really just bubbling with ideas around
+
+that so I think no one's gonna be a
+
+great talk you're right Scott okay - we
+
+need to wrap up we just ah that's so
+
+that's all of us for now we are going to
+
+jump off this we will be setting up the
+
+first official id24 2018 at the top of
+
+the hour so please join us then
+
+okay
+

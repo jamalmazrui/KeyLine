@@ -1,0 +1,4 @@
+reportLevels: ["violation", "potentialviolation", "recommendation", "potentialrecommendation", "manual", "pass"]
+outputFormat: ["csv", "json", "html", "xlsx"]
+outputFolder: ./results
+outputFilenameTimestamp: false

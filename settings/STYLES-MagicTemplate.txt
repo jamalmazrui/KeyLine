@@ -1,0 +1,1031 @@
+121 styles used by 303 paragraphs:
+Abstract
+Author
+Balloon Text
+Bibliography
+Block Left Indent
+Block Text
+Body Text
+Body Text 2
+Body Text 3
+Body Text First Indent
+Body Text First Indent 2
+Body Text Indent
+Body Text Indent 2
+Body Text Indent 3
+Caption
+Captioned Figure
+Center
+Closing
+Comment Subject
+Comment Text
+Compact
+Copyright
+Date
+Definition
+Definition Term
+Document Map
+E-mail Signature
+Endnote Text
+Envelope Address
+Envelope Return
+Figure
+First Indent Justify
+First Indent Justify Plus
+First Indent Unjustify
+First Indent Unjustify Plus
+First Paragraph
+First Paragraph Plus
+Footer
+Footnote Text
+Header
+Heading 1
+Heading 2
+Heading 3
+Heading 4
+Heading 5
+Heading 6
+Heading 7
+Heading 8
+Heading 9
+HTML Address
+HTML Preformatted
+Image Caption
+Index 1
+Index 2
+Index 3
+Index 4
+Index 5
+Index 6
+Index 7
+Index 8
+Index 9
+Index Heading
+Intense Quote
+List
+List 2
+List 3
+List 4
+List 5
+List Bullet
+List Bullet 2
+List Bullet 3
+List Bullet 4
+List Bullet 5
+List Bullet Plus
+List Continue
+List Continue 2
+List Continue 3
+List Continue 4
+List Continue 5
+List Number
+List Number 2
+List Number 3
+List Number 4
+List Number 5
+List Number Plus
+List Paragraph
+Macro Text
+Message Header
+No Spacing
+Normal
+Normal (Web)
+Normal Indent
+Normal Plus
+Note Heading
+Plain Text
+Poem
+Quote
+Right Align
+Right Align Plus
+Salutation
+Separator
+Signature
+Source Code
+Subtitle
+Table Caption
+Table of Authorities
+Table of Figures
+Title
+TOA Heading
+TOC 1
+TOC 2
+TOC 3
+TOC 4
+TOC 5
+TOC 6
+TOC 7
+TOC 8
+TOC 9
+TOC Heading
+Undent Justify
+Undent Justify Plus
+
+[Abstract]
+This is paragraph style Abstract.Justified, Style: Hide until used, Show in the Styles galleryBased on: Compact
+
+[Separator]
+* * *
+
+[Author]
+This is paragraph style Author.Style: Hide until used, Show in the Styles galleryBased on: CenterFollowing style: Normal
+
+[Separator]
+* * *
+
+[Balloon Text]
+This is paragraph style Balloon Text.Font: (Default) Segoe UI, 9 pt, Style: Linked, Hide until usedBased on: Normal
+
+[Separator]
+* * *
+
+[Bibliography]
+This is paragraph style Bibliography.Left, Style: Hide until used, Show in the Styles galleryBased on: Compact
+
+[Separator]
+* * *
+
+[Block Left Indent]
+This is paragraph style Block Left Indent.Expanded by  0.25 pt, Kern at 14 pt, Indent:Left:  0.2"First line:  0.01", SpaceAfter:  12 pt, Style: Linked, Hide until used, Show in the Styles galleryBased on: NormalFollowing style: Normal
+
+[Separator]
+* * *
+
+[Block Text]
+This is paragraph style Block Text.Indent:Left:  0.2"First line:  0.01"Right:  0.2", SpaceAfter:  12 pt, Widow/Orphan control, Style: Hide until used, Show in the Styles gallery, Priority: 10Based on: NormalFollowing style: Normal
+
+[Separator]
+* * *
+
+[Body Text]
+This is paragraph style Body Text.Style: Linked, Hide until used, Show in the Styles gallery, Priority: 100Based on: NormalFollowing style: Normal
+
+[Separator]
+* * *
+
+[Body Text 2]
+This is paragraph style Body Text 2.Line spacing:  Double, SpaceAfter:  6 pt, Style: Linked, Hide until used, Priority: 100Based on: Normal
+
+[Separator]
+* * *
+
+[Body Text 3]
+This is paragraph style Body Text 3.Font: 8 pt, SpaceAfter:  6 pt, Style: Linked, Hide until used, Priority: 100Based on: Normal
+
+[Separator]
+* * *
+
+[Body Text First Indent]
+This is paragraph style Body Text First Indent.Indent:First line:  0.25", Style: Linked, Hide until usedBased on: Body Text
+
+[Separator]
+* * *
+
+[Body Text First Indent 2]
+This is paragraph style Body Text First Indent 2.Indent:First line:  0.25", SpaceAfter:  0 pt, Style: LinkedBased on: Body Text Indent
+
+[Separator]
+* * *
+
+[Body Text Indent]
+This is paragraph style Body Text Indent.Indent:Left:  0.25", SpaceAfter:  6 pt, Style: Linked, Hide until usedBased on: Normal
+
+[Separator]
+* * *
+
+[Body Text Indent 2]
+This is paragraph style Body Text Indent 2.Indent:Left:  0.25"Line spacing:  Double, SpaceAfter:  6 pt, Style: Linked, Hide until usedBased on: Normal
+
+[Separator]
+* * *
+
+[Body Text Indent 3]
+This is paragraph style Body Text Indent 3.Font: 8 pt, Indent:Left:  0.25", SpaceAfter:  6 pt, Style: Linked, Hide until usedBased on: Normal
+
+[Separator]
+* * *
+
+[Normal]
+This is character style Book Title.Font: Cambria, 12 pt, Bold, Not Italic, No underline, Font color: Auto, Not Strikethrough, Small caps, Not Hidden, Not Superscript/ Subscript, Expanded by  0.25 pt, Style: Show in the Styles gallery, Priority: 34Based on: Default Paragraph Font
+
+[Separator]
+* * *
+
+[Caption]
+This is paragraph style Caption.Widow/Orphan control, Style: Linked, Hide until used, Show in the Styles gallery, Priority: 36Based on: CenterFollowing style: Normal
+
+[Separator]
+* * *
+
+[Captioned Figure]
+This is paragraph style Captioned Figure.Font: Bold, Style: Hide until used, Show in the Styles galleryBased on: FigureFollowing style: Normal
+
+[Separator]
+* * *
+
+[Center]
+This is paragraph style Center.Expanded by  0.25 pt, Kern at 14 pt, Indent:First line:  0.01", Centered, SpaceAfter:  12 pt, Style: Linked, Hide until used, Show in the Styles galleryBased on: NormalFollowing style: Normal
+
+[Separator]
+* * *
+
+[Closing]
+This is paragraph style Closing.Indent:Left:  3", Style: Linked, Hide until usedBased on: Normal
+
+[Separator]
+* * *
+
+[Normal]
+This is character style Comment Reference.Font: Cambria, 8 pt, Not Bold, Not Italic, No underline, Font color: Auto, Not Strikethrough, Not Hidden, Not Superscript/ Subscript, Style: Hide until usedBased on: Default Paragraph Font
+
+[Separator]
+* * *
+
+[Comment Subject]
+This is paragraph style Comment Subject.Font: Bold, Style: Linked, Hide until usedBased on: Comment TextFollowing style: Comment Text
+
+[Separator]
+* * *
+
+[Comment Text]
+This is paragraph style Comment Text.Font: 10 pt, Style: Linked, Hide until usedBased on: Normal
+
+[Separator]
+* * *
+
+[Compact]
+This is paragraph style Compact.Font: 10 pt, Indent:First line:  0.01", Centered, SpaceAfter:  10 pt, Style: Hide until used, Show in the Styles galleryBased on: Normal
+
+[Separator]
+* * *
+
+[Copyright]
+This is paragraph style Copyright.Font: Italic, Expanded by  0.25 pt, Kern at 14 pt, Style: Linked, Hide until used, Show in the Styles galleryBased on: Compact
+
+[Separator]
+* * *
+
+[Date]
+This is paragraph style Date.Style: Hide until used, Show in the Styles galleryBased on: Right Align PlusFollowing style: Normal
+
+[Separator]
+* * *
+
+[Normal]
+This is character style Default Paragraph Font.Font: Cambria, 12 pt, Not Bold, Not Italic, No underline, Font color: Auto, Not Strikethrough, Not Hidden, Not Superscript/ Subscript, Style: Hide until used, Priority: 2
+
+[Separator]
+* * *
+
+[Definition]
+This is paragraph style Definition.Based on: Normal
+
+[Separator]
+* * *
+
+[Definition Term]
+This is paragraph style Definition Term.Font: Bold, Keep with next, Keep lines togetherBased on: NormalFollowing style: Definition
+
+[Separator]
+* * *
+
+[Document Map]
+This is paragraph style Document Map.Font: (Default) Segoe UI, 8 pt, Style: Linked, Hide until usedBased on: Normal
+
+[Separator]
+* * *
+
+[E-mail Signature]
+This is paragraph style E-mail Signature.Style: Linked, Hide until usedBased on: Normal
+
+[Separator]
+* * *
+
+[Normal]
+This is character style Emphasis.Font: Cambria, 12 pt, Not Bold, Italic, No underline, Font color: Auto, Not Strikethrough, Not Hidden, Not Superscript/ Subscript, Style: Show in the Styles gallery, Priority: 21Based on: Default Paragraph Font
+
+[Separator]
+* * *
+
+[Normal]
+This is character style Endnote Reference.Font: (Default) Cambria, 12 pt, Not Bold, Not Italic, No underline, Font color: Auto, Not Strikethrough, Not Hidden, Superscript, Style: Hide until usedBased on: Body Text Char
+
+[Separator]
+* * *
+
+[Endnote Text]
+This is paragraph style Endnote Text.Indent:First line:  0.01", SpaceAfter:  12 pt, Widow/Orphan control, Style: Linked, Hide until used, Show in the Styles galleryBased on: Normal
+
+[Separator]
+* * *
+
+[Envelope Address]
+This is paragraph style Envelope Address.Font: (Default) +Headings (Calibri Light), Indent:Left:  2", Position:Horizontal: CenterRelative to: PageHorizontal:  0.13"Vertical: BottomRelative to: MarginWidth: Exactly  5.5"Height: Exactly  1.38", Style: Hide until usedBased on: Normal
+
+[Separator]
+* * *
+
+[Envelope Return]
+This is paragraph style Envelope Return.Font: (Default) +Headings (Calibri Light), 10 pt, Style: Hide until usedBased on: Normal
+
+[Separator]
+* * *
+
+[Figure]
+This is paragraph style Figure.Style: Hide until used, Show in the Styles galleryBased on: CenterFollowing style: Normal
+
+[Separator]
+* * *
+
+[First Indent Justify]
+This is paragraph style First Indent Justify.Expanded by  0.25 pt, Kern at 14 pt, Style: Linked, Hide until used, Show in the Styles galleryBased on: NormalFollowing style: Normal
+
+[Separator]
+* * *
+
+[First Indent Justify Plus]
+This is paragraph style First Indent Justify Plus.SpaceAfter:  12 pt, Style: Linked, Hide until used, Show in the Styles galleryBased on: First Indent JustifyFollowing style: Normal
+
+[Separator]
+* * *
+
+[First Indent Unjustify]
+This is paragraph style First Indent Unjustify.Expanded by  0.25 pt, Kern at 14 pt, Indent:First line:  0.01", Style: Linked, Hide until used, Show in the Styles galleryBased on: NormalFollowing style: Normal
+
+[Separator]
+* * *
+
+[First Indent Unjustify Plus]
+This is paragraph style First Indent Unjustify Plus.Indent:First line:  0.2", SpaceAfter:  12 pt, Style: Linked, Hide until used, Show in the Styles galleryBased on: First Indent UnjustifyFollowing style: Normal
+
+[Separator]
+* * *
+
+[First Paragraph]
+This is paragraph style First Paragraph.Indent:First line:  0.01", Style: Hide until used, Show in the Styles galleryBased on: NormalFollowing style: Normal
+
+[Separator]
+* * *
+
+[First Paragraph Plus]
+This is paragraph style First Paragraph Plus.Expanded by  0.25 pt, Kern at 14 pt, SpaceAfter:  12 pt, Style: Linked, Hide until used, Show in the Styles galleryBased on: First ParagraphFollowing style: Normal
+
+[Separator]
+* * *
+
+[Normal]
+This is character style FollowedHyperlink.Font: Cambria, 12 pt, Not Bold, Not Italic, Underline, Font color: Followed Hyperlink, Not Strikethrough, Not Hidden, Not Superscript/ Subscript, Style: Hide until usedBased on: Default Paragraph Font
+
+[Separator]
+* * *
+
+[Footer]
+This is paragraph style Footer.Tab stops:  3.25", Centered +  6.5", Right, Style: Linked, Hide until used, Priority: 100Based on: Normal
+
+[Separator]
+* * *
+
+[Normal]
+This is character style Footnote Reference.Font: (Default) Cambria, 12 pt, Not Bold, Not Italic, No underline, Font color: Auto, Not Strikethrough, Not Hidden, SuperscriptBased on: Body Text Char
+
+[Separator]
+* * *
+
+[Footnote Text]
+This is paragraph style Footnote Text.Indent:First line:  0.01", SpaceAfter:  12 pt, Widow/Orphan control, Style: Hide until used, Show in the Styles gallery, Priority: 10Based on: Normal
+
+[Separator]
+* * *
+
+[Normal]
+This is character style Hashtag.Font: Cambria, 12 pt, Not Bold, Not Italic, No underline, Font color: Custom Color(RGB(43,87,154)), Not Strikethrough, Not Hidden, Not Superscript/ SubscriptPattern: Clear (Custom Color(RGB(225,223,221))), Style: Hide until used, Priority: 100Based on: Default Paragraph Font
+
+[Separator]
+* * *
+
+[Header]
+This is paragraph style Header.Tab stops:  3.25", Centered +  6.5", Right, Style: Linked, Hide until used, Priority: 100Based on: Normal
+
+[Separator]
+* * *
+
+[Heading 1]
+This is paragraph style Heading 1.Font: (Default) Calibri, 20 pt, Bold, Indent:First line:  0.01", CenteredLine spacing:  single, SpaceBefore:  24 ptAfter:  12 pt, Widow/Orphan control, Page break before, Level 1, Style: Linked, Hide until used, Show in the Styles gallery, Priority: 10Following style: Normal
+
+[Separator]
+* * *
+
+[Heading 2]
+This is paragraph style Heading 2.Font: 16 pt, SpaceBefore:  4 pt, No page break before, Level 2, Style: Linked, Hide until used, Show in the Styles gallery, Priority: 10Based on: Heading 1Following style: Normal
+
+[Separator]
+* * *
+
+[Heading 3]
+This is paragraph style Heading 3.Font: (Default) +Headings (Calibri Light), Bold, Font color: Accent 1, SpaceBefore:  10 pt, Keep with next, Keep lines together, Level 3, Style: Linked, Hide until used, Show in the Styles gallery, Priority: 10Based on: NormalFollowing style: Normal
+
+[Separator]
+* * *
+
+[Heading 4]
+This is paragraph style Heading 4.Font: (Default) +Headings (Calibri Light), Bold, Italic, Font color: Accent 1, SpaceBefore:  10 pt, Keep with next, Keep lines together, Level 4, Style: Linked, Hide until used, Show in the Styles gallery, Priority: 10Based on: NormalFollowing style: Normal
+
+[Separator]
+* * *
+
+[Heading 5]
+This is paragraph style Heading 5.Font: (Default) +Headings (Calibri Light), Font color: Accent 1, SpaceBefore:  10 pt, Keep with next, Keep lines together, Level 5, Style: Linked, Hide until used, Show in the Styles gallery, Priority: 10Based on: NormalFollowing style: Normal
+
+[Separator]
+* * *
+
+[Heading 6]
+This is paragraph style Heading 6.Font: (Default) +Headings (Calibri Light), Italic, Font color: Accent 1, SpaceBefore:  10 pt, Keep with next, Keep lines together, Level 6, Style: Linked, Hide until used, Show in the Styles gallery, Priority: 10Based on: NormalFollowing style: Normal
+
+[Separator]
+* * *
+
+[Heading 7]
+This is paragraph style Heading 7.Font: (Default) +Headings (Calibri Light), Italic, Font color: Text 1, SpaceBefore:  10 pt, Keep with next, Keep lines together, Level 7, Style: Linked, Hide until used, Show in the Styles gallery, Priority: 10Based on: NormalFollowing style: Normal
+
+[Separator]
+* * *
+
+[Heading 8]
+This is paragraph style Heading 8.Font: (Default) +Headings (Calibri Light), 10 pt, Font color: Accent 1, SpaceBefore:  10 pt, Keep with next, Keep lines together, Level 8, Style: Linked, Hide until used, Show in the Styles gallery, Priority: 10Based on: NormalFollowing style: Normal
+
+[Separator]
+* * *
+
+[Heading 9]
+This is paragraph style Heading 9.Font: (Default) +Headings (Calibri Light), 10 pt, Italic, Font color: Text 1, SpaceBefore:  10 pt, Keep with next, Keep lines together, Level 9, Style: Linked, Hide until used, Show in the Styles gallery, Priority: 10Based on: NormalFollowing style: Normal
+
+[Separator]
+* * *
+
+[Normal]
+This is character style HTML Acronym.Font: Cambria, 12 pt, Not Bold, Not Italic, No underline, Font color: Auto, Not Strikethrough, Not Hidden, Not Superscript/ Subscript, Style: Hide until usedBased on: Default Paragraph Font
+
+[Separator]
+* * *
+
+[HTML Address]
+This is paragraph style HTML Address.Font: Italic, Style: Linked, Hide until usedBased on: Normal
+
+[Separator]
+* * *
+
+[Normal]
+This is character style HTML Cite.Font: Cambria, 12 pt, Not Bold, Italic, No underline, Font color: Auto, Not Strikethrough, Not Hidden, Not Superscript/ Subscript, Style: Hide until usedBased on: Default Paragraph Font
+
+[Separator]
+* * *
+
+[Normal]
+This is character style HTML Code.Font: Consolas, 10 pt, Not Bold, Not Italic, No underline, Font color: Auto, Not Strikethrough, Not Hidden, Not Superscript/ Subscript, Style: Hide until usedBased on: Default Paragraph Font
+
+[Separator]
+* * *
+
+[Normal]
+This is character style HTML Definition.Font: Cambria, 12 pt, Not Bold, Italic, No underline, Font color: Auto, Not Strikethrough, Not Hidden, Not Superscript/ Subscript, Style: Hide until usedBased on: Default Paragraph Font
+
+[Separator]
+* * *
+
+[Normal]
+This is character style HTML Keyboard.Font: Consolas, 10 pt, Not Bold, Not Italic, No underline, Font color: Auto, Not Strikethrough, Not Hidden, Not Superscript/ Subscript, Style: Hide until usedBased on: Default Paragraph Font
+
+[Separator]
+* * *
+
+[HTML Preformatted]
+This is paragraph style HTML Preformatted.Font: Consolas, 10 pt, Style: Linked, Hide until usedBased on: Normal
+
+[Separator]
+* * *
+
+[Normal]
+This is character style HTML Sample.Font: Consolas, 12 pt, Not Bold, Not Italic, No underline, Font color: Auto, Not Strikethrough, Not Hidden, Not Superscript/ Subscript, Style: Hide until usedBased on: Default Paragraph Font
+
+[Separator]
+* * *
+
+[Normal]
+This is character style HTML Typewriter.Font: Consolas, 10 pt, Not Bold, Not Italic, No underline, Font color: Auto, Not Strikethrough, Not Hidden, Not Superscript/ Subscript, Style: Hide until usedBased on: Default Paragraph Font
+
+[Separator]
+* * *
+
+[Normal]
+This is character style HTML Variable.Font: Cambria, 12 pt, Not Bold, Italic, No underline, Font color: Auto, Not Strikethrough, Not Hidden, Not Superscript/ Subscript, Style: Hide until usedBased on: Default Paragraph Font
+
+[Separator]
+* * *
+
+[Normal]
+This is character style Hyperlink.Font: (Default) Cambria, 12 pt, Bold, Not Italic, Underline, Font color: Auto, Not Strikethrough, Not Hidden, Not Superscript/ Subscript, Check spelling and grammar, Style: Hide until used, Show in the Styles galleryBased on: Body Text Char
+
+[Separator]
+* * *
+
+[Image Caption]
+This is paragraph style Image Caption.Style: Hide until used, Show in the Styles galleryBased on: CaptionFollowing style: Normal
+
+[Separator]
+* * *
+
+[Index 1]
+This is paragraph style Index 1.Indent:Left:  0"Hanging:  0.17", Style: Automatically updateBased on: NormalFollowing style: Normal
+
+[Separator]
+* * *
+
+[Index 2]
+This is paragraph style Index 2.Indent:Left:  0.17"Hanging:  0.17", Style: Automatically update, Hide until usedBased on: NormalFollowing style: Normal
+
+[Separator]
+* * *
+
+[Index 3]
+This is paragraph style Index 3.Indent:Left:  0.33"Hanging:  0.17", Style: Automatically update, Hide until usedBased on: NormalFollowing style: Normal
+
+[Separator]
+* * *
+
+[Index 4]
+This is paragraph style Index 4.Indent:Left:  0.5"Hanging:  0.17", Style: Automatically update, Hide until usedBased on: NormalFollowing style: Normal
+
+[Separator]
+* * *
+
+[Index 5]
+This is paragraph style Index 5.Indent:Left:  0.67"Hanging:  0.17", Style: Automatically update, Hide until usedBased on: NormalFollowing style: Normal
+
+[Separator]
+* * *
+
+[Index 6]
+This is paragraph style Index 6.Indent:Left:  0.83"Hanging:  0.17", Style: Automatically update, Hide until usedBased on: NormalFollowing style: Normal
+
+[Separator]
+* * *
+
+[Index 7]
+This is paragraph style Index 7.Indent:Left:  1"Hanging:  0.17", Style: Automatically update, Hide until usedBased on: NormalFollowing style: Normal
+
+[Separator]
+* * *
+
+[Index 8]
+This is paragraph style Index 8.Indent:Left:  1.17"Hanging:  0.17", Style: Automatically update, Hide until usedBased on: NormalFollowing style: Normal
+
+[Separator]
+* * *
+
+[Index 9]
+This is paragraph style Index 9.Indent:Left:  1.33"Hanging:  0.17", Style: Automatically update, Hide until usedBased on: NormalFollowing style: Normal
+
+[Separator]
+* * *
+
+[Index Heading]
+This is paragraph style Index Heading.Font: (Default) +Headings (Calibri Light), Bold, Style: Hide until usedBased on: NormalFollowing style: Index 1
+
+[Separator]
+* * *
+
+[Normal]
+This is character style Intense Emphasis.Font: Cambria, 12 pt, Bold, Italic, No underline, Font color: Accent 1, Not Strikethrough, Not Hidden, Not Superscript/ Subscript, Style: Show in the Styles gallery, Priority: 22Based on: Default Paragraph Font
+
+[Separator]
+* * *
+
+[Intense Quote]
+This is paragraph style Intense Quote.Font: Bold, Italic, Font color: Accent 1, Indent:Left:  0.65"Right:  0.65", SpaceBefore:  10 ptAfter:  14 pt, Border:Bottom: (Single solid line, Accent 1,  0.5 pt Line width, From text:  4 pt Border spacing: ), Style: Linked, Show in the Styles gallery, Priority: 31Based on: NormalFollowing style: Normal
+
+[Separator]
+* * *
+
+[Normal]
+This is character style Intense Reference.Font: Cambria, 12 pt, Bold, Not Italic, Underline, Font color: Accent 2, Not Strikethrough, Small caps, Not Hidden, Not Superscript/ Subscript, Expanded by  0.25 pt, Style: Show in the Styles gallery, Priority: 33Based on: Default Paragraph Font
+
+[Separator]
+* * *
+
+[Normal]
+This is character style Line Number.Font: Cambria, 12 pt, Not Bold, Not Italic, No underline, Font color: Auto, Not Strikethrough, Not Hidden, Not Superscript/ Subscript, Style: Hide until usedBased on: Default Paragraph Font
+
+[Separator]
+* * *
+
+[List]
+This is paragraph style List.Indent:Left:  0"Hanging:  0.25", Don't add space between paragraphs of the same style, Style: Hide until used, Priority: 100Based on: Normal
+
+[Separator]
+* * *
+
+[List 2]
+This is paragraph style List 2.Indent:Left:  0.25"Hanging:  0.25", Don't add space between paragraphs of the same style, Style: Hide until used, Priority: 100Based on: Normal
+
+[Separator]
+* * *
+
+[List 3]
+This is paragraph style List 3.Indent:Left:  0.5"Hanging:  0.25", Don't add space between paragraphs of the same style, Style: Hide until used, Priority: 100Based on: Normal
+
+[Separator]
+* * *
+
+[List 4]
+This is paragraph style List 4.Indent:Left:  0.75"Hanging:  0.25", Don't add space between paragraphs of the same style, Style: Hide until usedBased on: Normal
+
+[Separator]
+* * *
+
+[List 5]
+This is paragraph style List 5.Indent:Left:  1"Hanging:  0.25", Don't add space between paragraphs of the same styleBased on: Normal
+
+[Separator]
+* * *
+
+[List Bullet]
+This is paragraph style List Bullet.Font: (Default) Cambria, Indent:Left:  0"Hanging:  0.2", JustifiedLine spacing:  single, Don't add space between paragraphs of the same style, Widow/Orphan controlTab stops:  0.25", List tab, Bulleted + Level: 1 + Aligned at:  0" + Tab after:  0.25" + Indent at:  0.25", Style: Hide until used, Show in the Styles gallery, Priority: 100
+
+[Separator]
+* * *
+
+[List Bullet 2]
+This is paragraph style List Bullet 2.Indent:Left:  0.25"Hanging:  0.25", Don't add space between paragraphs of the same styleTab stops:  0.5", List tab, Bulleted + Level: 1 + Aligned at:  0.25" + Tab after:  0.5" + Indent at:  0.5", Style: Hide until used, Priority: 100Based on: Normal
+
+[Separator]
+* * *
+
+[List Bullet 3]
+This is paragraph style List Bullet 3.Indent:Left:  0.5"Hanging:  0.25", Don't add space between paragraphs of the same styleTab stops:  0.75", List tab, Bulleted + Level: 1 + Aligned at:  0.5" + Tab after:  0.75" + Indent at:  0.75", Style: Hide until used, Priority: 100Based on: Normal
+
+[Separator]
+* * *
+
+[List Bullet 4]
+This is paragraph style List Bullet 4.Indent:Left:  0.75"Hanging:  0.25", Don't add space between paragraphs of the same styleTab stops:  1", List tab, Bulleted + Level: 1 + Aligned at:  0.75" + Tab after:  1" + Indent at:  1"Based on: Normal
+
+[Separator]
+* * *
+
+[List Bullet 5]
+This is paragraph style List Bullet 5.Indent:Left:  1"Hanging:  0.25", Don't add space between paragraphs of the same styleTab stops:  1.25", List tab, Bulleted + Level: 1 + Aligned at:  1" + Tab after:  1.25" + Indent at:  1.25"Based on: Normal
+
+[Separator]
+* * *
+
+[List Bullet Plus]
+This is paragraph style List Bullet Plus.Expanded by  0.25 pt, Kern at 14 pt, SpaceAfter:  12 pt, Style: Linked, Hide until used, Show in the Styles galleryBased on: List BulletFollowing style: Normal
+
+[Separator]
+* * *
+
+[List Continue]
+This is paragraph style List Continue.Indent:Left:  0.25", SpaceAfter:  6 pt, Don't add space between paragraphs of the same style, Style: Hide until used, Priority: 100Based on: Normal
+
+[Separator]
+* * *
+
+[List Continue 2]
+This is paragraph style List Continue 2.Indent:Left:  0.5", SpaceAfter:  6 pt, Don't add space between paragraphs of the same style, Style: Hide until used, Priority: 100Based on: Normal
+
+[Separator]
+* * *
+
+[List Continue 3]
+This is paragraph style List Continue 3.Indent:Left:  0.75", SpaceAfter:  6 pt, Don't add space between paragraphs of the same style, Style: Hide until used, Priority: 100Based on: Normal
+
+[Separator]
+* * *
+
+[List Continue 4]
+This is paragraph style List Continue 4.Indent:Left:  1", SpaceAfter:  6 pt, Don't add space between paragraphs of the same style, Style: Hide until usedBased on: Normal
+
+[Separator]
+* * *
+
+[List Continue 5]
+This is paragraph style List Continue 5.Indent:Left:  1.25", SpaceAfter:  6 pt, Don't add space between paragraphs of the same style, Style: Hide until usedBased on: Normal
+
+[Separator]
+* * *
+
+[List Number]
+This is paragraph style List Number.Font: (Default) Cambria, Indent:Left:  0"Hanging:  0.2", JustifiedLine spacing:  single, Don't add space between paragraphs of the same style, Widow/Orphan controlTab stops:  0.25", List tab, Numbered + Level: 1 + Numbering Style: 1, 2, 3, … + Start at: 1 + Alignment: Left + Aligned at:  0" + Tab after:  0.25" + Indent at:  0.25", Style: Hide until used, Show in the Styles gallery, Priority: 100
+
+[Separator]
+* * *
+
+[List Number 2]
+This is paragraph style List Number 2.Indent:Left:  0.25"Hanging:  0.25", Don't add space between paragraphs of the same styleTab stops:  0.5", List tab, Numbered + Level: 1 + Numbering Style: 1, 2, 3, … + Start at: 1 + Alignment: Left + Aligned at:  0.25" + Tab after:  0.5" + Indent at:  0.5", Style: Hide until used, Priority: 100Based on: Normal
+
+[Separator]
+* * *
+
+[List Number 3]
+This is paragraph style List Number 3.Indent:Left:  0.5"Hanging:  0.25", Don't add space between paragraphs of the same styleTab stops:  0.75", List tab, Numbered + Level: 1 + Numbering Style: 1, 2, 3, … + Start at: 1 + Alignment: Left + Aligned at:  0.5" + Tab after:  0.75" + Indent at:  0.75", Style: Hide until used, Priority: 100Based on: Normal
+
+[Separator]
+* * *
+
+[List Number 4]
+This is paragraph style List Number 4.Indent:Left:  0.75"Hanging:  0.25", Don't add space between paragraphs of the same styleTab stops:  1", List tab, Numbered + Level: 1 + Numbering Style: 1, 2, 3, … + Start at: 1 + Alignment: Left + Aligned at:  0.75" + Tab after:  1" + Indent at:  1", Style: Hide until usedBased on: Normal
+
+[Separator]
+* * *
+
+[List Number 5]
+This is paragraph style List Number 5.Indent:Left:  1"Hanging:  0.25", Don't add space between paragraphs of the same styleTab stops:  1.25", List tab, Numbered + Level: 1 + Numbering Style: 1, 2, 3, … + Start at: 1 + Alignment: Left + Aligned at:  1" + Tab after:  1.25" + Indent at:  1.25", Style: Hide until usedBased on: Normal
+
+[Separator]
+* * *
+
+[List Number Plus]
+This is paragraph style List Number Plus.Expanded by  0.25 pt, Kern at 14 pt, SpaceAfter:  12 pt, Style: Linked, Hide until used, Show in the Styles galleryBased on: List NumberFollowing style: Normal
+
+[Separator]
+* * *
+
+[List Paragraph]
+This is paragraph style List Paragraph.Indent:Left:  0.5", Don't add space between paragraphs of the same style, Style: Show in the Styles gallery, Priority: 35Based on: Normal
+
+[Separator]
+* * *
+
+[Macro Text]
+This is paragraph style Macro Text.Font: (Default) Courier, 10 pt, LeftLine spacing:  Multiple 1.15 li, SpaceAfter:  10 pt, Widow/Orphan controlTab stops:  0.4", Left +  0.8", Left +  1.2", Left +  1.6", Left +  2", Left +  2.4", Left +  2.8", Left, Style: Linked, Hide until used, Priority: 100
+
+[Separator]
+* * *
+
+[Normal]
+This is character style Mention.Font: Cambria, 12 pt, Not Bold, Not Italic, No underline, Font color: Custom Color(RGB(43,87,154)), Not Strikethrough, Not Hidden, Not Superscript/ SubscriptPattern: Clear (Custom Color(RGB(225,223,221))), Style: Hide until used, Priority: 100Based on: Default Paragraph Font
+
+[Separator]
+* * *
+
+[Message Header]
+This is paragraph style Message Header.Font: (Default) +Headings (Calibri Light), Indent:Left:  0"Hanging:  0.75", Border:Top: (Single solid line, Auto,  0.75 pt Line width)Bottom: (Single solid line, Auto,  0.75 pt Line width)Left: (Single solid line, Auto,  0.75 pt Line width, From text:  1 pt Border spacing: )Right: (Single solid line, Auto,  0.75 pt Line width, From text:  1 pt Border spacing: )Pattern: 20%, Style: Linked, Hide until usedBased on: Normal
+
+[Separator]
+* * *
+
+[No Spacing]
+This is paragraph style No Spacing.Font: (Default) +Body (Calibri), 11 pt, LeftLine spacing:  single, Widow/Orphan control, Style: Show in the Styles gallery, Priority: 2
+
+[Separator]
+* * *
+
+[Normal]
+This is paragraph style Normal.Font: (Default) Cambria, Indent:First line:  0.2", JustifiedLine spacing:  single, Style: Hide until used, Show in the Styles gallery
+
+[Separator]
+* * *
+
+[Normal (Web)]
+This is paragraph style Normal (Web).Font: (Default) Times New Roman, Style: Hide until usedBased on: Normal
+
+[Separator]
+* * *
+
+[Normal Indent]
+This is paragraph style Normal Indent.Indent:Left:  0.5", Style: Hide until usedBased on: Normal
+
+[Separator]
+* * *
+
+[Normal Plus]
+This is paragraph style Normal Plus.Expanded by  0.25 pt, Kern at 14 pt, SpaceAfter:  12 pt, Style: Linked, Hide until used, Show in the Styles galleryBased on: NormalFollowing style: Normal
+
+[Separator]
+* * *
+
+[Note Heading]
+This is paragraph style Note Heading.Style: LinkedBased on: NormalFollowing style: Normal
+
+[Separator]
+* * *
+
+[Normal]
+This is character style Page Number.Font: Cambria, 12 pt, Not Bold, Not Italic, No underline, Font color: Auto, Not Strikethrough, Not Hidden, Not Superscript/ Subscript, Style: Hide until usedBased on: Default Paragraph Font
+
+[Separator]
+* * *
+
+[Normal]
+This is character style Placeholder Text.Font: Cambria, 12 pt, Not Bold, Not Italic, No underline, Font color: Gray, Not Strikethrough, Not Hidden, Not Superscript/ Subscript, Style: HiddenBased on: Default Paragraph Font
+
+[Separator]
+* * *
+
+[Plain Text]
+This is paragraph style Plain Text.Font: Consolas, 10.5 pt, Style: Linked, Hide until usedBased on: Normal
+
+[Separator]
+* * *
+
+[Poem]
+This is paragraph style Poem.Expanded by  0.25 pt, Kern at 14 pt, Indent:Left:  0"Hanging:  0.2", Left, SpaceBefore:  12 ptAfter:  12 pt, Style: Linked, Hide until used, Show in the Styles galleryBased on: NormalFollowing style: Normal
+
+[Separator]
+* * *
+
+[Quote]
+This is paragraph style Quote.Style: Linked, Hide until used, Show in the Styles gallery, Priority: 30Based on: Block TextFollowing style: Normal
+
+[Separator]
+* * *
+
+[Right Align]
+This is paragraph style Right Align.Expanded by  0.25 pt, Kern at 14 pt, Indent:First line:  0.01", Right, Style: Linked, Hide until used, Show in the Styles galleryBased on: NormalFollowing style: Normal
+
+[Separator]
+* * *
+
+[Right Align Plus]
+This is paragraph style Right Align Plus.SpaceAfter:  12 pt, Style: Linked, Hide until used, Show in the Styles galleryBased on: Right AlignFollowing style: Normal
+
+[Separator]
+* * *
+
+[Salutation]
+This is paragraph style Salutation.Style: Linked, Hide until usedBased on: NormalFollowing style: Normal
+
+[Separator]
+* * *
+
+[Separator]
+This is paragraph style Separator.Font: Segoe UI Symbol, 18 pt, SpaceBefore:  12 pt, Style: Linked, Hide until used, Show in the Styles galleryBased on: CenterFollowing style: Normal
+
+[Separator]
+* * *
+
+[Signature]
+This is paragraph style Signature.Indent:Left:  3", Style: Linked, Hide until usedBased on: Normal
+
+[Separator]
+* * *
+
+[Normal]
+This is character style Smart Hyperlink.Font: Cambria, 12 pt, Not Bold, Not Italic, Dotted underline, Font color: Auto, Not Strikethrough, Not Hidden, Not Superscript/ Subscript, Style: Hide until used, Priority: 100Based on: Default Paragraph Font
+
+[Separator]
+* * *
+
+[Normal]
+This is character style SmartLink.Font: Cambria, 12 pt, Not Bold, Not Italic, Underline, Font color: Blue, Not Strikethrough, Not Hidden, Not Superscript/ SubscriptPattern: Clear (Custom Color(RGB(243,242,241))), Style: Hide until used, Priority: 100Based on: Default Paragraph Font
+
+[Separator]
+* * *
+
+[Source Code]
+This is paragraph style Source Code.Font: (Default) Consolas, Expanded by  0.25 pt, Kern at 14 pt, Indent:Left:  0.2", Left, Style: Linked, Hide until used, Show in the Styles galleryBased on: Compact
+
+[Separator]
+* * *
+
+[Normal]
+This is character style Strong.Font: Cambria, 12 pt, Bold, Not Italic, No underline, Font color: Auto, Not Strikethrough, Not Hidden, Not Superscript/ Subscript, Style: Show in the Styles gallery, Priority: 23Based on: Default Paragraph Font
+
+[Separator]
+* * *
+
+[Subtitle]
+This is paragraph style Subtitle.Font: 16 pt, Italic, Expanded by  0.75 pt, SpaceBefore:  0 pt, No widow/orphan control, No page break before, None, Style: Linked, Hide until used, Show in the Styles gallery, Priority: 12Based on: Heading 1Following style: Normal
+
+[Separator]
+* * *
+
+[Normal]
+This is character style Subtle Emphasis.Font: Cambria, 12 pt, Not Bold, Italic, No underline, Font color: Text 1, Not Strikethrough, Not Hidden, Not Superscript/ Subscript, Style: Show in the Styles gallery, Priority: 20Based on: Default Paragraph Font
+
+[Separator]
+* * *
+
+[Normal]
+This is character style Subtle Reference.Font: Cambria, 12 pt, Not Bold, Not Italic, Underline, Font color: Accent 2, Not Strikethrough, Small caps, Not Hidden, Not Superscript/ Subscript, Style: Show in the Styles gallery, Priority: 32Based on: Default Paragraph Font
+
+[Separator]
+* * *
+
+[Table Caption]
+This is paragraph style Table Caption.Style: Hide until used, Show in the Styles galleryBased on: CaptionFollowing style: Normal
+
+[Separator]
+* * *
+
+[Table of Authorities]
+This is paragraph style Table of Authorities.Indent:Left:  0"Hanging:  0.17", Style: Hide until usedBased on: NormalFollowing style: Normal
+
+[Separator]
+* * *
+
+[Table of Figures]
+This is paragraph style Table of Figures.Style: Hide until usedBased on: NormalFollowing style: Normal
+
+[Separator]
+* * *
+
+[Title]
+This is paragraph style Title.Font: 24 pt, Italic, Expanded by  0.25 pt, Kern at 14 pt, Don't add space between paragraphs of the same style, No widow/orphan control, No page break before, None, Border:Bottom: (Single solid line, Accent 1,  1 pt Line width, From text:  4 pt Border spacing: ), Style: Linked, Hide until used, Show in the Styles gallery, Priority: 11Based on: Heading 1Following style: Normal
+
+[Separator]
+* * *
+
+[TOA Heading]
+This is paragraph style TOA Heading.Font: (Default) +Headings (Calibri Light), Bold, SpaceBefore:  6 pt, Style: Hide until usedBased on: NormalFollowing style: Normal
+
+[Separator]
+* * *
+
+[TOC 1]
+This is paragraph style TOC 1.SpaceAfter:  5 pt, Style: Automatically update, Hide until usedBased on: NormalFollowing style: Normal
+
+[Separator]
+* * *
+
+[TOC 2]
+This is paragraph style TOC 2.Indent:Left:  0.17", SpaceAfter:  5 pt, Style: Automatically update, Hide until usedBased on: NormalFollowing style: Normal
+
+[Separator]
+* * *
+
+[TOC 3]
+This is paragraph style TOC 3.Indent:Left:  0.33", SpaceAfter:  5 pt, Style: Automatically update, Hide until usedBased on: NormalFollowing style: Normal
+
+[Separator]
+* * *
+
+[TOC 4]
+This is paragraph style TOC 4.Indent:Left:  0.5", SpaceAfter:  5 pt, Style: Automatically update, Hide until usedBased on: NormalFollowing style: Normal
+
+[Separator]
+* * *
+
+[TOC 5]
+This is paragraph style TOC 5.Indent:Left:  0.67", SpaceAfter:  5 pt, Style: Automatically update, Hide until usedBased on: NormalFollowing style: Normal
+
+[Separator]
+* * *
+
+[TOC 6]
+This is paragraph style TOC 6.Indent:Left:  0.83", SpaceAfter:  5 pt, Style: Automatically update, Hide until usedBased on: NormalFollowing style: Normal
+
+[Separator]
+* * *
+
+[TOC 7]
+This is paragraph style TOC 7.Indent:Left:  1", SpaceAfter:  5 pt, Style: Automatically update, Hide until usedBased on: NormalFollowing style: Normal
+
+[Separator]
+* * *
+
+[TOC 8]
+This is paragraph style TOC 8.Indent:Left:  1.17", SpaceAfter:  5 pt, Style: Automatically update, Hide until usedBased on: NormalFollowing style: Normal
+
+[Separator]
+* * *
+
+[TOC 9]
+This is paragraph style TOC 9.Indent:Left:  1.33", SpaceAfter:  5 pt, Style: Automatically update, Hide until usedBased on: NormalFollowing style: Normal
+
+[Separator]
+* * *
+
+[TOC Heading]
+This is paragraph style TOC Heading.Style: Hide until used, Show in the Styles gallery, Priority: 40Based on: Heading 1Following style: Normal
+
+[Separator]
+* * *
+
+[Undent Justify]
+This is paragraph style Undent Justify.Expanded by  0.25 pt, Kern at 14 pt, Indent:First line:  0.01", Style: Linked, Hide until used, Show in the Styles galleryBased on: NormalFollowing style: Normal
+
+[Separator]
+* * *
+
+[Undent Justify Plus]
+This is paragraph style Undent Justify Plus.SpaceAfter:  12 pt, Style: Linked, Hide until used, Show in the Styles galleryBased on: Undent JustifyFollowing style: Normal
+
+[Separator]
+* * *
+
+[Normal]
+This is character style Unresolved Mention.Font: Cambria, 12 pt, Not Bold, Not Italic, No underline, Font color: Custom Color(RGB(96,94,92)), Not Strikethrough, Not Hidden, Not Superscript/ SubscriptPattern: Clear (Custom Color(RGB(225,223,221))), Style: Hide until used, Priority: 100Based on: Default Paragraph Font
+
+[Separator]
+* * *
+
+[Normal]
+This is character style Verbatim Char.Font: (Default) Consolas, 12 pt, Not Bold, Not Italic, No underline, Font color: Auto, Not Strikethrough, Not Hidden, Not Superscript/ SubscriptBased on: Body Text Char
+
+[Separator]
+* * *
+
+[Normal]
+

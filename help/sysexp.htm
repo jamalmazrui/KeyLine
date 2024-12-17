@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Unknown" />
+  <title>Unknown</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Unknown</h1>
+<p class="author">Unknown</p>
+</header>
+<p><img src="cover_image.jpg" /></p>
+<p><span id="titlepage.xhtml"></span></p>
+<div>
+<svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" version="1.1" width="100%" height="100%" viewbox="0 0 1200 1600" preserveaspectratio="none">
+<image width="1200" height="1600" href="cover_image.jpg"></image>
+</svg>
+</div>
+<p><span id="sysexp.html"></span></p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><img src="sysexp_icon.gif" class="calibre5" /></td>
+<td>SysExporter v1.77
+<p><br />
+Copyright (c) 2003 - 2019 Nir Sofer</p></td>
+</tr>
+</tbody>
+</table>
+</p>
+<h4 class="calibre8">Description</h4>
+<p>SysExporter utility allows you to grab the data stored in standard list-views, tree-views, list boxes, combo boxes, text-boxes, and WebBrowser/HTML controls from almost any application running on your system, and export it to text, HTML or XML file.</p>
+<p><br />
+Here's some examples for data that you can export with SysExporter:</p>
+<ul>
+<li>The files list inside archive file (.zip, .rar, and so on) as displayed by WinZip or 7-Zip File Manager.</li>
+<li>The files list inside a folder.</li>
+<li>The event log of Windows.</li>
+<li>The list of emails and contacts in Outlook Express.</li>
+<li>The Registry values displayed in the right pane of the Registry Editor.</li>
+<li>The data displayed by SysInternals utilities (Registry Monitor, File Monitor, Process Explorer, and others.)</li>
+<li>The text inside a standard message-box of Windows.</li>
+<li>The HTML inside any instance of Internet Explorer.</li>
+</ul>
+<h4 class="calibre8">Versions History</h4>
+<ul>
+<li><p>Version 1.77:</p>
+<ul>
+<li>You can now send the data to stdout by specifying empty string as filename, for example:<br />
+sysexp.exe <em>Title "Windows Task Manager"</em> class SysListView32 <em>Visible Yes</em> scomma "" | more</li>
+</ul>
+<p> </p></li>
+<li><p>Version 1.76:</p>
+<ul>
+<li>When the 'Add Column Headers To Tab-Delimited File' option is turned on, the header is now also added to comma-delimited files.</li>
+</ul>
+<p> </p></li>
+<li>Version 1.75:
+<ul>
+<li>Added 'New SysExporter Instance' (Ctrl+N), which opens a new window of SysExporter.</li>
+</ul></li>
+<li>Version 1.72:
+<ul>
+<li>Added 'Run As Administrator' option (Ctrl+F11), which allows you to easily run SysExporter as administrator on Windows Vista/7/8/2008. You should use this option if you need to extract data from a software that is executed as administrator.</li>
+</ul></li>
+<li>Version 1.71:
+<ul>
+<li>Fixed to accept 64-bit handles in /Handle command-line option.</li>
+</ul></li>
+<li>Version 1.70:
+<ul>
+<li><p>Added command-line options that allows you to export the data of Windows controls to a file, without displaying any user interface. For example, to export the active ListView in the task manager of Windows to html file:<br />
+sysexp.exe /Process "taskmgr.exe" <em>class "SysListView32"</em> Visible "Yes" /shtml "c:\temp\1.html"</p>
+<p> </p></li>
+</ul></li>
+<li>Version 1.62:
+<ul>
+<li>Fixed the flickering while scrolling the items of list-view.</li>
+</ul></li>
+<li>Version 1.61:
+<ul>
+<li>Added 'Auto Size Columns+Headers' option, which allows you to automatically resize the columns according to the row values and column headers.</li>
+<li><p>Fixed issue: The properties and the other windows opened in the wrong monitor, on multi-monitors system.</p>
+<p> </p></li>
+</ul></li>
+<li>Version 1.60:
+<ul>
+<li><p>Added support for DirectUI control, which is used to display files and folders on Explorer Windows of Windows 7.</p>
+<p> </p></li>
+</ul></li>
+<li><p>Version 1.52:</p>
+<ul>
+<li>Fixed the properties window to be closed when clicking the X button or pressing the Esc key.</li>
+</ul>
+<p> </p></li>
+<li>Version 1.51:
+<ul>
+<li>Added 'Remove Question Mark Characters' - Useful for date/time and some other columns of Explorer in Windows Vista.</li>
+</ul></li>
+<li>Version 1.50:
+<ul>
+<li>Added support for drag And drop feature - Allows you to easily locate the desired window simply by dragging the target icon from the SysExporter toolbar into the window that you need to grab the data.</li>
+</ul></li>
+<li>Version 1.41:
+<ul>
+<li>New option: Add Tree Indent Spaces To Exported Data.</li>
+</ul></li>
+<li>Version 1.40:
+<ul>
+<li>Added new columns: 'Window Class', and 'Visible'</li>
+</ul></li>
+<li><p>Version 1.39:</p>
+<ul>
+<li><p>Fixed bug: The main window lost the focus when the user switched to another application and then returned back to SysExporter.</p>
+<p> </p></li>
+</ul>
+<p> </p></li>
+<li>Version 1.38:
+<ul>
+<li>Added 'Always On Top' option.</li>
+</ul></li>
+<li><p>Version 1.37:</p>
+<ul>
+<li>Fixed bug in saving as comma-delimited file when field values contained comma character.</li>
+</ul>
+<p> </p></li>
+<li><p>Version 1.36:</p>
+<ul>
+<li>Added support for saving to comma-delimited file.</li>
+</ul>
+<p> </p></li>
+<li>Version 1.35:
+<ul>
+<li>Added support for StatusBar controls.</li>
+<li>The configuration is now saved to a file, instead of the Registry.</li>
+</ul></li>
+<li>Version 1.30:
+<ul>
+<li>New Option: Display HTML As Plain Text (For HTML controls)</li>
+<li>New Option: Display Invisible Items.</li>
+<li>New Option: Display Items With Invisible Parent Window.</li>
+<li>Added filters by control type.</li>
+</ul></li>
+<li>Version 1.21:
+<ul>
+<li>Added support for labels.</li>
+<li>When the lower pane contains text, you can now use the keyboard - Ctrl+A for selection, and Ctrl+C to copy the text to the clipboard.</li>
+</ul></li>
+<li>Version 1.20:
+<ul>
+<li>Added support for text-boxes.</li>
+<li>Added support for WebBrowser/HTML controls (IHTMLDocument2 interface) - Only on Windows 2000/XP.</li>
+</ul></li>
+<li>Version 1.10:
+<ul>
+<li>Added support for TreeView Controls.</li>
+<li>Copy to clipboard as tab-delimited text.</li>
+<li>New Options under the Options menu.</li>
+<li>Ability to translate to other languages.</li>
+</ul></li>
+<li>Version 1.00: First Release</li>
+</ul>
+<h4 class="calibre8">System Requirement</h4>
+<p>SysExporter Works perfectly on Windows NT, Windows 2000, Windows XP, Windows Server 2003, Windows Server 2008, Windows Vista, Windows 7, Windows 8, and Windows 10.</p>
+<p> </p>
+<p>On Windows 9x and Windows ME, SysExporter can only export data from combo boxes and list boxes controls, but not from list-view and tree-view controls.</p>
+<h4 class="calibre8">Known Limitations</h4>
+<p>SysExporter can export data from most combo boxes, list boxes, tree-view, and list-view controls, but not from all of them.</p>
+<p>There are some applications that use these controls to display data, but the data itself is not actually stored in the control, but in another location in the computer's memory.</p>
+<p>In such cases, SysExporter won't be able to export the data.</p>
+<h4 class="calibre8">Using SysExporter</h4>
+<p>This utility is a standalone executable, so it doesn't require any installation process or additional DLLs. Just run the executable (sysexp.exe) and start using it. There is only one exception: If you want to run this utility on Windows NT, you should download the 'psapi.dll', and copy it into the system32</p>
+<p>folder.</p>
+<p>The main window of SysExporter contains 2 panes:</p>
+<ol>
+<li>The upper pane displays the list of current opened windows that are available for export.</li>
+<li><p>When you select a single window in the upper pane, the lower pane displays all data that you can export from the selected window.</p>
+<p>For example: If you select the 'My computer' window in the upper pane, the lower pane will display the list of all your disks, and they are displayed in the original 'My Computer' window.</p></li>
+</ol>
+<p>You can easily select one or more items from the lower pane, and then export them to text, HTML or XML files.</p>
+<p>You can also copy the exported data to the clipboard in tab-delimited format (Ctrl+C), and then paste it directly to Excel or any other application that supports this format.</p>
+<p>Before exporting the data, you can change the order of columns that will be appeared in the saved files by using the 'Choose Columns' option.</p>
+<h4 class="calibre8">Practical Example</h4>
+<p>Let's say that you want to export the list of all files in your C:\Windows folder to Excel:</p>
+<ol>
+<li>First, open the 'C:\Windows' folder (or any other folder that you want to export).</li>
+<li><p>In the top pane of SysExporter, find the window of 'C:\Windows' folder and select it.</p>
+<p>If you cannot find this window, try to refresh the list by pressing F5 key.</p></li>
+<li>After selecting the desired window in the top pane, the files list of this window will be loaded to the lower pane.</li>
+<li>Select the files in the lower pane that you want to export. (Press Ctrl+A in order to select all files)</li>
+<li>Press Ctrl+C in order to copy the selected items to the clipbaord. (The exported items are copied in tab-delimited format)</li>
+<li><p>In Excel, go the position that you want to put the exported data, and then press Ctrl+V to paste the exported data into your Excel worksheet.</p>
+<p> </p></li>
+</ol>
+<h4 class="calibre8">Locating the right window with Drag &amp; Drop</h4>
+<p>Starting from version 1.50, you can easily locate the desired window by using the targeting button.</p>
+<p>In order to do that, simply press the targeting button of the toolbar, and then drag it to the window that you wish to export the data.</p>
+<p>If the selected window is detected by SysExporter, it'll automatically be displayed in SysExporter.</p>
+<h4 class="calibre8">Command-Line Options</h4>
+<p>Starting from version 1.70, you can export the content of Windows control from command-line, without displaying any user interface.</p>
+<p>However, in order to export the desired Windows control, you must specify enough filters to uniquely identify the correct control you wish to export.</p>
+<p>If there are multiple controls that match the filters you specified, then SysExporter will randomly export only one of them.</p>
+<p>You can use the following command-line parameters to define the control you wish to export: <em>Process ,</em> Title , <em>Class ,</em> Type , <em>Visible ,</em> Handle , MinItems, /MaxItems Here's a few examples:</p>
+<ul>
+<li><p>Export the current visible ListView in the task manager of Windows to csv file:<br />
+sysexp.exe <em>Title "Windows Task Manager"</em> class SysListView32 <em>Visible Yes</em> scomma "c:\temp\1.csv"</p>
+<p> </p></li>
+<li><p>Export the current visible ListView in the task manager of Windows to html file:<br />
+sysexp.exe /Process taskmgr.exe /class "SysListView32" <em>Visible Yes</em> shtml "c:\temp\1.html"</p>
+<p> </p></li>
+<li><p>Export the content of HTML page in opened window of Internet Explorer:<br />
+sysexp.exe /Type HTML <em>Process iexplore.exe</em> stext "c:\temp\1.html"</p>
+<p> </p></li>
+</ul>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>/Process &lt;Process&gt;</td>
+<td>Specifies the process that has the Windows control you want to export.
+<p>You can specify the process exe file or the process ID, for example:<br />
+/Process "Explorer.exe"</p>
+<p><br />
+/Process 5422</p>
+<p> </p></td>
+</tr>
+<tr class="even">
+<td>/Title &lt;Title&gt;</td>
+<td>Specifies the title of the window that you want to export (The same title that you see under the Title column), for example:<br />
+/Title "Windows Task Manager"
+<p><br />
+/Title "Local Disk (C:)"</p>
+<p> </p></td>
+</tr>
+<tr class="odd">
+<td>/Class &lt;Class&gt;</td>
+<td>Specifies the class name of the window you want to export (It's the same string you see under the 'Window Class' column), for example:<br />
+/Class "SysListView32"
+<p><br />
+/Class "DirectUIHWND"</p>
+<p> </p></td>
+</tr>
+<tr class="even">
+<td>/Type &lt;Type&gt;</td>
+<td>Specifies the type of the window you want to export (It's the same type you see under the 'Type' column), for example:<br />
+/Type "TreeView"
+<p><br />
+/Type "ComboBox"</p>
+<p> </p></td>
+</tr>
+<tr class="odd">
+<td>/Visible &lt;Yes | No&gt;</td>
+<td>Specifies whether the control that you want to export is visible, for example:<br />
+/Visible Yes
+<p><br />
+/Visible No</p>
+<p> </p></td>
+</tr>
+<tr class="even">
+<td>/Handle &lt;Window Handle&gt;</td>
+<td>Specifies the window handle of the control you want to export, for example:<br />
+/Handle 0x01571370
+<p> </p></td>
+</tr>
+<tr class="odd">
+<td>/MinItems &lt;Number Of Items&gt;</td>
+<td>Specifies that you want to filter out all controls that don't have the minimum number of items.
+<p>For example, if you have an application with 2 ListViews, one with 10 items and the other with 50 items, adding the following command will ensure that SysExporter will export the ListView with the 50 items:<br />
+/MinItems 50</p>
+<p> </p></td>
+</tr>
+<tr class="even">
+<td>/MaxItems &lt;Number Of Items&gt;</td>
+<td>Specifies that you want to filter out all controls that exceed the maximum number of items.
+<p> </p></td>
+</tr>
+<tr class="odd">
+<td>/stext &lt;Filename&gt;</td>
+<td>Export the data into a regular text file.
+<p> </p></td>
+</tr>
+<tr class="even">
+<td>/stab &lt;Filename&gt;</td>
+<td>Export the data into a tab-delimited text file.
+<p> </p></td>
+</tr>
+<tr class="odd">
+<td>/scomma &lt;Filename&gt;</td>
+<td>Export the data into a comma-delimited text file (csv).
+<p> </p></td>
+</tr>
+<tr class="even">
+<td>/stabular &lt;Filename&gt;</td>
+<td>Export the data into a tabular text file.
+<p> </p></td>
+</tr>
+<tr class="odd">
+<td>/shtml &lt;Filename&gt;</td>
+<td>Export the data into HTML file (Horizontal).
+<p> </p></td>
+</tr>
+<tr class="even">
+<td>/sverhtml &lt;Filename&gt;</td>
+<td>Export the data into HTML file (Vertical).
+<p> </p></td>
+</tr>
+<tr class="odd">
+<td>/sxml &lt;Filename&gt;</td>
+<td>Export the data to XML file.
+<p> </p></td>
+</tr>
+</tbody>
+</table>
+</p>
+<h4 class="calibre8">Translating to other languages</h4>
+<p>SysExporter allows you to easily translate all menus, dialog-boxes, and other strings to other languages.</p>
+<p><br />
+In order to do that, follow the instructions below:</p>
+<ol>
+<li><p>Run SysExporter with /savelangfile parameter:</p>
+<p><br />
+sysexp.exe /savelangfile</p>
+<p><br />
+A file named sysexp_lng.ini will be created in the folder of SysExporter utility.</p></li>
+<li>Open the created language file in Notepad or in any other text editor.</li>
+<li>Translate all menus, dialog-boxes, and string entries to the desired language.</li>
+<li><p>After you finish the translation, Run SysExporter, and all translated strings will be loaded from the language file.</p>
+<p><br />
+If you want to run SysExporter without the translation, simply rename the language file, or move it to another folder.</p>
+<p> </p></li>
+</ol>
+<h4 class="calibre8">License</h4>
+<p>This utility is released as freeware.</p>
+<p>You are allowed to freely distribute this utility via floppy disk, CD-ROM, Internet, or in any other way, as long as you don't charge anything for this and you don't sell it or distribute it as a part of commercial product.</p>
+<p>If you distribute this utility, you must include all files in the distribution package, without any modification !</p>
+<h4 class="calibre8">Disclaimer</h4>
+<p>The software is provided "AS IS" without any warranty, either expressed or implied, including, but not limited to, the implied warranties of merchantability and fitness for a particular purpose. The author will not be liable for any special, incidental, consequential or indirect damages due to loss of data or any other reason.</p>
+<h4 class="calibre8">Feedback</h4>
+<p>If you have any problem, suggestion, comment, or you found a bug in my utility, you can send a message to <a href="mailto:nirsofer@yahoo.com" class="pcalibre pcalibre2 pcalibre1">nirsofer@yahoo.com</a></p>
+<p> </p>
+</body>
+</html>

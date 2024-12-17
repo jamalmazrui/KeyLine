@@ -1,0 +1,31 @@
+# HSTS 1.0 Known Hosts database for GNU Wget.
+# Edit at your own risk.
+# <hostname>	<port>	<incl. subdomains>	<created>	<max-age>
+www.accessiblesystems.com	0	0	1717443022	31536000
+github.com	0	1	1717443016	31536000
+www.a11yproject.com	0	0	1717443022	31536000
+www.audioeye.com	0	0	1717443022	31536000
+careerservices.fas.harvard.edu	0	0	1694563381	31536000
+guides.18f.gov	0	0	1717443018	31536000
+play.google.com	0	0	1717443020	31536000
+accessibility.18f.gov	0	0	1717443018	31536000
+accessibilityinsights.io	0	1	1717443018	31536000
+register.rockthevote.com	0	1	1699572049	31536000
+www.nomensa.com	0	1	1717443265	63072000
+www.vanwardconsulting.com	0	1	1699993371	63072000
+www.w3.org	0	1	1717443275	15552000
+abilitylinks.org	0	1	1700151766	31536000
+wordpress.org	0	0	1731339987	3600
+developer.apple.com	0	1	1717443019	31536000
+www.uj.ac.za	0	1	1719105432	31536000
+disability-ai.org	0	0	1712087001	15552000
+www.deque.com	0	1	1717443025	31536000
+secure.everyaction.com	0	0	1699569333	31536000
+nsite.org	0	0	1717018907	31536000
+sitemorse.com	0	0	1715884948	15768000
+www.qol-x.org	0	0	1729351239	5
+www.marriott.com	0	1	1689269478	86400
+www.section508.gov	0	0	1717443266	31536000
+www.viscardicenter.org	0	0	1717443275	31536000
+www.youtube.com	0	0	1717443275	31536000
+docs.anaconda.com	0	0	1730068751	3600

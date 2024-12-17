@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>README</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<h1 id="windowswindows-pathed"><img src="https://raw.githubusercontent.com/MarcBruins/awesome-xamarin/master/images/windows.png" alt="windows" /> PathEd</h1>
+<p>Without PathEd, it can be quite cumbersome to handle the old-school semicolon-devided PATH variable safely.</p>
+<p>PathEd has no dependencies besides the .NET Framework 2.0 and can be deployed with any installer, for example. Editing the PATH within your setup is just one single exec command instead of using proprietary PATH manipulation plugins, etc.</p>
+<h2 id="examples">Examples</h2>
+<h6 id="add-a-value-to-the-windows-path">Add a value to the Windows PATH:</h6>
+<p><code>PathEd.exe add "C:\Program Files\RepoZ"</code></p>
+<h6 id="remove-a-value-from-the-windows-path">Remove a value from the Windows PATH:</h6>
+<p><code>PathEd.exe remove "C:\Program Files\RepoZ"</code></p>
+<h2 id="noteworthy">Noteworthy</h2>
+<p>PathEd will … - … just add values if they are new to the PATH. So it can be called multiple times. - … ignore removals if the value is not part of the PATH. So it can be called multiple times as well. - … compare values against the PATH (whether it should add or can remove values) case-insensitive. - … remove values even if the PATH defines them in quotes.</p>
+<p>As always, you’ll need to add quotes to the value if it contains spaces (like shown in the examples). Otherwise, Windows will split them up as multiple arguments.</p>
+</body>
+</html>

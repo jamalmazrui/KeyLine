@@ -1,0 +1,111 @@
+23 styles used by 29 paragraphs:
+Abstract
+Author
+Block Text
+Body Text
+Compact
+Date
+Definition
+Definition Term
+First Paragraph
+Heading 1
+Heading 2
+Heading 3
+Heading 4
+Heading 5
+Heading 6
+Heading 7
+Heading 8
+Heading 9
+Image Caption
+Normal
+Subtitle
+Table Caption
+Title
+
+[Title]
+ Title 
+
+[Subtitle]
+ Subtitle 
+
+[Author]
+ Author 
+
+[Date]
+ Date 
+
+[Abstract]
+ Abstract 
+
+[Heading 1]
+ Heading 1 
+
+[Heading 2]
+ Heading 2 
+
+[Heading 3]
+ Heading 3 
+
+[Heading 4]
+ Heading 4 
+
+[Heading 5]
+ Heading 5 
+
+[Heading 6]
+ Heading 6 
+
+[Heading 7]
+ Heading 7 
+
+[Heading 8]
+ Heading 8 
+
+[Heading 9]
+ Heading 9 
+
+[First Paragraph]
+ First Paragraph. 
+
+[Body Text]
+ Body Text. Body Text Char.     Verbatim Char  .     Hyperlink  .     Footnote. 
+
+[Block Text]
+ Block Text. 
+
+[Table Caption]
+ Table caption. 
+
+[Compact]
+ Table 
+
+[Compact]
+ Table 
+
+[Normal]
+
+
+[Compact]
+ 1 
+
+[Compact]
+ 2 
+
+[Normal]
+
+
+[Image Caption]
+ Image Caption 
+
+[Definition Term]
+ DefinitionTerm 
+
+[Definition]
+ Definition 
+
+[Definition Term]
+ DefinitionTerm 
+
+[Definition]
+ Definition 

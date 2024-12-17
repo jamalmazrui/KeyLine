@@ -1,0 +1,31 @@
+[]
+Header1=Text in column 1, row 2.
+Header2=Text in column 2, row 2.
+Header3=Text in column 3, row 2.
+Header4=
+Multiline text is here.
+It is in column 4, row 2.
+
+[]
+Header1=Text in column 1, row 3.
+Header2=Text in column 2, row 3.
+Header3=Text in column 3, row 3.
+Header4=
+Multiline text is here.
+It is in column 4, row 3.
+
+[]
+Header1=Text in column 1, row 4.
+Header2=Text in column 2, row 4.
+Header3=Text in column 3, row 4.
+Header4=
+Multiline text is here.
+It is in column 4, row 4.
+
+[]
+Header1=Text in column 1, row 5.
+Header2=Text in column 2, row 5.
+Header3=Text in column 3, row 5.
+Header4=
+Multiline text is here.
+It is in column 4, row 5.

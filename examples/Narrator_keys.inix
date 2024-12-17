@@ -1,0 +1,39 @@
+[]
+Key=Control+Windows+Enter
+Description=Toggle Narrator on or off.
+[]
+Key=Control+Windows+N
+Description=Narrator Home window.
+[]
+Key=Control
+Description=Stop speech in progress.
+[]
+Key=Narrator+Space
+Description=Toggle scan mode.
+[]
+Key=Narrator+RightArrow or Narrator+LeftArrow
+Description=Move to the next or previous item.
+[]
+Key=Tab or Shift+Tab
+Description=Move to the next or previous interactive control.
+[]
+Key=Narrator+Home or Narrator+End
+Description=Move to the start or end of the page.
+[]
+Key=Narrator+Enter
+Description=Activate the current control.
+[]
+Key=Narrator+DownArrow
+Description=Say all, reading forward continuously from the current position.
+[]
+Key=Narrator+T
+Description=Say the title of the current window.
+[]
+Key=Narrator+Tab
+Description=Say the current control.
+[]
+Key=H or Shift+H (in scan mode)
+Description=Move to the next or previous heading.
+[]
+Key=G or Shift+G (in scan mode)
+Description=Move to the next or previous graphic.

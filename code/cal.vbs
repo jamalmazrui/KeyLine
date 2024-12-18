@@ -2,12 +2,15 @@ Option Explicit
 ' cal.vbs - Query Outlook calendar for events on a specific date or time
 
 ' Variable definitions
-dim bRest
+dim dEvents, bRest
 dim dtStart, dtEnd
-dim oFolder, oItem, oItems, oNamespace, oOutlook, oRestrictItems
-dim sFilter, sHelp, sParam
+dim iCharCount, iDashCount, iDay, iCount, iEvent, iItem
+dim lEvents
+dim oAccount, oAccounts, oEvent, oFolder, oItem, oItems, oNamespace, oOutlook, oRestrictItems
+dim s, sAccount, sFilter, sHelp, sKey, sParam, sText
 
 ' Constants
+const olFolderCalendar = 9
 const sDefaultParam = "today"
 
 ' Help message
@@ -19,6 +22,36 @@ sHelp = "Usage: OutlookCalendarQuery.vbs [<parameter>]" & vbCrLf & _
                "  rest      : Events for the rest of today, excluding already ended events." & vbCrLf & _
                "  <datetime>: A specific date or date-time in standard format (e.g., 2024-11-10T14:30)." & vbCrLf & _
                "If no parameter is provided, 'today' is assumed."
+
+Function getNextDay(sWeekday)
+dim a
+dim dt
+dim i, iDay
+dim s, sDay
+
+getNextDay = date
+a = array("sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday")
+for i = 1 to 7
+dt = date + i
+iDay = weekday(dt) - 1
+sDay = a(iDay)
+if sWeekday = sDay then 
+getNextDay = dt
+exit function
+end if
+next
+end function
+
+Function charCount(sText, sChar)
+Dim i, iCount
+iCount = 0
+For i = 1 To len(sText)
+If Mid(sText, i, 1) = sChar Then
+iCount = iCount + 1
+End If
+Next
+charCount = iCount
+End Function
 
 Function LPad(sText, iLen, sChar)
 Dim i : i = 0
@@ -62,7 +95,6 @@ if wscript.arguments.count > 0 then sParam = trim(lcase(wscript.arguments(0)))
 if len(sParam) = 0 then     sParam = sDefaultParam
 
 ' Determine the target date or time
-on error resume next
 bRest = false
 select case sParam
     case "today"
@@ -73,60 +105,94 @@ select case sParam
         dtEnd = date + 2
     case "yesterday"
         dtStart = date - 1
-dtEnd = date - 2
+dtEnd = date
+case "week"
+dtStart = date
+dtEnd = date + 7
+case "month"
+dtStart = date
+dtEnd = date + 30
     case "rest"
         dtStart = now
 dtEnd = Date + 1
     case else
-        if isDate(sParam) then
-            dtStart = cdate(sParam)
-        else
+dtStart = getNextDay(sParam)
+dtEnd = dtStart + 1
+rem wscript.echo dt2s(dtStart)
+if dtStart = date then
+on error resume next
+iDashCount = charCount(sParam, "-")
+iColonCount = charCount(sParam, ":")
+if iDashCount = 0 then sParam = date & " " & sParam
+if iDashCount = 1 then sParam = year(date) & "-" & sParam
+' if iColonCount = 1 then sParam = sParam & ":00"
+rem wscript.echo sParam
+dtStart = cDate(sParam)
+dtEnd = dtStart + 1
+on error goto 0
+
+if not isDate(dtStart) then
             wscript.echo "Invalid parameter." & vbCrLf & sHelp
             wscript.quit 1
         end if
+end if
 end select
-on error goto 0
+rem wscript.echo dt2s(dtStart)
 
 ' Initialize Outlook
 set oOutlook = createObject("Outlook.Application")
 set oNamespace = oOutlook.getNamespace("MAPI")
-set oFolder = oNamespace.getDefaultFolder(9) ' 9 = Calendar
+set lEvents = createObject("System.Collections.ArrayList")
+set dEvents = createObject("Scripting.Dictionary")
+Set oAccounts = oNamespace.Accounts
+For Each oAccount In oAccounts
+sAccount = oAccount.DeliveryStore.DisplayName
+Set oFolder = oAccount.DeliveryStore.GetDefaultFolder(olFolderCalendar)
+rem set oFolder = oNamespace.getDefaultFolder(9) ' 9 = Calendar
 
-' Retrieve calendar items
-set oItems = oFolder.items
-sFilter = "[Start] >= '" & formatDateTime(dtStart, 2) & "' AND [End] < '" & formatDateTime(dtEnd, 2) & "'"
-'  sFilter = "[Start] >= '" & dt2s(dtStart) & "' AND [End] < '" & dt2s(dtEnd) & "'"
-wscript.echo sFilter
- set     oRestrictItems = oItems.restrict(sFilter)
- oItems.includeRecurrences = true
- oItems.sort "[Start]"
-if oItems.count = 0 then
-    wscript.echo "No events found for the specified date-time."
-else
-wscript.echo oItems.Count & " events"
-'     for each oItem in oRestrictItems
-dim iItem
-' for iItem = 1 to oRestrictItems.count
-' set oItem = oRestrictItems(iItem)
+sFilter = "[Start] >= '" & dtStart & "' and [End] < '" & dtEnd & "'"
+' wscript.echo sFilter
+set     oRestrictItems = oFolder.Items.restrict(sFilter)
+oRestrictItems.includeRecurrences = true
+oRestrictItems.sort "[Start]"
+
 for each oItem in oRestrictItems
-' wscript.echo oItem.Start & " or " & dtStart
-' wscript.echo oItem.End & " or " & dtEnd
- if oItem.Start >= dtStart and oItem.End < dtEnd Then
-' if oItem.Class = 26 Then ' 26 = olAppointment
-wscript.echo
-wscript.echo "Event"
-        if not isEmpty(oItem.subject) then wscript.echo "  Subject: " & oItem.subject
-        if not isEmpty(oItem.location) then wscript.echo "  Location: " & oItem.location
-        if not isEmpty(oItem.start) then wscript.echo "  Start: " & oItem.start
-        if not isEmpty(oItem.end) then wscript.echo "  End: " & oItem.end
-        if not isEmpty(oItem.body) then wscript.echo "  Body: " & oItem.body
-        wscript.echo ""
+if oItem.Start >= dtStart and oItem.End < dtEnd and oItem.Class = 26 Then 'olAppointment
+sKey = dt2s(oItem.Start) & "_" & dt2s(oItem.End) & "_" & oItem.Subject
+lEvents.Add sKey
+dEvents.add sKey, oItem
 end if
     next
-end if
 
+lEvents.Sort
+iCount = lEvents.Count
+s = iCount & " Event"
+if iCount <> 1 then s = s & "s"
+sText = s & vbCrLf
+for iEvent = 0 to iCount - 1
+sKey = lEvents.Item(iEvent)
+set oEvent = dEvents(sKey)
+sText = sText & vbCrLf
+rem if iCount > 1 then sText = sText & "Event " & (iEvent + 1) & vbCrLf
+rem if iCount > 1 then sText = sText & chr(12) & vbCrLf & "Event " & (iEvent + 1) & vbCrLf
+if iCount = 1 then
+s= "Event:"
+else
+s = Chr(12) & vbCrLf & "Event " & (iEvent + 1) & ":"
+end if
+rem         if not isEmpty(oEvent.subject) then sText = sText & "  Subject: " & oEvent.subject & vbCrLf
+if not isEmpty(oEvent.subject) then s = s & " " & oEvent.Subject
+sText = sText & s & vbCrLf
+        if not isEmpty(oEvent.location) then sText = sText & "  Location: " & oEvent.location & vbCrLf
+        if not isEmpty(oEvent.start) then sText = sText & "  Start: " & oEvent.start & vbCrLf
+        if not isEmpty(oEvent.end) then sText = sText & "  End: " & oEvent.end & vbCrLf
+        if not isEmpty(oEvent.body) then sText = sText & "  Body: " & oEvent.body & vbCrLf
+sText = sText & vbCrLf
+next
+next
+
+wscript.echo sText
 set oRestrictItems = nothing
-set oItem = nothing
 set oItems = nothing
 set oFolder = nothing
 set oNamespace = nothing

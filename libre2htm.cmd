@@ -31,10 +31,10 @@ set sourceDir="%~dp1"
 set sourceDir=!sourceDir:~1,-2!
 set source=!sourceDir!\!sourceBase!
 
-set midExt=.epub
+set midExt=.html
 set midRoot=!sourceRoot!
 set midBase=!midRoot!!midExt!
-set midDir=%temp%
+set midDir=%sourceDir%
 set mid=!midDir!\!midBase!
 
 set targetExt=.htm
@@ -51,12 +51,14 @@ if "!sourceExt!"==".html" "!utf8b!" "!source!" >nul
 if "!sourceExt!"==".md" "!utf8b!" "!source!" >nul
 
 rem Drop leading period character
-set targetExt=%targetExt:~1%
-rem "!libre!" --convert-to !targetExt! "!source!" >nul
-"!libre!" --convert-to html "!source!" >nul
-set imageSpec=!targetDir!\!targetRoot!_!targetExt!_*.png
+set targetFormat=%targetExt:~1%
+call "!libre!" --convert-to !targetFormat! "!source!" >nul
+ren "!mid!" "!targetBase!" >nul 2>&1
+
+rem Remove images
+set imageSpec=!midDir!\!midRoot!_!midmidExt!_*.png
 if exist "!imageSpec!" del "!imageSpec!"
-set imageSpec=!targetDir!\!targetRoot!_!targetExt!_*.jpg
+set imageSpec=!midDir!\!midRoot!_!midmidExt!_*.jpg
 if exist "!imageSpec!" del "!imageSpec!"
 if not exist "!target!" echo Error
 exit /b

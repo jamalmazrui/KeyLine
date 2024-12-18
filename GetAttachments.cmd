@@ -2,4 +2,4 @@
 setLocal enableDelayedExpansion
 cls
 
-cscript.exe /nologo "%~dp0bin\GetAttachments.vbs" %*
+cscript.exe /nologo "%~dp0code\GetAttachments.vbs" %*

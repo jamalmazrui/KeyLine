@@ -53,8 +53,7 @@ if "!sourceExt!"==".md" "!utf8b!" "!source!" >nul
 rem Drop leading period character
 set targetExt=%targetExt:~1%
 "!libre!" --convert-to !targetExt! "!source!" >nul
-rem save images
-exit /b
+rem remove images
 set imageSpec=!targetDir!\!targetRoot!_!targetExt!_*.png
 if exist "!imageSpec!" del "!imageSpec!"
 set imageSpec=!targetDir!\!targetRoot!_!targetExt!_*.jpg

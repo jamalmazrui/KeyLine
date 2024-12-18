@@ -245,6 +245,8 @@ dFolders.Add "tasks", 13
 
 If not (sAction = "remove" or sAction = "list" or sAction = "save") Then Quit "No " & sAction & " action"
 If Not dFolders.Exists(sFolder) Then Quit "No " & sFolder & "folder"
+' wscript.echo sFolder
+' wscript.echo iMailbox
 iMailBox = dFolders(sFolder)
 
 Set oApp = CreateObject("Outlook.Application")

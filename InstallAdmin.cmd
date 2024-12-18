@@ -32,6 +32,25 @@ if "%adminMode%"=="1" assoc .ini=txtfile >nul
 if "%adminMode%"=="1" assoc .inix=txtfile >nul
 
 call "!kl!\InstallDesktopShortcut.cmd"
+echo Set Drive W as directory !kl!\work
+set startup=%appdata%\Microsoft\Windows\Start Menu\Programs\Startup
+copy "!kl!\settings\setDriveW.lnk" "%startup%" >nul
+
+echo Copy Hotkey shortcuts to desktop
+set userdesktop=%userProfile%\desktop
+copy "!kl!\settings\restartWindows.lnk" "%userdesktop%" >nul
+copy "!kl!\settings\openChrome.lnk" "%userdesktop%" >nul
+copy "!kl!\settings\openEdge.lnk" "%userdesktop%" >nul
+copy "!kl!\settings\openFirefox.lnk" "%userdesktop%" >nul
+copy "!kl!\settings\closeChrome.lnk" "%userdesktop%" >nul
+copy "!kl!\settings\closeEdge.lnk" "%userdesktop%" >nul
+copy "!kl!\settings\closeFirefox.lnk" "%userdesktop%" >nul
+
+copy "!kl!\settings\openJAWS.lnk" "%userdesktop%" >nul
+copy "!kl!\settings\openNVDA.lnk" "%userdesktop%" >nul
+copy "!kl!\settings\closeJAWS.lnk" "%userdesktop%" >nul
+copy "!kl!\settings\closeNVDA.lnk" "%userdesktop%" >nul
+
 echo After the next restart of Windows, you can activate a command prompt with KeyLine active 
 echo by using the keyboard shortcut Alt+Control+K
 rem pause
@@ -45,5 +64,5 @@ if "%adminMode%"=="1" ( call "!kl!\CheckSoftwareAdmin.cmd" ) else call "!kl!\che
 
 rem pause
 set msg=Restart Windows now to complete installation? (y/n)
-set /p reply=%msg%
+rem set /p reply=%msg%
 if "%reply%"=="y" shutdown.exe -r -f -t 1

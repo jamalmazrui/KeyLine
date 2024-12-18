@@ -1,2 +1,2 @@
-@call C:\Pax\SetPath.cmd 
-echo Pax
+@call C:\KeyLine\SetPath.cmd 
+echo KeyLine

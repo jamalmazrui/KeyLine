@@ -1,4 +1,5 @@
 [Setup]
+AlwaysRestart=yes
 AppContact=Jamal Mazrui
 AppCopyright=Copyright 2024 by Jamal Mazrui
 AppName=KeyLine
@@ -27,7 +28,21 @@ Uninstallable=yes
 [Files]
 Source: "C:\KeyLine\*"; DestDir: "{app}"; Flags: recursesubdirs createallsubdirs
 [Icons]
-Name: "{userdesktop}\KeyLine"; HotKey: Alt+Ctrl+K; Filename: "{app}\KeyLine.cmd"; Parameters: ""; WorkingDir: "{app}\work";
+Name: "{app}\settings\KeyLine"; HotKey: Alt+Ctrl+K; Filename: "c:\windows\system32\cmd.exe"; Parameters: "/k"; WorkingDir: "{app}\work";
+Name: "{app}\settings\setDriveW"; Filename: "c:\windows\system32\subst.exe"; Parameters: "W: {app}\work"; WorkingDir: "{app}\work";
+Name: "{app}\settings\restartWindows"; HotKey: Alt+Ctrl+Shift+F4; Filename: "{app}\restartWindows.cmd";    
+Name: "{app}\settings\openChrome"; HotKey: Alt+Ctrl+3; Filename: "{app}\openChrome.cmd";  
+Name: "{app}\settings\openEdge"; HotKey: Alt+Ctrl+5; Filename: "{app}\openEdge.cmd";    
+Name: "{app}\settings\openFirefox"; HotKey: Alt+Ctrl+6; Filename: "{app}\openFirefox.cmd";  
+Name: "{app}\settings\closeChrome"; HotKey: Alt+Ctrl+Shift+3; Filename: "{app}\killChrome.cmd";  
+Name: "{app}\settings\closeEdge"; HotKey: Alt+Ctrl+Shift+5; Filename: "{app}\killEdge.cmd";    
+Name: "{app}\settings\closeFirefox"; HotKey: Alt+Ctrl+Shift+6; Filename: "{app}\killFirefox.cmd";                                
+
+Name: "{app}\settings\openJAWS"; HotKey: Alt+Ctrl+J; Filename: "C:\Program Files\Freedom Scientific\JAWS\2025\jfw.exe";  
+Name: "{app}\settings\openNVDA"; HotKey: Alt+Ctrl+N; Filename: "c:\program files (x86)\NVDA\nvda.exe";    
+Name: "{app}\settings\closeJAWS"; HotKey: Alt+Ctrl+Shift+J; Filename: "{app}\killJAWS.cmd";                                                                
+Name: "{app}\settings\closeNVDA"; HotKey: Alt+Ctrl+Shift+N; Filename: "{app}\killNVDA.cmd";                                                                
+
 [Run]
 ; Exec(ExpandConstant('{win}\notepad.exe'), '', '', SW_SHOWNORMAL,
 FileName:"{app}\InstallAdmin.cmd"; parameters: "{app}"; workingdir: "{app}"; Description: "Install additional support packages for KeyLine."; Flags: "waituntilterminated"; statusmsg: "Installing support packages";

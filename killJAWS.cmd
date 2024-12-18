@@ -1,3 +1,10 @@
 @echo off
+SetLocal EnableDelayedExpansion
 cls
-tasklist /nh /fi "imagename eq jfw.exe" | find /i "jfw.exe" >nul && (echo Terminating jfw.exe & taskkill /f /im jfw.exe)
+
+set kl=%~dp0
+set code=%kl%code
+set pskill=%code%\pskill.exe
+set settings=%kl%settings
+
+"!pskill!" jfw

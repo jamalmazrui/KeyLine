@@ -2,4 +2,4 @@
 setlocal
 cls
 
-cscript.exe /nologo "%~dp0bin\DocxSpelling.vbs" %1 %2
+cscript.exe /nologo "%~dp0code\DocxSpelling.vbs" %1 %2

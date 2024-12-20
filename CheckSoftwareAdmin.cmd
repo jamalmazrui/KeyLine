@@ -23,6 +23,16 @@ echo About to install the latest Node.js software
 rem pause
 call choco upgrade nodejs -y
 
+echo Installing Node modules for support of TestPage tool
+pushd "!app!"\code\TestPage
+call npm install TestPage
+popd
+
+echo Installing Node modules for support of TestURL tool
+pushd "!app!"\code\testURL
+call npm install testURL
+popd
+
 echo About to install the latest Calibre software
 rem pause
 call choco upgrade Calibre -y

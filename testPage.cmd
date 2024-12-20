@@ -4,7 +4,7 @@ cls
 
 set kl=%~dp0
 set code=%kl%code
-set testPageDir=%code%\TestWeb
+set testPageDir=%code%\TestPage
 set testPage=%testPageDir%\testPage.js
 set node=C:\Program Files\nodejs\node.exe
 set settings=%kl%settings

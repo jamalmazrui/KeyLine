@@ -1,8 +1,8 @@
 @echo off
 cls
-echo Uninstalling Pax from desktop shortcut
-set source=%~dp0ini\Pax.lnk
-set target=%UserProfile%\Desktop\Pax.lnk
+echo Uninstalling KeyLine from desktop shortcut
+set source=%~dp0settings\KeyLine.lnk
+set target=%UserProfile%\Desktop\KeyLine.lnk
 if exist "%target%" del "%target%"
 if exist "%target%" echo Error & goto :eof
 

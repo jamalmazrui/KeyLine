@@ -1,53 +1,58 @@
-dim sExpression, sReturn
+option explicit
+
+dim sNumber, sSequence, sReturn
 
 function phoneAlpha2digits(sText)
-dim dLetterToDigit 
+dim dLetters 
 dim iIndex
-dim sCharacter, sReturn
+dim sChar, sReplace, sReturn
 
-set dLetterToDigit = createObject("Scripting.Dictionary")
-dLetterToDigit.add "A", 2
-dLetterToDigit.add "B", 2
-dLetterToDigit.add "C", 2
-dLetterToDigit.add "D", 3
-dLetterToDigit.add "E", 3
-dLetterToDigit.add "F", 3
-dLetterToDigit.add "G", 4
-dLetterToDigit.add "H", 4
-dLetterToDigit.add "I", 4
-dLetterToDigit.add "J", 5
-dLetterToDigit.add "K", 5
-dLetterToDigit.add "L", 5
-dLetterToDigit.add "M", 6
-dLetterToDigit.add "N", 6
-dLetterToDigit.add "O", 6
-dLetterToDigit.add "P", 7
-dLetterToDigit.add "Q", 7
-dLetterToDigit.add "R", 7
-dLetterToDigit.add "S", 7
-dLetterToDigit.add "T", 8
-dLetterToDigit.add "U", 8
-dLetterToDigit.add "V", 8
-dLetterToDigit.add "W", 9
-dLetterToDigit.add "X", 9
-dLetterToDigit.add "Y", 9
-dLetterToDigit.add "Z", 9
+set dLetters = createObject("Scripting.Dictionary")
+dLetters.compareMode = 1
+dLetters.add "A", 2
+dLetters.add "B", 2
+dLetters.add "C", 2
+dLetters.add "D", 3
+dLetters.add "E", 3
+dLetters.add "F", 3
+dLetters.add "G", 4
+dLetters.add "H", 4
+dLetters.add "I", 4
+dLetters.add "J", 5
+dLetters.add "K", 5
+dLetters.add "L", 5
+dLetters.add "M", 6
+dLetters.add "N", 6
+dLetters.add "O", 6
+dLetters.add "P", 7
+dLetters.add "Q", 7
+dLetters.add "R", 7
+dLetters.add "S", 7
+dLetters.add "T", 8
+dLetters.add "U", 8
+dLetters.add "V", 8
+dLetters.add "W", 9
+dLetters.add "X", 9
+dLetters.add "Y", 9
+dLetters.add "Z", 9
 
 sReturn = ""
 for iIndex = 1 to len(sText)
-sCharacter = mid(sText, iIndex, 1)
-sCharacter = uCase(sCharacter)
-if dLetterToDigit.exists(sCharacter) then
-sReturn = sReturn & dLetterToDigit(sCharacter)
-elseif isNumeric(sCharacter) then
-sReturn = sReturn & sCharacter
+sChar = mid(sText, iIndex, 1)
+' sChar = uCase(sChar)
+if dLetters.exists(sChar) then
+sReplace = dLetters(sChar)
+elseif isNumeric(sChar) then
+sReplace = sChar
 else
-' Append non-alphanumeric characters as-is (e.g., hyphen, space)
-sReturn = sReturn & sCharacter
+sReplace = sChar
 end if
+sReturn = sReturn & sReplace
+
+wscript.echo iIndex & " " & sChar & " " & sReplace
 next
 
-set dLetterToDigit = nothing
+set dLetters = nothing
 phoneAlpha2digits = sReturn
 end function
 
@@ -56,7 +61,7 @@ if wscript.arguments.count <> 1 then
     wscript.quit 1
 end if
 
-sExpression = wscript.arguments(0)
-sReturn = phoneAlpha2digits(sExpression)
-wscript.echo sReturn
+sSequence = wscript.arguments(0)
+sNumber = phoneAlpha2digits(sSequence)
+wscript.echo sNumber
 

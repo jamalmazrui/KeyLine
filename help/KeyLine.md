@@ -2,7 +2,7 @@
 title: KeyLine
 subtitle: Windows Productivity through Keyboard, Line-Oriented Commands.
 author: Jamal Mazrui, Consultant, Access Success LLC
-date: December 16, 2024
+date: December 20, 2024
 ---
 
 # Overview
@@ -1130,6 +1130,13 @@ pandoc2txt \<Spec\>
 
 The command auto-detects the source format.
 
+## phoneNumber.cmd = Convert letters in a phone number to digits
+
+Syntax:\
+phoneNumber \<alphanumeric sequence\>
+
+Pass a phone number with letters representing digits as a mnemonic, e.g., 1-800-flowers, and the conversion will be output, e.g., 1-800-3569377.
+
 ## pp_calibre2htm.cmd = Convert to .htmlz format using PowerPoint, then Calibre
 
 Syntax:\
@@ -1325,6 +1332,20 @@ Syntax:\
 xlStruct \<File\>
 
 The .xlsx file passed as a parameter will be described, including structural information about its sheets and data regions.
+
+## jsCalc.cmd = Calculate an expression with jsScript
+
+Syntax:\
+jsCalc \<Expression\>
+
+Pass a quoted expression in the jScript language (an earlier, Microsoft version of JavaScript), and the result of its evaluation will be output to the console.
+
+## vbCalc.cmd = Calculate an expression with VBScript
+
+Syntax:\
+vbCalc \<Expression\>
+
+Pass a quoted expression in the VBScript language, and the result of its evaluation will be output to the console.
 
 ## docxFormat.cmd = Convert to auto-formatted Word tables
 

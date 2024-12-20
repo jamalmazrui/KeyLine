@@ -49,7 +49,7 @@ sReplace = sChar
 end if
 sReturn = sReturn & sReplace
 
-wscript.echo iIndex & " " & sChar & " " & sReplace
+' wscript.echo iIndex & " " & sChar & " " & sReplace
 next
 
 set dLetters = nothing

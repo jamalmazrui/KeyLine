@@ -5,33 +5,12 @@ cls
 echo Installing KeyLine support packages
 set kl=%1
 if "!kl!"=="" set kl=%~dp0
-cd "!kl!"
+
 set node=C:\Program Files\nodejs\node.exe
 set npm=C:\Program Files\nodejs\npm.cmd
 
-rem if "%errorlevel%"=="0" goTo :start
-set adminMode=0
-openfiles >nul 2>&1
-if "%errorlevel%"=="0" set adminMode=1
-set adminMode=1
-if "%adminMode%"=="1" goTo :start
-
-echo This install command was not run with administrative rights.
-echo It will be more automated when installing the Calibre, Pandoc, and LibreOffice software packages if you open the cmd environment as administrator.
-echo For example, press WindowsKey, type "cmd" and then press Control+Shift+Enter.
-echo Remember to run install.cmd from the KeyLine directory.
-echo Press Control+C to Cancel, or for more manual installation steps,
-rem pause
-
-:start
-rem if "%adminMode%"=="1" ( setx /m dircmd /b ) else setx dircmd /b
-if "%adminMode%"=="1" ( setx /m dircmd /b >nul) else setx dircmd /b >nul
-if "%adminMode%"=="1" assoc .md=txtfile >nul
-if "%adminMode%"=="1" assoc .mdx=txtfile >nul
-if "%adminMode%"=="1" assoc .ini=txtfile >nul
-if "%adminMode%"=="1" assoc .inix=txtfile >nul
-
-echo Set Drive W as directory !kl!\work
+cd "!kl!"
+echo Set Drive W as convenient work directory
 set startup=%appdata%\Microsoft\Windows\Start Menu\Programs\Startup
 copy "!kl!\settings\setDriveW.lnk" "%startup%" >nul
 
@@ -53,26 +32,36 @@ copy "!kl!\settings\closeNVDA.lnk" "%userdesktop%" >nul
 call "!kl!\InstallDesktopShortcut.cmd"
 echo After the next restart of Windows, you can activate a command prompt with KeyLine active 
 echo by using the keyboard shortcut Alt+Control+K
-rem pause
 
 call "!kl!\InstallSearchPath.cmd"
 echo After the next restart of Windows, KeyLine functionality will be available from a command prompt in any directory
-rem pause
 
-set adminMode=1
-if "%adminMode%"=="1" ( call "!kl!\CheckSoftwareAdmin.cmd" ) else call "!kl!\checkSoftware.cmd"
+echo The package manager call Chocolately will be installed, and then be used to install GitHub, Node.js, Calibre, Pandoc, and LibreOffice.
+echo In general, you do not need to follow the log messages that indicate activity.
+@"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command " [System.Net.ServicePointManager]::SecurityProtocol = 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\code" >nul 2>&1
+
+echo Installing the latest GitHub software
+call choco upgrade git.install -y
+
+echo Installing the latest Node.js software
+call choco upgrade nodejs -y
+
+echo Installing the latest Calibre software
+call choco upgrade Calibre -y
+
+echo Installing the latest Pandoc software
+call choco upgrade pandoc -y --ia=ALLUSERS=1
+
+echo Installing the latest LibreOffice software (which may take several minutes)
+call choco upgrade LibreOffice -y
 
 echo Installing TestURL support
-cd "!kl!"\code\TestURL
+cd "!kl!\code\TestURL"
 call npm install
 
 echo Installing TestPage support
-cd "!kl!"\code\TestPage
+cd "!kl!\code\TestPage"
 call npm install
 
 cd "!kl!"
-
-rem pause
-set msg=Restart Windows now to complete installation? (y/n)
-rem set /p reply=%msg%
-if "%reply%"=="y" shutdown.exe -r -f -t 1
+refreshenv

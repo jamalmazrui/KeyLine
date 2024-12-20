@@ -6,8 +6,8 @@ echo Installing KeyLine support packages
 set kl=%1
 if "!kl!"=="" set kl=%~dp0
 cd "!kl!"
-set workDir=!kl!\work
-if not exist "%workDir%" md "%workDir%"
+set node=C:\Program Files\nodejs\node.exe
+set npm=C:\Program Files\nodejs\npm.cmd
 
 rem if "%errorlevel%"=="0" goTo :start
 set adminMode=0
@@ -61,6 +61,16 @@ rem pause
 
 set adminMode=1
 if "%adminMode%"=="1" ( call "!kl!\CheckSoftwareAdmin.cmd" ) else call "!kl!\checkSoftware.cmd"
+
+echo Installing TestURL support
+cd "!kl!"\code\TestURL
+call npm install
+
+echo Installing TestPage support
+cd "!kl!"\code\TestPage
+call npm install
+
+cd "!kl!"
 
 rem pause
 set msg=Restart Windows now to complete installation? (y/n)

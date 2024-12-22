@@ -21,11 +21,17 @@ set csvcut=%code%\csvcut.exe
 set days=%1
 if exist BrowserHistory.htm del BrowserHistory.htm
 if exist BrowserHistory.csv del BrowserHistory.csv
+echo 10
 if "%days%"=="" ( "%view%" /scomma BrowserHistory.csv /sort "~Visit Time" ) else "%view%" /scomma BrowserHistory.csv /sort "~Visit Time" /VisitTimeFilter 3 /VisitTimeFilterValue %days%
+echo 20
 rem pause
+echo "!regexer!"
 call "!regexer!" BrowserHistory.csv csv >nul
+echo 30
+pause
 if exist BrowserHistory.md del BrowserHistory.md
 call "!sqlite!" ":memory:" ".headers on" ".mode csv" ".import BrowserHistory.csv BrowserHistory" ".mode markdown" ".once BrowserHistory.md" "select Title, URL, [Web Browser] as Browser from BrowserHistory order by cast(Sequence as integer);" >nul
+echo 40
 if exist BrowserHistory.csv del BrowserHistory.csv
 call :setSize BrowserHistory.md
 if "%size%"=="0" echo No history & goTo :eof

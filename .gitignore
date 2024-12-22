@@ -1,5 +1,7 @@
 node_modules/
-bak
+./keyline/code/testurl/node_modules/
+./keyline/code/testPage/node_modules/
+./bak/
 *.exe
 *.bat
 *.dll

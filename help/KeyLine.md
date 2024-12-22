@@ -2,7 +2,7 @@
 title: KeyLine
 subtitle: Windows Productivity through Keyboard, Line-Oriented Commands.
 author: Jamal Mazrui, Consultant, Access Success LLC
-date: December 20, 2024
+date: December 22, 2024
 ---
 
 # Overview
@@ -418,7 +418,7 @@ saveAppointments
 
 The command saves all Outlook calendar appointments in the current directory in both .ics and .txt formats.  Each file name is based on the fields for subject and start time.
 
-Several commands enable you to force common applications to close, in case they are not closing by other attempts, and their stuck state may be inhibiting KeyLine functionality.  These commands are as follows:  KillAdobe (Adobe Reader), KillCalibre, KillChrome, KillEdSharp (a [text and code editor](https://github.com/jamalmazrui/edsharp) by this author), KillExcel, KillFileDir (a [file and directory manager](https://github.com/jamalmazrui/filedir) by this author), KillFirefox, KillIE (Internet Explorer), killJAWS, KillLibre (LibreOffice), killNVDA, KillOutlook, KillPandoc, KillPowerPoint, KillWget (used by SaveWebDir.cmd), and KillWord.
+Several commands enable you to force common applications to close, in case they are not closing by other attempts, and their stuck state may be inhibiting KeyLine functionality.  These commands are as follows:  KillAdobe (Adobe Reader), KillCalibre, KillChrome, KillEdSharp (a [text and code editor](https://github.com/jamalmazrui/edsharp) by this author), KillExcel, KillFileDir (a [file and directory manager](https://github.com/jamalmazrui/filedir) by this author), KillFirefox, killJAWS, KillLibre (LibreOffice), killNVDA, KillOutlook, KillPandoc, KillPowerPoint, killTeams, killSlack, KillWget (used by SaveWebDir.cmd), and KillWord.
 
 The following commands perform miscellaneous, high-level tasks.
 
@@ -445,9 +445,9 @@ The command creates the file BrowserHistory.htm in the current directory, using 
 
 The output file is then opened in the default web browser.  Links are in reverse chrononological order -- most recent first.  Depending on the size of the file, it may take significant time to open.  Load time can be reduced by passing the number of days as a parameter, e.g., 7 for the past week of browser history.  
 
-The content of BrowserHistory.htm is a table with three columns, corresponding to the page title, URL, and browser.  To find a link of interest, you can down arrow through the content or search for words.  Screen reader keys for table navigation work as expected.  In rows where IE is the browser, the title will often be blank, since IE is used by Windows in the background to open file types besides HTML.
+The content of BrowserHistory.htm is a table with three columns, corresponding to the page title, URL, and browser.  To find a link of interest, you can down arrow through the content or search for words.  Screen reader keys for table navigation work as expected.  
 
-To view history for a particular browser, rather than them all, specify one of the following, related commands instead:  ChromeHistory.cmd, EdgeHistory.cmd, FirefoxHistory.cmd, or IEHistory.cmd.  With these commands, The output table eliminates the column for browser, since it is already known.
+To view history for a particular browser, rather than them all, specify one of the following, related commands instead:  ChromeHistory.cmd, EdgeHistory.cmd, or FirefoxHistory.cmd.  With these commands, The output table eliminates the column for browser, since it is already known.
  
 ## cleanText.cmd = produce Unicode file with clean encoding
 
@@ -643,10 +643,10 @@ listDrives
 
 The command lists all disk drives, showing the letter and type for each.  If a disk is ready for viewing, its volume name is also shown.
 
-## listFileProperties.cmd = List properties of each file or folder within the current directory
+## getFileProperties.cmd = List properties of each file or folder within the current directory
 
 Syntax:\
-listFileProperties
+getFileProperties
 
 The command shows all properties of each file or folder within the current directory.  The list is also saved in the text file FileProperties.txt.
 
@@ -701,7 +701,7 @@ open \<Spec\>
 
 The first file matching the spec is opened, so you can specify part of a file name if you do not know the precise spelling.  For example, suppose you have converted files from PowerPoint to HTML using the pptx2cmd command.  You know that a file of interest contains "intro" as part of its name, so you enter "open \*intro\*.htm" to view the file in the default web browser.
 
-Variations of this command open a particular web browser with the file specified:  chrome.cmd, firefox.cmd, and ie.cmd.  They enable you to open an HTML file with a browser other than the default.
+Variations of this command open a particular web browser with the file specified:  chrome.cmd, and firefox.cmd.  They enable you to open an HTML file with a browser other than the default.
 
 ## openDrive.cmd = Open a drive
 

@@ -5,7 +5,7 @@ AppCopyright=Copyright 2024 by Jamal Mazrui
 AppName=KeyLine
 AppPublisher=Access Success LLC
 AppPublisherURL=https://github.com/jamalmazrui
-AppVersion=1.1.4
+AppVersion=1.1.6
 ChangesAssociations=yes
 ChangesEnvironment=yes
 Compression=lzma2/max
@@ -45,7 +45,7 @@ Name: "{app}\settings\closeNVDA"; HotKey: Alt+Ctrl+Shift+N; Filename: "{app}\kil
 
 [Run]
 ; Exec(ExpandConstant('{win}\notepad.exe'), '', '', SW_SHOWNORMAL,
-FileName:"{app}\InstallAdmin.cmd"; parameters: "{app}"; workingdir: "{app}"; Description: "Install additional support packages for KeyLine."; Flags: "waituntilterminated"; statusmsg: "Installing support packages";
+FileName:"{app}\install.cmd"; parameters: "{app}"; workingdir: "{app}"; Description: "Install additional support packages for KeyLine."; Flags: "waituntilterminated"; statusmsg: "Installing support packages";
 FileName:"{app}\help\KeyLine.htm"; Description: "Read Documentation for KeyLine"; Flags: "PostInstall shellexec";
 [Code]
 Const

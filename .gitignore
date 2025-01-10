@@ -1,9 +1,8 @@
 node_modules/
-./keyline/code/testurl/node_modules/
-./keyline/code/testPage/node_modules/
-./bak/
-*.exe
-*.bat
-*.dll
-*.tmp
+bak/
+KeyLine_setup.exe
 *.log
+*.bak
+./work/*
+./data/*
+./results/*

@@ -7,4 +7,6 @@ set code=%kl%code
 set settings=%kl%settings
 
 set spec=%~1
-cscript.exe /nologo "%code%\xlHeaders.vbs" "%spec%"
+if "%spec%"=="" set spec=*.xlsx
+
+for %%f in ("%spec%") do cscript.exe /nologo "%code%\xlHeaders.vbs" "%%~f"

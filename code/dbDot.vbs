@@ -258,15 +258,15 @@ end function
 
 function inputForm(sTitle, aFields)
 dim dOutput
-dim sControl, sBinDir, sCommand, sCurDir, sIniDir, sIniFormExe, sInputBase, sInputIni, sInputTxt, sName, sOutputBase, sOutputIni, sOutputTxt, sTempDir, sTempTmp, sText, sValue
+dim sControl, sCodeDir, sCommand, sCurDir, sSettingsDir, sIniFormExe, sInputBase, sInputIni, sInputTxt, sName, sOutputBase, sOutputIni, sOutputTxt, sTempDir, sTempTmp, sText, sValue
 
 ' sTempDir = PathGetSpecialFolder("TEMP")
 sTempDir = ShellExpandEnvironmentVariables("%TEMP%")
 sTempTmp = PathCombine(sTempDir, "temp.tmp")
-sBinDir = PathGetFolder(WScript.ScriptFullName)
-sIniDir = StringChopRight(sBinDir, 3) + "ini"
+sCodeDir = PathGetFolder(WScript.ScriptFullName)
+sSettingsDir = StringChopRight(sCodeDir, 4) + "settings"
 
-sIniFormExe = PathCombine(sBinDir, "IniForm.exe")
+sIniFormExe = PathCombine(sCodeDir, "IniForm.exe")
 
 sInputBase = "input.ini"
 sInputIni = PathCombine(sTempDir, sInputBase)
@@ -873,7 +873,7 @@ dim aDbTables, a, aFields, aTable, aArgs, aAllFields, aAddFields, aEditFields, a
 dim dResults, dTables, dTable
 dim iShortest, iLongest, iLength, iChoice, iLoop, iArgCount, iArg, iName, iPosition, iBookmark, iRecordsAffected, iParam, iJump
 Dim oField, oFields, oRs, oFile, oTable, oConnect, oSystem
-dim sTargetLog, sPaxDbRoot, sTempFile, sExtensions, sShortest, sLongest, sChoice, sShow, sUpdate, sInitial, sList, sIdField, sName, sView, sSeek, sRow, sSetting, sPosition, sSort, sFilter, sParam, sInputCmdRest, sInputParamRest, sValue, sFind, sField, sCommand, sInput, sSql, sTable, sConnectString, sBinDir, sCurDir, sDir, sFile, sHomerLibVbs, sIniDir, sPaxDb, sPaxDbBase, sScriptVbs, sSQLite3Exe, sTempDir, sTempTmp, sWildcards
+dim sTargetLog, sPaxDbRoot, sTempFile, sExtensions, sShortest, sLongest, sChoice, sShow, sUpdate, sInitial, sList, sIdField, sName, sView, sSeek, sRow, sSetting, sPosition, sSort, sFilter, sParam, sInputCmdRest, sInputParamRest, sValue, sFind, sField, sCommand, sInput, sSql, sTable, sConnectString, sCodeDir, sCurDir, sDir, sFile, sHomerLibVbs, sSettingsDir, sPaxDb, sPaxDbBase, sScriptVbs, sSQLite3Exe, sTempDir, sTempTmp, sWildcards
 dim vMin, vMax, vValue
 
 sScriptVbs = WScript.ScriptFullName
@@ -891,20 +891,20 @@ sCurDir = PathGetCurrentDirectory()
 sTempDir = PathGetSpecialFolder("TEMP")
 sTempDir = ShellExpandEnvironmentVariables("%TEMP%")
 sTempTmp = PathCombine(sTempDir, "temp.tmp")
-sBinDir = PathGetFolder(WScript.ScriptFullName)
-sIniDir = StringChopRight(sBinDir, 3) + "ini"
+sCodeDir = PathGetFolder(WScript.ScriptFullName)
+sSettingsDir = StringChopRight(sCodeDir, 4) + "settings"
 
 sPaxDbRoot = "Pax"
 sPaxDbBase = sPaxDbRoot & ".db"
-sPaxDb = PathCombine(sIniDir, sPaxDbBase)
-sTargetLog = pathCombine(sIniDir, sPaxDbRoot & ".log")
+sPaxDb = PathCombine(sSettingsDir, sPaxDbBase)
+sTargetLog = pathCombine(sSettingsDir, sPaxDbRoot & ".log")
 
 sCurDir = pathGetCurrentDirectory
 sTable = ""
 iArgCount = wscript.arguments.count
 if iArgCount > 0 then 
 sPaxDb = wscript.arguments(0)
-if not inStr(sPaxDb, "\") then sPaxDb = pathCombine(sCurDir, sPaxDb)
+if inStr(sPaxDb, "\") = 0 then sPaxDb = pathCombine(sCurDir, sPaxDb)
 if iArgCount > 1 then sTable = wscript.arguments(1)
 end if
 
@@ -913,6 +913,7 @@ sConnectString = "DRIVER=SQLite3 ODBC Driver;Database=" & sPaxDb & ";"
 sSQLite3Exe = PathCombine(sTempDir, "SQLite3.exe")
 
 Set oConnect = CreateObject("ADODB.Connection")
+wscript.echo sConnectString
 oConnect.open sConnectString
 aDbTables = getTables()
 print arrayCount(aDbTables)
